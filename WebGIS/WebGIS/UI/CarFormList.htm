@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>车辆基础信息管理</title>
+    <script src="Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="_js/Common.js" type="text/javascript"></script>
+    <script src="_js/CarFormList.js" type="text/javascript"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: 90px; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 90px; text-align: right;">
+                        车&nbsp;牌&nbsp;号
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right;">
+                        车辆编号
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="txtCID" name="txtCID" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right;">
+                        车辆用途
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input name="txtCUID" id="txtCUID" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right;">
+                        车主名称
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="txtCarOwnName" name="txtCarOwnName" class="easyui-validatebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right;">
+                        线路名称
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="txtLine" name="txtLine" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td colspan="2" align="center">
+                        <input type="button" title="查询" onclick="DoQuery()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" title="修改" onclick="DoEditInit()"
+                            class="btnGreen" style="width: 50px;" value="修改" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        width: auto; height: auto;">
+        <!--        <div style="overflow: scroll; width: 100%; height: 100%;">-->
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:true,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            border:true,
+			loadMsg: '',
+            fitColumns:false ">
+            <thead>
+                <tr>
+                    <th field="CarNo" width="80px" align="center">
+                        车牌号
+                    </th>
+                    <th field="LicensePlateColor" width="70px" align="center">
+                        车牌颜色
+                    </th>
+                    <th field="LineName" width="70px" align="center">
+                        线路名称
+                    </th>
+                    <th field="CGroup" width="70px" align="center">
+                        车辆组
+                    </th>
+                    <th field="CarColor" width="70px" align="center">
+                        车辆颜色
+                    </th>
+                    <th field="Cuid" width="70px" align="center">
+                        车用途
+                    </th>
+                    <th field="CTName" width="70px" align="center">
+                        车类型
+                    </th>
+                    <th field="CarNoRemark" width="70px" align="center">
+                        车牌号备注
+                    </th>
+                    <th field="EnergyType" width="70px" align="center">
+                        发动机类型
+                    </th>
+                    <th field="Tid" width="70px" align="center">
+                        终端设备号
+                    </th>
+                    <th field="Ter_Name" width="70px" align="center">
+                        终端厂家
+                    </th>
+                    <th field="SimeCode" width="70px" align="center">
+                        通讯卡号
+                    </th>
+                    <th field="CarOwnName" width="70px" align="center">
+                        车主名称
+                    </th>
+                    <th field="CarOwnAdd" width="70px" align="center">
+                        车主地址
+                    </th>
+                    <th field="CarOwnTel" width="70px" align="center">
+                        车主电话
+                    </th>
+                    <th field="CarOwnPas" width="70px" align="center">
+                        车主密码
+                    </th>
+                    <th field="CarDName" width="70px" align="center">
+                        司机姓名
+                    </th>
+                    <th field="CarDt" width="70px" align="center">
+                        司机电话
+                    </th>
+                    <th field="CarDa" width="70px" align="center">
+                        司机地址
+                    </th>
+                    <th field="CarDNo" width="70px" align="center">
+                        驾驶证号
+                    </th>
+                    <th field="Dph" width="70px" align="center">
+                        底盘号
+                    </th>
+                    <th field="Fdjh" width="70px" align="center">
+                        发动机号
+                    </th>
+                    <th field="CarDbz" width="70px" align="center">
+                        司机备注
+                    </th>
+                    <th field="Cid" width="70px" align="center">
+                        车编号
+                    </th>
+                    <th field="RegionName" width="70px" align="center">
+                        地区
+                    </th>
+                    <th field="CarPlace" width="70px" align="center">
+                        车籍地
+                    </th>
+                    <th field="OwersID" width="70px" align="center">
+                        许可证号
+                    </th>
+                    <th field="TransType" width="70px" align="center">
+                        行业编码
+                    </th>
+                    <th field="VehicleType" width="70px" align="center">
+                        809车型
+                    </th>
+                    <th field="VehicleNationality" width="70px" align="center">
+                        车籍地编码
+                    </th>
+                    <th field="terminalid" width="70px" align="center">
+                        终端编码
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding-left: 10px; left: 300px;">
+            <div id="trackloading">
+                <img src="_styles/images/loading.gif" align="absmiddle" />
+                数据加载中,请稍候...
+            </div>
+        </div>
+        <!--</div>-->
+    </div>
+    <div id="wCarEdit" class="easyui-window" title="车辆基础信息修改" data-options="modal:true,maximizable:false,minimizable:false,closed:true,inline:true"
+        style="width: 800px; height: 500px; padding: 10px; left: 100px; top: 80px;">
+        <table style="width: 100%; height: 100%;">
+            <tr style="vertical-align: top">
+                <td style="width: 50%; white-space: nowrap;">
+                    <table style="width: 100%; height: auto;">
+                        <tr>
+                            <td align="right">
+                                <b>车辆信息</b>&nbsp;&nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车牌号码:
+                            </td>
+                            <td>
+                                <input name="txtCarNoE" id="txtCarNoE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车牌颜色:
+                            </td>
+                            <td>
+                                <input id="ddlLicensePlateColorE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '0',text: '-请选择-'},
+                                       {value: '1',text: '蓝'},
+                                       {value: '2',text: '黄'},
+                                       {value: '3',text: '黑'},
+                                       {value: '4',text: '白'},
+                                       {value: '9',text: '其他'}]" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车牌备注:
+                            </td>
+                            <td>
+                                <input name="txtCarNoRemarkE" id="txtCarNoRemarkE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                发动机号:
+                            </td>
+                            <td>
+                                <input name="txtFdjhE" id="txtFdjhE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                底盘号:
+                            </td>
+                            <td>
+                                <input name="txtDphE" id="txtDphE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                发动机类型:
+                            </td>
+                            <td>
+                                <input id="ddlEnergyTypeE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'PKey',textField: 'EnergyTypeName'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车型:
+                            </td>
+                            <td>
+                                <input id="ddlCTNameE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'CTID',textField: 'CTNAME'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车辆用途:
+                            </td>
+                            <td>
+                                <input id="ddlCuidE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'CUID',textField: 'CUID'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车辆颜色:
+                            </td>
+                            <td>
+                                <input id="ddlCarColorE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '',text: '-请选择-'},
+                                       {value: '黑色',text: '黑色'},
+                                       {value: '白色',text: '白色'},
+                                       {value: '红色',text: '红色'},
+                                       {value: '银白',text: '银白'},
+                                       {value: '灰色',text: '灰色'},
+                                       {value: '蓝色',text: '蓝色'},
+                                       {value: '橙色',text: '橙色'},
+                                       {value: '绿色',text: '绿色'},
+                                       {value: '黄色',text: '黄色'},
+                                       {value: '紫色',text: '紫色'}]" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车辆组号:
+                            </td>
+                            <td>
+                                <input id="ddlCGroupE" class="easyui-combobox" style="width: 155px" data-options="valueField: 'GROUPID',textField: 'GROUPDESC'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车籍地:
+                            </td>
+                            <td>
+                                <div style="vertical-align: middle">
+                                    <input id="ddlLevel_First" class="easyui-combobox" style="width: 120px" data-options="valueField: 'numericCode',textField: 'name'" />
+                                    省/直辖市</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <div id="ddlLevel_Second_Div" style="display: block; vertical-align: middle">
+                                    <input id="ddlLevel_Second" class="easyui-combobox" style="width: 120px" data-options="valueField: 'numericCode',textField: 'name'" />
+                                    市
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <div style="vertical-align: middle">
+                                    <input id="ddlLevel_Third" class="easyui-combobox" style="width: 120px" data-options="valueField: 'numericCode',textField: 'name'" />
+                                    区/县
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车籍地编码:
+                            </td>
+                            <td>
+                                <input name="txtvehicleNationalityE" id="txtvehicleNationalityE" class="easyui-validatebox"
+                                    type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                行业编码:
+                            </td>
+                            <td>
+                                <input name="txttransTypeE" id="txttransTypeE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                809车型:
+                            </td>
+                            <td>
+                                <input name="txtvehicleTypeE" id="txtvehicleTypeE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td align="left">
+                    <table style="width: 100%; height: auto;">
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <b>司机信息</b>&nbsp;&nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                司机姓名:
+                            </td>
+                            <td>
+                                <input name="txtCarDNameE" id="txtCarDNameE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                驾驶证号:
+                            </td>
+                            <td>
+                                <input name="txtCarDNoE" id="txtCarDNoE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                司机备注:
+                            </td>
+                            <td>
+                                <input name="txtCarDbzE" id="txtCarDbzE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                住址:
+                            </td>
+                            <td>
+                                <input name="txtCarDaE" id="txtCarDaE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                联系电话:
+                            </td>
+                            <td>
+                                <input name="txtCarDtE" id="txtCarDtE" class="easyui-validatebox" type="text" style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <b>车主信息</b>&nbsp;&nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车主名称:
+                            </td>
+                            <td>
+                                <input name="txtCarOwnNameE" id="txtCarOwnNameE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车主地址:
+                            </td>
+                            <td>
+                                <input name="txtCarOwnAddE" id="txtCarOwnAddE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车主电话:
+                            </td>
+                            <td>
+                                <input name="txtCarOwnTelE" id="txtCarOwnTelE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                车主密码:
+                            </td>
+                            <td>
+                                <input name="txtCarOwnPasE" id="txtCarOwnPasE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                许可证号:
+                            </td>
+                            <td>
+                                <input name="txtowersIDE" id="txtowersIDE" class="easyui-validatebox" type="text"
+                                    style="width: 150px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="vertical-align: top;">
+                <td colspan="2" align="center">
+                    <input type="button" title="保存修改" onclick="DoSaveEdit()" class="btnGreen" style="width: 70px;"
+                        value="保存修改" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

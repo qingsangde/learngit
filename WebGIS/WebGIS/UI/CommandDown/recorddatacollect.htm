@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>行驶记录仪数据采集</title>
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/recorddatacollect.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="padding: 10px 20px 0px 20px;
+        height: auto; width: auto">
+        <input id="tb-selcar" type="button" title="选择车辆" onclick="selectCar()" class="btnOrange"
+            style="width: 80px;" value="选择车辆" />
+        <div style="height: 55px; padding-top: 10px;">
+            <table id="dg" class="easyui-datagrid" data-options="rownumbers:true,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:false,
+            fit:true,
+            border:true,
+            fitColumns:true">
+                <thead>
+                    <tr>
+                        <th data-options="field:'carno',width:100">
+                            车牌号
+                        </th>
+                        <th data-options="field:'tno',width:100">
+                            终端号
+                        </th>
+                        <th data-options="field:'sim',width:100">
+                            SIM卡号
+                        </th>
+                        <th data-options="field:'cowner',width:250">
+                            企业名称
+                        </th>
+                        <th data-options="field:'cu',width:100">
+                            车辆用途
+                        </th>
+                        <th data-options="field:'tname',width:100">
+                            车台类型
+                        </th>
+                        <th data-options="field:'cont',width:100">
+                            通讯类型
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div data-options="region:'center',border:false" style="padding: 20px 20px 0px 20px;
+        height: auto; width: auto">
+        <div id="orderworddiv" class="easyui-panel" title="采集命令选项">
+            <table width="100%" cellpadding="5px">
+                <tr>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" checked="checked"
+                            required="true" value="0x00" onclick="TypeChange()" />执行标准版本
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x01" onclick="TypeChange()" />当前驾驶人信息
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x02" onclick="TypeChange()" />实时时间
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x03" onclick="TypeChange()" />累计行驶里程
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x04" onclick="TypeChange()" />脉冲系数
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x05" onclick="TypeChange()" />车辆信息
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x06" onclick="TypeChange()" />状态信号配置信息
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x07" onclick="TypeChange()" />唯一性编号
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x08" onclick="TypeChange()" />指定的行驶速度记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x09" onclick="TypeChange()" />指定的位置信息记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x10" onclick="TypeChange()" />指定的事故疑点记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x11" onclick="TypeChange()" />指定的超时驾驶记录
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x12" onclick="TypeChange()" />指定的驾驶人身份记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x13" onclick="TypeChange()" />指定的外部供电记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x14" onclick="TypeChange()" />指定的参数修改记录
+                    </td>
+                    <td style="width: 25%" align="left">
+                        <input name="CollectType" type="radio" class="easyui-validatebox" required="true"
+                            value="0x15" onclick="TypeChange()" />指定的速度状态日志
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="ordertimediv" style="border:0px; padding:0px; margin:0px; padding-top:8px;">
+            <div id="ordertimedivinner" class="easyui-panel" title="时间段选择">
+                <table width="100%" cellpadding="5px">
+                    <tr>
+                        <td align="right" style="width: 10%">
+                            开始时间：
+                        </td>
+                        <td align="left" style="width: 20%">
+                            <input id="sTime" name="sTime" class="easyui-datetimebox" editable="false" />
+                        </td>
+                        <td align="right" style="width: 10%">
+                            结止时间：
+                        </td>
+                        <td align="left">
+                            <input id="eTime" name="eTime" class="easyui-datetimebox" editable="false" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="border:0px; padding:0px; margin:0px; text-align:center; padding-top:10px;">
+            <input  type="button" title="采集"  onclick="sendRecordCollectionOrder()" class="btnGreen" style="width:80px;" value="采集" />
+        </div>
+    </div>
+</body>
+</html>

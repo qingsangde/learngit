@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //多选
+        function selectCar() {
+            var sel = new Array();
+//            sel.push("1");
+            //            sel.push("2");
+            var dd0 = new Date().toLocaleString();
+            CarSelect(false, CallBackFun, sel);
+        }
+        //单选
+        function selectCarSingle() {
+            CarSelect(true, CallBackFun);
+        }
+
+        //回调函数，接收参数为选择的车辆数据行
+        function CallBackFun(obj) {
+            var cardata = obj;
+            //其他业务处理
+        }
+    </script>
+</head>
+<body>
+    <a href="#" class="easyui-linkbutton" onclick="selectCar()">
+        选择车辆(多选)</a>
+    <a href="#" class="easyui-linkbutton" onclick="selectCarSingle()">
+        选择车辆(单选)</a>
+</body>
+</html>
+

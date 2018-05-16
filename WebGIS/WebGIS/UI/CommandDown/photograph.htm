@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>车辆拍照</title>
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/photograph.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        width: auto; height: auto;">
+        <table width="300px" style="border: 0px;">
+            <tr>
+                <td colspan="2" align="center" style="padding: 10px 10px 0px 10px;">
+                    <input id="tb-selcar" type="button" title="选择车辆" onclick="selectCar()" class="btnOrange"
+                        style="width: 80px;" value="选择车辆" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="width: 80px; white-space: nowrap; padding-left:10px; padding-top:10px;">
+                    车牌号：
+                </td>
+                <td align="left" style="padding: 10px 0px 0px 10px;">
+                    <input id="txtCarNo" name="txtCarNo" class="easyui-validatebox" type="text" style="width: 150px;"
+                        readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="width: 80px; white-space: nowrap; padding-left:10px; padding-top:10px;">
+                    通道号：
+                </td>
+                <td align="left" style="padding: 10px 0px 0px 10px;">
+                    <select id="ch" class="easyui-combobox" name="ch" style="width: 150px;">
+                       <!-- <option value="0" selected="selected">自动选择</option>-->
+                        <option value="1" selected="selected">通道1</option>
+                        <option value="2">通道2</option>
+                        <option value="3">通道3</option>
+                        <option value="4">通道4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="padding: 10px 10px 0px 10px;">
+                    <input type="button" title="拍照" onclick="sendImageDownOrder()" class="btnGreen" style="width: 80px;"
+                        value="拍照" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

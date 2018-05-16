@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>基础信息维护</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="../_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="../XiaoDai/_js/annulBase.js" type="text/javascript"></script>
+    <style type="text/css">
+        .style2
+        {
+            height: 122px;
+        }
+        .style4
+        {
+            height: 96px;
+        }
+        .style5
+        {
+            height: 110px;
+        }
+        .style6
+        {
+            height: 105px;
+        }
+        .style7
+        {
+            width: 90px;
+            height: 25px;
+        }
+        .style8
+        {
+            width: 160px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body id="MainLay" class="easyui-layout" >
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: 20%; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto; height: auto;">
+                <tr>
+                    <td style="text-align: right; white-space: nowrap;" class="style7">
+                        车牌号
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;" class="style7">
+                        VIN
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtVIN" name="txtVIN" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;" class="style7">
+                        SIM卡号
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;" class="style8">
+                        <input name="txtSimCode" id="txtSimCode" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;" class="style7">
+                        终端ID
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtTNO" name="txtTNO" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;" class="style7">
+                        放款机构
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="cmbLoanOrg" name="cmbLoanOrg" class="easyui-combobox" type="text" style="width: 150px;
+                            editable: false;" data-options="valueField: 'OrgCode',textField: 'OrgName'"/>
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;" class="style7">
+                        锁车状态
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="cmbStatus" name="cmbStatus" class="easyui-combobox" type="text" editable="false"
+                            style="width: 150px;" data-options="valueField: 'LockCode',textField: 'LockName'" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;" class="style7">
+                        到期还款日
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtRepaySDate" name="txtRepaySDate" class="easyui-datebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: center; white-space: nowrap;" class="style7">
+                        —
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtRepayEDate" name="txtRepayEDate" class="easyui-datebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;" class="style7">
+                        服务有效期止日
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtServiceSDate" name="txtServiceSDate" class="easyui-datebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: center; white-space: nowrap;" class="style7">
+                        —
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtServiceEDate" name="txtServiceEDate" class="easyui-datebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right; white-space: nowrap;">
+                        <input type="button" title="查询" onclick="DoQuery()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="tb" data-options="region:'center',border:false" style="width: auto; height: 10%;
+        text-align: left; white-space: nowrap; vertical-align: middle; padding: 5px;">
+        <input type="button" title="新建" onclick="openAdd()" class="btnGreen" style="width: 50px;"
+            value="新建" />&nbsp;
+        <input type="button" title="修改" onclick="openEdit()" class="btnGreen" style="width: 50px;"
+            value="修改" />&nbsp;
+        <input type="button" title="删除" onclick="DoDelete()" class="btnGreen" style="width: 50px;"
+            value="删除" />&nbsp;
+        <input type="button" title="导出" onclick="DoExport()" class="btnGreen" style="width: 50px;"
+            value="导出" />
+    </div>
+    <!--主内容-->
+    <div data-options="region:'south',border:false" style="padding: 10px 10px 0px 10px;
+        height: 80%; width: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:false,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#tb',
+            border:true,
+			loadMsg: '',
+            fitColumns:true ">
+            <thead>
+                <tr>
+                    <th data-options="field:'CID',checkbox:true">
+                    </th>
+                    <th field="CarNo" width="15" align="center">
+                        车牌号
+                    </th>
+                    <th field="CarVin" width="15" align="center">
+                        VIN
+                    </th>
+                    <th field="CarSim" width="15" align="center">
+                        SIM卡号
+                    </th>
+                    <th field="CarTno" width="15" align="center">
+                        终端ID
+                    </th>
+                    <th field="ServiceEDay" width="15" align="center">
+                        服务有效期止日
+                    </th>
+                    <th field="RepaymentDate" width="15" align="center">
+                        到期还款日
+                    </th>
+                    <th field="PaymentAccount" width="15" align="center">
+                        到期还款金额
+                    </th>
+                    <th field="PayStatus" width="15" align="center">
+                        还款状态
+                    </th>
+                    <th field="Latedays" width="15" align="center">
+                        逾期天数
+                    </th>
+                    <th field="LockStatusName" width="15" align="center">
+                        锁车状态
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding-left: 10px; left: 300px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                数据加载中,请稍候...
+            </div>
+        </div>
+        <!--        <div id="Div2" class="easyui-window" title="请输入SIM卡号" data-options="modal:true,inline:true,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 500px; height: 135px; padding-left: 10px; left: 300px;">
+
+            </div>
+        </div>-->
+        <div id="Div1" class="easyui-window" title="" data-options="modal:true,inline:true,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 500px; height: 135px; padding-left: 10px; left: 300px;">
+            <div id="Div4" style="padding-top: 10px; text-align: center">
+                <div style="margin-top: 20px">
+                    <b>
+                        <lable id="lblMessage">基础信息修改成功</lable>
+                    </b>
+                </div>
+                <div style="width: 250px; height: 20px; padding: 5px; left: 100px; top: 80px; margin: 10px 10px 10px 110px;">
+                    <input type="button" title="确定" onclick="DoAgree()" class="btnGreen" style="width: 70px;"
+                        value="确定" />&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+        <!--</div>-->
+    </div>
+    <div id="baseInfoEdit" class="easyui-window" title="基础信息维护" data-options="modal:true,maximizable:false,minimizable:false,closed:true,inline:true"
+        style="width: 800px; height: 620px; padding: 10px; left: 100px; top: 80px;">
+        <div id="Div3" style="padding-top: 10px; text-align: left">
+            <div>
+                <b>请输入SIM卡号</b></div>
+            <div style="height: 20px; width: 229px; margin-left: 120px; margin-top: 10px; float: left">
+                <input id="simcode" class="easyui-validate" style="width: 200px; height: 20px;" /></div>
+            <div style="width: 250px; height: 20px; padding: 5px; left: 100px; top: 80px; margin-top: 5px;
+                float: left">
+                <input id = "btnsure" type="button" title="确定" onclick="DoSure()" class="btnGreen" style="width: 70px;"
+                    value="确定" />&nbsp;&nbsp;
+                    <input name="eCID" id="eCID" class="easyui-textbox" type="text" style="width: 155px; visibility : hidden"  />
+            </div>
+            <table style="width: 100%; height: 100%; margin-bottom: 4px;">
+                <tr style="vertical-align: top">
+                    <!--                <td style="width: 50%; white-space: nowrap;">-->
+                    <td colspan="6" class="style4" style="border: thin solid #000000">
+                        <table style="width: 100%; height: auto;">
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    <b>车辆信息</b>&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    *车牌号码
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eCarNo" id="eCarNo" class="easyui-textbox" type="text" style="width: 155px;" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    车架VIN码
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eCarVin" id="eCarVin" class="easyui-textbox" type="text" style="width: 155px;" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    车辆品牌
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eCarBrand" id="eCarBrand" class="easyui-textbox" type="text" style="width: 155px;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    车辆类型
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eCarType" class="easyui-combobox" style="width: 155px" editable="false"
+                                        data-options="valueField: 'CTID',textField: 'CTNAME'" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    发动机号
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eCarEngine" id="eCarEngine" class="easyui-textbox" type="text" style="width: 155px;" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    发动机类型
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eCarEngineType" class="easyui-combobox" style="width: 155px" editable="false"
+                                        data-options="valueField: 'EngineCode',textField: 'EngineName'"  />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="style2" style="border: thin solid #000000">
+                        <table style="width: 100%; height: auto; margin-bottom: 0px;">
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    <b>客户信息</b>&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    客户类型
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eCustomerType" class="easyui-combobox" style="width: 155px" editable="false"
+                                        data-options="valueField: 'CusTypeCode',textField: 'CusTypeName'" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    客户名称
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eCustomerName" id="eCustomerName" class="easyui-textbox" type="text"
+                                        style="width: 150px;" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    联系人
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="eLinkman" id="eLinkman" class="easyui-textbox" type="text" style="width: 150px;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    联系电话
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="ePhone" class="easyui-textbox" type="text" style="width: 155px" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    联系地址
+                                </td>
+                                <td colspan="3" style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <div style="vertical-align: middle">
+                                        <input id="eAddress" class="easyui-textbox" style="width: 408px" type="text" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    *车主姓名
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eCarOwnName" class="easyui-textbox" style="width: 155px" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    *车主电话
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eCarOwnTel " class="easyui-textbox" style="width: 155px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="style5" style="border: thin solid #000000">
+                        <table style="width: 100%; height: auto;">
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    <b>贷款信息</b>&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    贷款合同号
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eLoanContractNo" class="easyui-textbox" style="width: 155px" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    放款机构
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eOrgNo" class="easyui-combobox" style="width: 155px" editable="false"
+                                        data-options="valueField: 'OrgCode',textField: 'OrgName'" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    放款日期
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eLendDate" type="text" class="easyui-datebox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    *贷款期数
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eLendPeriods" class="easyui-combobox" style="width: 155px" editable="false"
+                                        data-options="valueField: 'LoanCode',textField: 'LoanName'" />
+                                </td>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    *到期还款金额
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input name="ePaymentAccount" id="ePaymentAccount" class="easyui-textbox" type="text"
+                                        style="width: 150px;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="style6" style="border: thin solid #000000">
+                        <table style="width: 100%; height: auto; margin-top: 0px;">
+                            <tr>
+                                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                                    <b>服务有效期</b>&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 140px; text-align: right; white-space: nowrap;" colspan="1">
+                                    服务有效期开始日期
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eServiceSDay" name="eServiceSDay" class="easyui-datebox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 140px; text-align: right; white-space: nowrap;" colspan="1">
+                                    服务有效期结束日期
+                                </td>
+                                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                                    <input id="eServiceEDay" name="eServiceEDay" class="easyui-datebox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr style="height: 10px;">
+                </tr>
+                <tr style="vertical-align: top;">
+                    <td colspan="2" align="center">
+                        <input type="button" title="保存" onclick="DoSave()" class="btnGreen" style="width: 70px;"
+                            value="保存" />
+                        <input type="button" title="取消" onclick="DoCancel()" class="btnGreen" style="width: 70px;"
+                            value="取消" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+</body>
+</html>

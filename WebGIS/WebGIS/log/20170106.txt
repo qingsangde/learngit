@@ -1,0 +1,183 @@
+2017-01-06 16:25:25,781 [10] INFO  启动会话维护TimeoutManager服务。
+2017-01-06 16:25:27,822 [10] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:25:29,761 [5] INFO  初始化与RDS服务建立连接完成(实时数据服务 )
+2017-01-06 16:25:33,762 [5] INFO  初始化与RDS服务建立连接完成(测试环境 实时数据服务)
+2017-01-06 16:25:33,762 [5] INFO  与RDS服务连接维护线程启动
+2017-01-06 16:25:34,534 [5] INFO  HttpService PostParams:
+2017-01-06 16:25:39,874 [10] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:25:42,550 [4] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"JFJY",account:"admin",password:"123",code:"2203"}
+2017-01-06 16:25:53,145 [16] INFO  启动会话维护TimeoutManager服务。
+2017-01-06 16:25:55,170 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:25:57,093 [9] INFO  初始化与RDS服务建立连接完成(实时数据服务 )
+2017-01-06 16:26:01,094 [9] INFO  初始化与RDS服务建立连接完成(测试环境 实时数据服务)
+2017-01-06 16:26:01,094 [9] INFO  与RDS服务连接维护线程启动
+2017-01-06 16:26:01,747 [5] INFO  HttpService PostParams:
+2017-01-06 16:26:06,592 [4] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"admin",password:"123",code:"1225"}
+2017-01-06 16:26:07,181 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:26:15,646 [17] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"admin",password:"123",code:"4066"}
+2017-01-06 16:26:19,190 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:26:24,773 [4] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"qmx80",password:"123",code:"4066"}
+2017-01-06 16:26:30,774 [4] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"qmx80",password:"123",code:"4316"}
+2017-01-06 16:26:31,195 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:26:43,201 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:26:44,357 [17] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"zhb",password:"zhb",code:"1194"}
+2017-01-06 16:26:51,724 [8] INFO  HttpService PostParams:{sid:"sys-user-getallcar",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",onecaruser:"0"}
+2017-01-06 16:26:54,277 [10] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"625",token:"7255123b-e19f-45a3-a0be-9103c930672a"}
+2017-01-06 16:26:55,212 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:27:05,688 [4] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"Province",Area:"",Province:""}
+2017-01-06 16:27:06,201 [17] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"DealerName",Area:"",Province:""}
+2017-01-06 16:27:07,217 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:27:08,173 [17] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"Province",Area:"",Province:""}
+2017-01-06 16:27:08,709 [4] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"DealerName",Area:"",Province:""}
+2017-01-06 16:27:09,270 [15] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"Province",Area:"",Province:""}
+2017-01-06 16:27:09,774 [17] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"DealerName",Area:"",Province:""}
+2017-01-06 16:27:11,767 [12] INFO  HttpService PostParams:{sid:"marker-getlist",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",SMarkName:""}
+2017-01-06 16:27:14,875 [5] INFO  HttpService PostParams:{sid:"activeregion-getlist",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",regionname:""}
+2017-01-06 16:27:15,376 [22] INFO  HttpService PostParams:{sid:"dealer-getbyuid",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a"}
+2017-01-06 16:27:16,052 [4] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"Province",Area:"",Province:""}
+2017-01-06 16:27:16,116 [22] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"DealerName",Area:"",Province:""}
+2017-01-06 16:27:18,046 [4] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"Province",Area:"",Province:""}
+2017-01-06 16:27:18,159 [17] INFO  HttpService PostParams:{sid:"DayTestDriveAnalyse-getSDealersName",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",Type:"DealerName",Area:"",Province:""}
+2017-01-06 16:27:19,219 [16] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:27:24,511 [17] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"625",token:"7255123b-e19f-45a3-a0be-9103c930672a"}
+2017-01-06 16:27:56,601 [24] INFO  启动会话维护TimeoutManager服务。
+2017-01-06 16:27:58,621 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:28:00,554 [17] INFO  初始化与RDS服务建立连接完成(实时数据服务 )
+2017-01-06 16:28:04,555 [17] INFO  初始化与RDS服务建立连接完成(测试环境 实时数据服务)
+2017-01-06 16:28:04,555 [17] INFO  与RDS服务连接维护线程启动
+2017-01-06 16:28:04,585 [17] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"625",token:"7255123b-e19f-45a3-a0be-9103c930672a"}
+2017-01-06 16:28:13,071 [30] INFO  启动会话维护TimeoutManager服务。
+2017-01-06 16:28:15,080 [30] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:28:17,024 [27] INFO  初始化与RDS服务建立连接完成(实时数据服务 )
+2017-01-06 16:28:21,025 [27] INFO  初始化与RDS服务建立连接完成(测试环境 实时数据服务)
+2017-01-06 16:28:21,025 [27] INFO  与RDS服务连接维护线程启动
+2017-01-06 16:28:22,348 [27] INFO  HttpService PostParams:{sid:"sys-user-getallcar",sysuid:"625",sysflag:"YQWL",token:"7255123b-e19f-45a3-a0be-9103c930672a",onecaruser:"0"}
+2017-01-06 16:28:22,348 [29] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"625",token:"7255123b-e19f-45a3-a0be-9103c930672a"}
+2017-01-06 16:28:27,087 [30] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-06 16:28:39,097 [30] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 C:\Users\alan\Desktop\code\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 C:\Users\alan\Desktop\code\WebGIS\Service\SessionManager.cs:行号 112

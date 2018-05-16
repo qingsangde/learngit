@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>驶出活动区域查询</title>
+    <!--<script src="_js/excanvas.min.js" type="text/javascript"></script>-->
+    <!-- <script src="../_js/jquery-1.4.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="_js/DriveTotal.js" type="text/javascript"></script>
+    <script src="_js/OutArea.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.2&key=736ee15f242085b54b92927303b7752b"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 50px; text-align: right;">
+                        开始时间
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="STime" name="STime" class="easyui-datetimebox" editable="false" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        结束时间
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="ETime" name="ETime" class="easyui-datetimebox" editable="false" />
+                    </td>
+                   <!-- <td style="width: 140px; text-align: left;">
+                        <span style="font-size: 11px; color: Red">可跨月查询</span>
+                    </td>-->
+                    <td style="width: 170px; text-align: left;">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-validatebox" type="text" disabled="disabled" style="width:150px;"/>
+                    </td>
+                    <td style="width: 70px;text-align: left;">
+                                                                        <input id="tb-selcar" type="button" title="选择车辆" onclick="selectCarSingle()" class="btnOrange" style="width: 80px;"
+                            value="选择车辆" />
+                    </td>
+                    <td style="width: 50px;text-align: left;">
+                        
+                        <input  type="button" title="查询"  onclick="queryData_OA()" class="btnGreen" style="width:50px;" value="查询" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        width: auto; height: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:false,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#tb',
+            border:true,
+			
+            fitColumns:true ">
+            <thead>
+                <tr>
+                    <!--            <th data-options="field:'ck',checkbox:true">
+                    </th>-->
+                    <th field="NO" width="8" align="center">
+                        序号
+                    </th>
+                    <th field="CARNO" width="15" align="center">
+                        车牌号
+                    </th>
+                    <th field="TIME" width="45" align="center">
+                        驶出时间-驶入时间
+                    </th>
+                    <th field="DURATION" width="20" align="center">
+                        驶出时长
+                    </th>
+                    <th field="DISTANCE" width="20" align="center">
+                        驶出里程
+                    </th>
+                    <th data-options="field:'BEGINPOSITION',width:40,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                        驶出位置
+                    </th>
+                    <th data-options="field:'ENDPOSITION',width:40,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                        驶入位置
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- 功能按钮 -->
+    <div id="tb" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: auto">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #444;">
+                    <p id="OutAreaTimes">驶出活动范围总次数：0次</p>
+                </td>
+                <td style="text-align: right;">
+                    
+                    <input id="Button1" type="button" title="导出Excel文件" onclick="Export()" class="btnBlue" style="width:50px;" value="导出" />
+                        
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="InfoWindows" class="easyui-window" title="地图位置标记" data-options="  draggable:false,modal:true,minimizable:false,maximizable:false,closed:true"
+        style="width: 50%; height: 70%; padding: 5px;">
+        <div id="iCenter" style="overflow: hidden; z-index: 999; width: 100%; height: 100%;">
+        </div>
+    </div>
+</body>
+</html>

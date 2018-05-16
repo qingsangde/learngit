@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电子围栏维护</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=736ee15f242085b54b92927303b7752b"></script>
+    <script src="_js/mapControl.js" type="text/javascript"></script>
+    <script src="_js/fence.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <div id="loading-mask">
+        <div id="pageloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            正在加载数据,请稍候...
+        </div>
+    </div>
+    <!--查询条件-->
+    <div data-options="region:'north',title:'查询条件',collapsible:false" style="height: 80px;
+        padding: 6px;">
+        <table style="width: 100%;">
+            <tr>
+                <td id="tdFence" style="text-align: left; white-space: nowrap;">
+                    围栏名称
+                    <input class="easyui-validatebox" type="text" name="fencename" id="fencename" style="width: 100px;" />
+                </td>
+                <td style="text-align: left; white-space: nowrap;">
+                    形状类型
+                    <select class="easyui-combobox" style="width: 70px;" id="graphType" name="graphType">
+                        <option value="0">全部</option>
+                        <option value="1">圆形</option>
+                        <option value="2">多边形</option>
+                    </select>
+                </td>
+                <td style="text-align: left; white-space: nowrap;">
+                    报警类型
+                    <select class="easyui-combobox" style="width: 80px;" id="alarmType" name="alarmType">
+                        <option value="0">全部</option>
+                        <option value="1">进入报警</option>
+                        <option value="2">离开报警</option>
+                    </select>
+                </td>
+                <td style="text-align: center; white-space: nowrap;">
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                        onclick="startQuery()">查询</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="easyui-linkbutton"
+                            data-options="iconCls:'icon-add',plain:true" onclick="openAdd()">新建</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"
+                        onclick="openEdit()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="easyui-linkbutton"
+                            data-options="iconCls:'icon-remove',plain:true" onclick="deleteFence()">删除</a>
+                    <input id="hidUid" type="hidden" />
+                    <input id="hidKey" type="hidden" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--查询结果-->
+    <div data-options="region:'center',title:'查询结果',border:false" style="padding: 0px;">
+        <table id="dg" data-options="iconCls:'icon-save',
+				rownumbers:true,
+				autoRowHeight:false,
+				pagination:true,
+                fit:true,
+                singleSelect:false,
+                border:false,
+				pageSize:20,
+                loadMsg:'数据加载中,请稍候......'">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true">
+                    </th>
+                    <th field="Name" width="200">
+                        围栏名称
+                    </th>
+                    <th field="GType" width="120">
+                        形状类型
+                    </th>
+                    <th field="AlmType" width="120">
+                        报警类型
+                    </th>
+                    <th field="CTime" width="150">
+                        创建时间
+                    </th>
+                    <th field="Desc" width="250">
+                        备注
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding: 10px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                电子围栏数据加载中,请稍候...
+            </div>
+        </div>
+    </div>
+    <!--弹出窗体-->
+    <div id="details" class="easyui-window" data-options="title:'添加电子围栏',modal:true,minimizable:false,collapsible:false,closed:true,iconCls:'icon-add'"
+        style="width: 800px; height: 500px; padding: 0px;">
+        <div class="easyui-layout" data-options="border:false,region:'north',fit:true">
+            <div id="container" data-options="region:'center'">
+            </div>
+            <div id="myTools" style="border: 1px solid #ccc; position: absolute; z-index: 9998;
+                left: 70px; top: 20px; background-color: #F4F4F4;">
+                <a title="缩放最小" href="#" onclick="zoomOut()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomin'">
+                </a><a title="缩放最大" href="#" onclick="zoomIn()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomout'">
+                </a><a title="测距" href="#" onclick="doRuler()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ruler'">
+                </a><a title="绘圆" href="#" onclick="drawYuan()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yuan'">
+                </a><a title="绘多边形" href="#" onclick="drawFang()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-fang'">
+                </a><a title="清除绘图" href="#" onclick="clearDraw()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-delete'">
+                </a><a title="编辑图形" href="#" onclick="EditDraw()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'">
+                </a><a title="完成编辑" href="#" onclick="EndEditDraw()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">
+                </a>
+            </div>
+            <div data-options="region:'east'" style="width: 220px;">
+                <div class="easyui-tabs" data-options="fit:true,border:false">
+                    <div title="围栏信息" style="padding: 5px;">
+                        <table style="width: 200px;">
+                            <tr>
+                                <td style="text-align: right; width: 60px;">
+                                    报警类型：
+                                </td>
+                                <td style="text-align: left;">
+                                    <select class="easyui-combobox" id="win_almtype" name="win_almtype" style="width: 120px;">
+                                        <option value="1">进入报警</option>
+                                        <option value="2">离开报警</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    围栏名称：
+                                </td>
+                                <td style="text-align: left;">
+                                    <input class="easyui-validatebox" type="text" name="win_fname" id="win_fname" style="width: 115px;"
+                                        data-options="required:true" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    备注：
+                                </td>
+                                <td style="text-align: left;">
+                                    <textarea class="easyui-validatebox" name="win_desc" id="win_desc" style="height: 40px;
+                                        width: 115px;" data-options="required:true"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;">
+                                    <input id="hidOpType" type="hidden" value="New" />
+                                    <input id="hidGraphT" type="hidden" value="0" />
+                                    <input id="hidContent" type="hidden" value="" />
+                                    <input id="hidFid" type="hidden" value="0" />
+                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
+                                        onclick="saveDetails()">保存</a> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true"
+                                            onclick="closeDetails()">取消</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

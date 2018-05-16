@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>轨迹回放</title>
+    <link href="../_styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="../libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="_styles/Track.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=7557f47de0a1a942eccb214794389fd3"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/dateSet.js" type="text/javascript"></script>
+    <script src="_js/Param.js" type="text/javascript"></script>
+    <script src="_js/Map.js" type="text/javascript"></script>
+    <script src="_js/Track.js" type="text/javascript"></script>
+    
+</head>
+<body class="easyui-layout">
+    <form id="form1" runat="server">
+     <!--浏览器禁用JS提示-->
+    <noscript>
+        
+        <div class="noscript">
+            <img src="../_styles/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <!--页面加载进度-->
+    <div id="loading-mask">
+        <div id="pageloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            正在加载中,请稍候...
+        </div>
+    </div>
+     
+    <!--控制面板-->
+    <div style="width: 220px; padding: 1px 3px 1px 2px" data-options="title:'操作面板',region:'east',border:true,split:false,collapsed:false">
+        <div class="easyui-layout" data-options="fit:true,border:false">
+            <div data-options="region:'north',split:false,collapsible:false" style="height: 200px; padding: 2px 2px 2px 5px">
+               
+                 <table class="tabInput">
+                            <tr>
+                                <td >
+                                    车牌号码
+                                </td>
+                                 <td>
+
+                                 <input id="selCarNo" class="easyui-combobox" data-options="valueField:'cid',textField:'carno',delay:1000,
+                                        keyHandler : { 
+                                            query : function(q) { 
+                                                autoQuery();
+                                            } 
+                                        }" style="width: 142px;" />
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td >
+                                    开始时间
+                                </td>
+                                <td>
+                                    <input id="txtStime"  class="easyui-datetimebox" style="width: 142px"/>
+                                </td>
+                            </tr>
+                           
+                            <tr>
+                                <td>
+                                    结束时间
+                                </td>
+                                <td>
+                                    <input id="txtEtime"  class="easyui-datetimebox" style="width: 142px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    超速阀值
+                                </td>
+                                <td>
+                                    <input id="txtSpeed" class="easyui-numberspinner" value="100" data-options="min:50,max:200" style="width: 50px;"/>Km/h(50—200)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    漂移阀值
+                                </td>
+                                <td>
+                                    <input id="txtDistance" class="easyui-numberspinner" value="4" data-options="min:1,max:100"
+                                        style="width: 50px;"/>Km(1—100)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align:right;">
+                                  <input  type="button" title="查询"  onclick="doOK()" class="btnGreen" style="width:50px;" value="查询" />
+                                </td>
+                            </tr>
+                        </table>
+
+            </div>
+            <div data-options="region:'center'" style="background: #eee;">
+                <div id="tabs" class="easyui-tabs" style="padding: 1px 3px 1px 2px;"
+                    data-options="fit:true">
+                    <div title="统计信息" style="padding: 5px;">
+                        <table class="tabShow">
+                            <tr>
+                                <td colspan="2" >
+                                    轨迹总数:
+                                </td>
+                            </tr>
+                            <tr style="background-color: #FAF6F6;">
+                                <td id="tdAll" style="width: 100px; padding-left: 20px">
+                                    0条
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    报警超速:
+                                </td>
+                            </tr>
+                            <tr style="background-color: #FAF6F6;">
+                                <td id="tdOS1" style="padding-left: 20px">
+                                    0条
+                                </td>
+                                <td>
+                                    <input id="chkOS1" name="chk" onclick="showOS1Map(this)" type="checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    计算超速:
+                                </td>
+                            </tr>
+                            <tr style="background-color: #FAF6F6;">
+                                <td id="tdOS2" style="padding-left: 20px">
+                                    0条
+                                </td>
+                                <td>
+                                    <input id="chkOS2" name="chk" onclick="showOS2Map(this)" type="checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    漂移轨迹:
+                                </td>
+                            </tr>
+                            <tr style="background-color: #FAF6F6;">
+                                <td id="tdOD" style="padding-left: 20px">
+                                    0条
+                                </td>
+                                <td>
+                                    <input id="chkOD" name="chk" onclick="showODMap(this)" type="checkbox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    显示地址:
+                                </td>
+                                <td>
+                                    <input id="chkAdd" name="chk" onclick="showAdd(this)" type="checkbox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--地图容器-->
+    <div id="container" data-options="region:'center'" style="overflow:hidden;">
+    </div>
+    <div id="myTools" style="border: 1px solid #000;filter:alpha(opacity:40);opacity:0.4; position: absolute; z-index: 9998;
+        left: 70px; top: 20px; background-color: #000;">
+        <a title="缩放最小" href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomout'">
+        </a>
+        <a title="缩放最大" href="#"  class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomin'">
+        </a>
+        <a title="测距" href="#" onclick="doRuler()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ruler'">
+        </a>
+        <a title="打印" href="#" onclick="doPrint()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">
+        </a>
+       
+    </div>
+    <!-- 轨迹数据显示-->
+    <div id="isouth" data-options="region:'south',border:true,split:true,minHeight:120" >
+        <table id="dg" class="easyui-datagrid" data-options="
+				singleSelect:true,
+				autoRowHeight:false,
+                fit:true,
+                toolbar:'#tb',
+                border:false">
+            <thead>
+                <tr>
+                    <th data-options="field:'no',width:50">
+                        序号
+                    </th>
+                    <th data-options="field:'cno',width:100">
+                        车牌号
+                    </th>
+                    <th data-options="field:'dt',width:140">
+                        卫星定位时间
+                    </th>
+                    <th data-options="field:'sp',width:80">
+                        速度(km/h)
+                    </th>
+                    <th data-options="field:'dir',width:80">
+                        方向
+                    </th>
+                    <th data-options="field:'lng',width:100">
+                        经度
+                    </th>
+                    <th data-options="field:'lat',width:100">
+                        纬度
+                    </th>
+                    <th data-options="field:'tsm',width:140">
+                        里程(km)
+                    </th>
+                    <th data-options="field:'odd',hidden:true,width:140">
+                        计算里程(km)
+                    </th>
+                    <th data-options="field:'ta',width:140">
+                        报警状态
+                    </th>
+                    <th data-options="field:'ts',width:140">
+                        运行状态
+                    </th>
+                    <th data-options="field:'add',hidden:true,width:350">
+                        地址
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="tb" style="padding: 2px 5px;">
+    <table style="width:100%;">
+      <tr>
+        <td id="tdSP" style="width:140px; text-align:center; vertical-align: middle; font-size: large; font-weight: bold; color: #FF9900;">
+        </td>
+        <td style=" width:160px;">
+            <input  type="button" title="减速"  class="btnAdd" onclick="doCutSP()" />   
+            <input  type="button" title="播放"  class="btnPlay" onclick="doPlay()" />
+            <input  type="button" title="暂停"  class="btnPause" onclick="doPause()" />
+            <input  type="button" title="停止"  class="btnStop" onclick="doStop()" />
+            <input  type="button" title="加速"  class="btnCut" onclick="doAddSP()" />
+        </td>
+        <td style=" width:320px;">
+            <input id="sProgress" class="easyui-slider" style="width:300px;" />
+        </td>
+        <td style="width:80px; text-align:right; vertical-align: middle; font-size: small; font-weight: bold; color: #FF9900;">
+            播放速度：
+        </td>
+        <td id="tdPP" style="width:20px; text-align:left; vertical-align: middle; font-size: small; font-weight: bold; color: #FF9900;">
+            1
+        </td>
+        <td style="width:40px; text-align:left; vertical-align: middle; font-size: small; font-weight: bold; color: #FF9900;">
+            秒/条
+        </td>
+        <td style="text-align:right;">
+            <input id="btnExport" type="button" title="导出Excel文件" onclick="exportExcel()" class="btnBlue" style="width:50px;" value="导出" />
+            <input id="getP" type="button" title="设置显示列" onclick="showGridRows()"  class="btnOrange" style="width:50px;" value="设置" />
+        </td>
+      </tr>
+    </table>
+    </div>
+    <div id="tt">
+        <a href="javascript:void(0)" title="配置列表显示列" class="icon-tools" onclick="showGridRows()">
+        </a>
+    </div>
+    <div id="w" class="easyui-window" title="配置列表显示列" data-options="modal:true,closed:true,collapsible:false,minimizable:false,maximizable:false,iconCls:'icon-save'"
+        style="width: 400px; height: 120px; padding: 10px;">
+        <table style="width: 100%; height: 100%">
+            <tr>
+                <td>
+                    <input name="cno" onclick="showRows(this)" checked="checked" type="checkbox" />车牌号
+                </td>
+                <td>
+                    <input name="sp" onclick="showRows(this)" checked="checked" type="checkbox" />速度
+                </td>
+                <td>
+                    <input name="dir" onclick="showRows(this)" checked="checked" type="checkbox" />方向
+                </td>
+                <td>
+                    <input name="lng" onclick="showRows(this)" checked="checked" type="checkbox" />经度
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <input name="lat" onclick="showRows(this)" checked="checked" type="checkbox" />纬度
+                </td>
+                <td>
+                    <input name="tsm" onclick="showRows(this)" checked="checked" type="checkbox" />里程
+                </td>
+                <td>
+                    <input name="ta" onclick="showRows(this)" checked="checked" type="checkbox" />报警状态
+                </td>
+                <td>
+                    <input name="ts" onclick="showRows(this)" checked="checked" type="checkbox" />运行状态
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="ww" class="easyui-window" title="请稍候......" data-options="draggable:false,resizable:false,closable:false,modal:true,closed:true,collapsible:false,minimizable:false,maximizable:false"
+                    style="width: 170px; height: 0px; background: #eee; text-align: center;">
+                    <img src="../_styles/images/loading.gif" align="absmiddle" />处理中,请稍候...
+    </div>
+    </form>
+</body>
+</html>

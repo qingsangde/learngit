@@ -1,0 +1,104 @@
+﻿*{
+	font-size:12px;
+}
+html,body {
+    font-family:verdana,helvetica,arial,sans-serif;
+    padding:20px;
+    font-size:12px;
+    height:97%;
+    margin:0;
+}
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+	padding:0 0 12px 0;
+}
+.demo-tip{
+	display:none;
+}
+
+#centermain{
+	height:100%;  
+}
+
+.divcss5-hidden{overflow:hidden; height:500px} 
+
+.btnBlue
+{
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('images/u193.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnBlue:hover 
+{
+	color:#FFFFFF;background:url('images/u193_mouseOver.png');
+}
+.btnOrange
+{
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('images/u187.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnOrange:hover 
+{
+	color:#FFFFFF;background:url('images/u187_mouseOver.png');
+}
+
+#tb-set
+{
+	width:22px;
+    height:22px; 
+    color:#FFFFFF;
+    line-height:22px; 
+    border:0 none; 
+    background:url('images/monitor-set.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+#tb-set:hover
+{
+	color:#FFFFFF;
+	background:url('images/monitor-set-hov.png') 0 0px no-repeat; 
+}
+#tb-run
+{
+	width:22px;
+    height:22px; 
+    color:#FFFFFF;
+    line-height:22px; 
+    border:0 none; 
+    background:url('images/monitor-start.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+#tb-run:hover
+{
+	background:url('images/monitor-start-hov.png') 0 0px no-repeat; 
+}
+#tb-del
+{
+	width:22px;
+    height:22px; 
+    color:#FFFFFF;
+    line-height:22px; 
+    border:0 none; 
+    background:url('images/monitor-del.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+#tb-del:hover
+{
+	background:url('images/monitor-del-hov.png') 0 0px no-repeat; 
+}

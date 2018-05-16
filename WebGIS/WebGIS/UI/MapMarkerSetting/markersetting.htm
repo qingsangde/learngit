@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../_styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="../libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <!--<link href="_styles/Track.css" rel="stylesheet" type="text/css" />-->
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=7557f47de0a1a942eccb214794389fd3"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <!--<script src="_js/dateSet.js" type="text/javascript"></script>-->
+    <!--<script src="_js/Param.js" type="text/javascript"></script>-->
+    <script src="_js/Map.js" type="text/javascript"></script>
+    <script src="_js/markersetting.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <form id="form1" runat="server">
+    <!--浏览器禁用JS提示-->
+    <noscript>
+        <div class="noscript">
+            <img src="../_styles/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <!--页面加载进度-->
+    <div id="loading-marker">
+        <div id="pageloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            正在加载中,请稍候...
+        </div>
+    </div>
+    <!--控制面板-->
+    <div style="width: 300px; padding: 1px 3px 1px 2px;" data-options="title:'操作面板',region:'east',border:true,split:false,collapsed:false">
+        <div class="easyui-layout" data-options="fit:true,border:false" style="overflow: auto;">
+            <table class="tabInput">
+                <tr>
+                    <td style="width: 90px; text-align: right;">
+                        标注名称
+                    </td>
+                    <td style="width: 90px; text-align: left;">
+                        <input id="SMarkName" name="SMarkName" class="easyui-validatebox" type="text" style="width: 100px;" />
+                    </td>
+                    <td style="width: 60px; text-align: right;">
+                        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                            onclick="startQuery()">查询</a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',collapsible:true, rownumbers:true,singleSelect:true,">
+                <thead>
+                    <tr>
+                        <th data-options="field:'ck',checkbox:true">
+                        </th>
+                        <!--<th field="NUMBER" width="30" align="center">
+                                序号
+                            </th>-->
+                        <th field="M_Name" width="120" align="center">
+                            名称
+                        </th>
+                        <th field="M_Desc" width="90" align="center">
+                            备注
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br />
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"
+                onclick="addMark()">新建</a> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"
+                    onclick="modMark()">编辑</a> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true"
+                        onclick="delMark()">删除</a>
+        </div>
+    </div>
+    <!--地图容器-->
+    <div id="container" data-options="region:'center'" style="overflow: hidden;">
+    </div>
+    <div id="myTools" style="border: 1px solid #000; filter: alpha(opacity:40); opacity: 0.4;
+        position: absolute; z-index: 9998; left: 70px; top: 20px; background-color: #000;">
+        <a title="缩放最小" href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomout'">
+        </a><a title="缩放最大" href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomin'">
+        </a><a title="测距" href="#" onclick="doRuler()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ruler'">
+        </a><a title="打印" href="#" onclick="doPrint()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">
+        </a>
+    </div>
+    <div id="AddMarkerWindows" class="easyui-window" title="增加标注" data-options="modal:true,minimizable:false,collapsible:false,closed:true,iconCls:'icon-add'"
+        style="width: 400px; height:200px; padding: 20px;">
+        <table style=" width:100%; height:100%;">
+            <tr>
+                <td style="text-align: right;">
+                标注名称:
+                </td>
+                <td style="text-align: left;">
+                <input id="MarkName" name="MarkName" class="easyui-validatebox" type="text" style="width: 200px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                标注备注:
+                </td>
+                <td style="text-align: left;">
+                <input id="MarkNote" name="MarkNote" class="easyui-validatebox" type="text" style="width: 200px;" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2 style="text-align:center;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
+                                        onclick="addSave()">保存</a> 
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true"
+                                     onclick="addDel()">取消</a>
+                                     </td>       
+            </tr>
+        </table>
+      
+    </div>
+    <div id="ModMarkerWindows" class="easyui-window" title="修改标注" data-options="modal:true,minimizable:false,collapsible:false,closed:true,iconCls:'icon-edit'"
+         style="width: 400px; height:240px; padding: 20px;">
+       
+         <table style=" width:100%; height:100%;">
+            <tr>
+                <td style="text-align: right;">
+                原始标注名称:
+                </td>
+                <td style="text-align: left;">
+               <input id="oldMarkName" name="oldMarkName" class="easyui-validatebox" type="text"
+                    style="width: 200px;  border: none;" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                原始标注备注:
+                </td>
+                <td style="text-align: left;">
+                  <input id="oldMarkNote" name="oldMarkNote" class="easyui-validatebox" type="text"
+                    style="width: 200px;  border: none;" readonly="readonly" />
+                </td>
+            </tr>
+             <tr>
+                <td style="text-align: right;">
+                新的标注名称:
+                </td>
+                <td style="text-align: left;">
+                   <input id="newMarkName" name="newMarkName" class="easyui-validatebox" type="text"
+                    style="width: 200px;" />
+                </td>
+            </tr>
+             <tr>
+                <td style="text-align: right;">
+                新的标注备注:
+                </td>
+                <td style="text-align: left;">
+                 <input id="newMarkNote" name="newMarkNote" class="easyui-validatebox" type="text"
+                    style="width: 200px;" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2 style="text-align:center;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
+                                        onclick="modSave()">保存</a> 
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true"
+                                       onclick="modDel()">取消</a>
+                                       </td>     
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

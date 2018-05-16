@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>试乘试驾日分析表</title>
+      <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/DayTestDriveAnalyseNew.js" type="text/javascript"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+             <table style="width: auto;">
+                <tr>
+                    <td style="width: 50px; text-align: right;">
+                        查询年月
+                    </td>
+                    <td style="width: 120px; text-align: left;">
+                       <!-- <input id="STime" style="width: 100px;"  class="easyui-datebox" editable="false" />-->
+                        <select class="easyui-combobox"   id="SYear" style="width:60px;" editable="false">
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                         </select>-<select class="easyui-combobox"   id="SMonth" style="width:45px;" editable="false">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                               
+                         </select>
+                    </td>
+                   
+                    <td style="width: 50px; text-align: right;">
+                        车型
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input  id="SCarType" value="X80" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        车牌号
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input name="txtClyt" id="SCarLicence" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+                    <td style="width: 60px; text-align: right;">
+                        经销商代码
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input name="txtClyt" id="SDealersCode" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+                   <td style="width: 50px;text-align:right;">
+                       <input type="button" title="查询"  onclick="queryData_Sf()" class="btnGreen" style="width:50px;" value="查询" />
+                    </td>
+                </tr>
+
+                <tr id="tdP" >
+                    <td style="width: 50px; text-align: right;">
+                        销售大区
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <select class="easyui-combobox"  id="SSalesRegion" style="width:100px;"
+                         data-options="
+                                onChange: function(a,b){    
+                                 setSSalesProvince(a);
+                                }"
+                         >
+                                <option value="">全部</option>
+                                <option value="东北">东北</option>
+                                <option value="华北">华北</option>
+                                <option value="华东">华东</option>
+                                <option value="华中">华中</option>
+                                <option value="南部">南部</option>
+                                <option value="西部">西部</option>
+                         </select>
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        销售省区
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                         <input id="SSalesProvince" class="easyui-combobox" style="width: 100px" 
+                        data-options="valueField: 'val',textField: 'text',
+                                      data: [{ val: '',
+			                                   text: '全部',
+                                               selected: true
+		                                     }],
+                                      onChange: function(a,b){    
+                                        setSDealersName(a);
+                                      }" />
+                    </td>
+                    <td style="width: 60px; text-align: right;">
+                        经销商名称
+                    </td>
+                    <td colspan=4 style="width: 268px; text-align: left;">
+                        <input id="SDealersName" class="easyui-combobox" style="width: 268px" 
+                        data-options="valueField: 'DealerCode',textField: 'DealerName',
+                                      data: [{ DealerCode: '',
+			                                   DealerName: '全部',
+                                               selected: true
+		                                     }]"
+                                      />
+                    </td>
+                   
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+     <div  data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px; width: auto; height: auto;">
+
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+                                                            rownumbers:true,
+			                                                singleSelect:true,
+			                                                autoRowHeight:false,
+                                                            toolbar:'#tb',
+                                                            fit:true,
+                                                            border:true,
+                                                            fitColumns:false ">
+        <thead data-options="frozen:true">
+            <tr>
+                <th data-options="field:'text',width:200,align:'center'">时间/日期</th>
+               <th data-options="field:'sum',width:80,align:'center'">合计</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th data-options="field:'D1',width:80,align:'center'">1日</th>
+                <th data-options="field:'D2',width:80,align:'center'">2日</th>
+                <th data-options="field:'D3',width:80,align:'center'">3日</th>
+                <th data-options="field:'D4',width:80,align:'center'">4日</th>
+                <th data-options="field:'D5',width:80,align:'center'">5日</th>
+                <th data-options="field:'D6',width:80,align:'center'">6日</th>
+                <th data-options="field:'D7',width:80,align:'center'">7日</th>
+                <th data-options="field:'D8',width:80,align:'center'">8日</th>
+                <th data-options="field:'D9',width:80,align:'center'">9日</th>
+
+                <th data-options="field:'D10',width:80,align:'center'">10日</th>
+                <th data-options="field:'D11',width:80,align:'center'">11日</th>
+                <th data-options="field:'D12',width:80,align:'center'">12日</th>
+                <th data-options="field:'D13',width:80,align:'center'">13日</th>
+                <th data-options="field:'D14',width:80,align:'center'">14日</th>
+                <th data-options="field:'D15',width:80,align:'center'">15日</th>
+                <th data-options="field:'D16',width:80,align:'center'">16日</th>
+                <th data-options="field:'D17',width:80,align:'center'">17日</th>
+                <th data-options="field:'D18',width:80,align:'center'">18日</th>
+                <th data-options="field:'D19',width:80,align:'center'">19日</th>
+                <th data-options="field:'D20',width:80,align:'center'">20日</th>
+
+                <th data-options="field:'D21',width:80,align:'center'">21日</th>
+                <th data-options="field:'D22',width:80,align:'center'">22日</th>
+                <th data-options="field:'D23',width:80,align:'center'">23日</th>
+                <th data-options="field:'D24',width:80,align:'center'">24日</th>
+                <th data-options="field:'D25',width:80,align:'center'">25日</th>
+                <th data-options="field:'D26',width:80,align:'center'">26日</th>
+                <th data-options="field:'D27',width:80,align:'center'">27日</th>
+                <th data-options="field:'D28',width:80,align:'center'">28日</th>
+                <th data-options="field:'D29',width:80,align:'center'">29日</th>
+                <th data-options="field:'D30',width:80,align:'center'">30日</th>
+                <th data-options="field:'D31',width:80,align:'center'">31日</th>
+               
+            </tr>
+        </thead>
+    </table>
+    
+
+    </div>
+    <!-- 功能按钮 -->
+    <div id="tb" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: 100%">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #444;">
+                    查询结果
+                </td>
+                <td style="text-align: right;">
+                    
+                    <input id="Button1" type="button" title="导出Excel文件" onclick="Export()" class="btnBlue" style="width:50px;" value="导出" />
+                </td>
+            </tr>
+        </table>
+    </div>
+   
+</body>
+</html>

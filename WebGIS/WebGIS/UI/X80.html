@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>一汽解放智能锁车服务系统</title>
+    <link href="Libs/themes/Site.css" rel="stylesheet" type="text/css" />
+    <link href="_styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="_js/Common.js" type="text/javascript"></script>
+    <script src="_js/login.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var mytime1;
+        //刷新验证码
+        function RefreshImage() {
+            var el = document.getElementById("Image1");
+            el.src = 'CheckCode.aspx?random=' + Math.random(); //这个特别重要
+            mytime1 = new Date();
+            setTimeout('RefreshImage()', 100000);
+        }
+        function load() {
+            mytime1 = new Date();
+
+        }
+        //绑定回车事件
+        function BindEnter(obj) {
+            var button = document.getElementById('server');
+            if (obj.keyCode == 13) {
+                button.click();
+                obj.returnValue = false;
+            }
+        }
+
+    </script>
+</head>
+<body onload="GetUser();RefreshImage();" onkeydown="BindEnter(event)">
+    <form runat="server">
+    <center>
+        <div style="position: relative; width: 1024px; height: 672px; margin: 0 auto; background-image: url('_styles/images/loginbg.png')">
+            <table style="width: 100%; height: 50px; border: 0px; background-color: #005397;">
+                <tr>
+                    <td width="60">
+                        <img src="_styles/images/logo_01.png" alt="Dpartner" style="top: 4px; left: 6px;" />
+                    </td>
+                    <td valign="middle" style="width: 250px">
+                        <span style="color: #FFFFFF; font-size: 14pt; font-weight: bold;">一汽解放智能锁车服务系统 </span>
+                    </td>
+                    <td valign="middle">
+                        <img src="_styles/images/headbg_01.png" alt="" style="top: 1px; left: 176px; width: 436px;
+                            height: 50px;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 1022px; height: 574px; border: 0px; background-color: #FFFFFF;">
+                <tr>
+                    <td align="center" valign="middle">
+                        <img src="_styles/images/u8_02.jpg" alt="" style="top: 0px; left: 0px;
+                            width: 586px; height: 391px;" />
+                    </td>
+                    <td align="center" valign="middle" style="width:301px">
+                        <table style="border: 0px; border-collapse: collapse;width: 301px; height: 311px; background: url('_styles/images/u12.png') no-repeat center center;">
+                            <tr>
+                                <td colspan="3" align="left" style="padding-left: 10px;">
+                                    <span style="color: #3B3838; font-size: 13pt;">用户登录 </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span style="color: #3B3838; font-size: 11pt;">用户名：</span>
+                                </td>
+                                <td colspan="2" align="left" style="padding-right: 25px;">
+                                    <input name="name" type="text" id="name" tabindex="1" class="easyui-validatebox"
+                                        style="width: 170px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span style="color: #3B3838; font-size: 11pt;">密&nbsp;&nbsp;&nbsp;码：</span>
+                                </td>
+                                <td colspan="2" align="left" style="padding-right: 25px;">
+                                    <input name="pass" type="password" id="pass" tabindex="2" class="easyui-validatebox"
+                                        style="width: 170px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <span style="color: #3B3838; font-size: 11pt;">验证码：</span>
+                                </td>
+                                <td style="width: 100px;" align="left">
+                                    <input type="text" id="yz" name="yz" tabindex="3" class="easyui-validatebox" style="width: 100px" />
+                                </td>
+                                <td style="width: 70px;" align="left">
+                                    <img id="Image1" src="" style="cursor: pointer; width: 65px; height: 24px;" onmouseup="RefreshImage()"
+                                        alt="点击刷新" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="2" align="left" valign="middle">
+                                    <input type="checkbox" id="btn_check" tabindex="5" value="记住我" style="height: 15px;" /><span
+                                        style="color: #3B3838; font-size: 11pt;">记住密码</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="2" align="left">
+                                    <input id="server" type="button" title="登录"  class="loginbtn" value="初始化中……" disabled="disabled" onclick="login()" />
+                                    <!--<a href="#" id="server" class="easyui-linkbutton" onclick="login();" tabindex="4">&nbsp;&nbsp;确定&nbsp;&nbsp;
+                                    </a>&nbsp;-->
+                                    <input type="hidden" name="HiddenField1" id="HiddenField1" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 50px">
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 1022px; height: 41px; border: 0px; background-color: #F2F2F2;">
+                <tr>
+                    <td>
+                    </td>
+                    <td align="right" valign="middle" style="width:80px">
+                        &nbsp;</td>
+                    <td valign="middle" align="left" style="width: 180px; padding-left:10px;">
+                        <span style="color: #3B3838;">&nbsp;</span></td>
+                    <td valign="middle" align="left" style="width: 150px">
+                        <span style="color: #3B3838;">&nbsp;</span></td>
+                    <!-- <td valign="middle" align="left" style="width: 50px">
+                        <a href="huadun.htm" target="_blank">防伪验证</a>
+                    </td>-->
+                </tr>
+            </table>
+        </div>
+        <input id="sysflag" type="hidden" value="YQWL" />
+           <!--<input id="sysflag" type="hidden" value="JFJY" />-->
+    </center>
+    </form>
+   <script type="text/javascript">
+       TestAMap();
+    </script>
+</body>
+</html>

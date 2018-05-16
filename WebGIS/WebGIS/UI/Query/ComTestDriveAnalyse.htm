@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>试乘试驾综合分析表</title>
+      <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/ComTestDriveAnalyse.js" type="text/javascript"></script>
+   
+</head>
+<body id="MainLay" class="easyui-layout">
+    <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 50px; text-align: right;">
+                        开始时间
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input id="STime" style="width: 100px;"  class="easyui-datebox" editable="false" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        结束时间
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input id="ETime" style="width: 100px;"   class="easyui-datebox" editable="false" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        车型
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input name="txtClyt" id="cartype" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        车牌号
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input name="txtClyt" id="carno" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+
+                    <td style="width: 50px;text-align:right;">
+                        
+                        <input  type="button" title="查询"  onclick="queryData_Sf()" class="btnGreen" style="width:50px;" value="查询" />
+                    </td>
+                   
+                   
+                </tr>
+
+                <tr>
+                    <td style="width: 50px; text-align: right;">
+                        销售大区
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <select class="easyui-combobox"  id="SSalesRegion" style="width:100px;"
+                         data-options="
+                                onChange: function(a,b){    
+                                 setSSalesProvince(a);
+                                }"
+                         >
+                                <option value="">全部</option>
+                                <option value="东北">东北</option>
+                                <option value="华北">华北</option>
+                                <option value="华东">华东</option>
+                                <option value="华中">华中</option>
+                                <option value="南部">南部</option>
+                                <option value="西部">西部</option>
+                         </select>
+                    </td>
+                    <td style="width: 50px; text-align: right;">
+                        销售省区
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                         <input id="SSalesProvince" class="easyui-combobox" style="width: 100px" 
+                        data-options="valueField: 'val',textField: 'text',
+                                      data: [{ val: '',
+			                                   text: '全部',
+                                               selected: true
+		                                     }],
+                                      onChange: function(a,b){    
+                                        setSDealersName(a);
+                                      }" />
+                    </td>
+                    <td style="width: 60px; text-align: right;">
+                        经销商名称
+                    </td>
+                    <td colspan=3 style="width: 258px; text-align: left;">
+                        <input id="SDealersName" class="easyui-combobox" style="width: 258px" 
+                        data-options="valueField: 'DealerCode',textField: 'DealerName',
+                                      data: [{ DealerCode: '',
+			                                   DealerName: '全部',
+                                               selected: true
+		                                     }]"
+                                      />
+                    </td>
+                    <td style="width: 60px; text-align: right;">
+                        经销商代码
+                    </td>
+                    <td style="width: 100px; text-align: left;">
+                        <input name="txtClyt" id="dealercode" class="easyui-textbox" type="text" style="width: 100px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div  data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px; width: auto; height: auto;">
+
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+                                                            rownumbers:true,
+			                                                singleSelect:true,
+			                                                autoRowHeight:false,
+                                                            toolbar:'#tb',
+                                                            fit:true,
+                                                            border:true,
+                                                            fitColumns:false ">
+        <thead data-options="frozen:true">
+            <tr>
+                <th data-options="field:'AREA',width:80,align:'center'">销售大区</th>
+                <th data-options="field:'PROVINCE',width:80,align:'center'">销售省区</th>
+                <th data-options="field:'CODE',width:80,align:'center'">经销商代码</th>
+                <th data-options="field:'DEALERNAME',width:200,align:'center'">经销商名称</th>
+                <th data-options="field:'CTNAME',width:80,align:'center'">车型</th>
+                <th data-options="field:'CarNo',width:80,align:'center'">车牌号</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th data-options="field:'DCOUNT',width:140,align:'center'">试乘试驾次数</th>
+                <th data-options="field:'MILESSUM',align:'center'">试乘试驾里程</th>
+                <th data-options="field:'TOTALMILES',align:'center'">总行驶里程</th>
+                <th data-options="field:'MILESPCT',align:'center'">试乘试驾里程占比</th>
+                <th data-options="field:'TIMESUM',align:'center'">试乘试驾时间</th>
+                <th data-options="field:'TOTALTIMESUM',align:'center'">总行驶时间</th>
+
+                <th data-options="field:'TIMEPCT',align:'center'">试乘试驾时间占比</th>
+                <th data-options="field:'OFFCOUNT',align:'center'">驶出活动范围次数</th>
+                <th data-options="field:'OFFMILESSUM',align:'center'">驶出活动范围里程</th>
+                <th data-options="field:'OFFTIMESUM',align:'center'">驶出活动范围时间</th>
+                <th data-options="field:'OFFMILESPCT',align:'center'">驶出活动范围里程占比</th>
+                <th data-options="field:'OFFTIMEPCT',align:'center'">驶出活动范围时间占比</th>
+
+            </tr>
+        </thead>
+    </table>
+    
+
+    </div>
+    <!-- 功能按钮 -->
+    <div id="tb" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: 100%">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #444;">
+                    查询结果
+                </td>
+                <td style="text-align: right;">
+                    
+                    <input id="Button1" type="button" title="导出Excel文件" onclick="Export()" class="btnBlue" style="width:50px;" value="导出" />
+                </td>
+            </tr>
+        </table>
+    </div>
+   
+</body>
+</html>

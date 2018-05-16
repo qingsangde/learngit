@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>车辆设备上线率月统计表</title>
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/OnLineRate_Month.js" type="text/javascript"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 80px; text-align: right;">
+                        开始日期
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="STime" name="STime" class="easyui-datebox" editable="false" />
+                    </td>
+                    <td style="width: 80px; text-align: right;">
+                        结束日期
+                    </td>
+                    <td style="width: 160px; text-align: left;">
+                        <input id="ETime" name="ETime" class="easyui-datebox" editable="false" />
+                    </td>
+                    <td style="text-align: left;">
+                        <span style="font-size: 11px; color: Red;">&nbsp;&nbsp;&nbsp;&nbsp;不可跨月查询</span>
+                    </td>
+                    <td style="text-align: left;">
+                        <input type="button" title="查询" onclick="queryData_col()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+     <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        width: auto; height: auto;">
+        <table id="dg" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:true,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#tb',
+            border:true,
+			loadMsg: '',
+            fitColumns:false ">
+        </table>
+    </div>
+    <!-- 功能按钮 -->
+    <div id="tb" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: 100%">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #444;">
+                    查询结果
+                </td>
+                <td style="text-align: right;">
+                    <input id="Button1" type="button" title="导出Excel文件" class="btnBlue" style="width: 50px;"
+                        value="导出" onclick="Export()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

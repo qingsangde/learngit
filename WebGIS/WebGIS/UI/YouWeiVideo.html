@@ -1,0 +1,223 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+	
+    <script language="javascript" type="text/javascript">
+		var Ctrl = null;
+		// 122.141.236.235:30008  吉AC207
+		var IP = "122.141.236.235";
+		var PORT = 30008;
+		var CHANNEL = 1;
+
+		window.onload = function() {
+			mycontrl();
+		}
+		
+		window.onunload = function() {
+			if (Ctrl)
+			{
+				Ctrl.NetStopAll();
+				Ctrl.NetCloseAll();
+				
+			}
+		}
+
+		// 初始化服务器连接
+		function mycontrl() {
+			Ctrl = document.getElementById("OCX");
+			if (Ctrl != null) {
+				// Ctrl.ConnectMediaServer(IP, PORT);
+				// Ctrl.ShowVideoOnly(0);
+			}
+		}
+
+		function loop(){
+			var o = document.getElementById("debug");
+			if (Ctrl)
+			{
+				setInterval(function(){
+					if (o)
+					{
+						o.innerHTML = Ctrl.IsConnected();
+					}
+					
+				}, 1000);
+			}
+			
+		}
+
+
+		function connect(){
+			var ip = document.getElementById("ip").value;
+			if(ip == "") {
+				alert("请输入IP地址.");
+				return ;
+			}
+			Ctrl.ConnectMediaServer(ip, document.getElementById("port").value);
+
+
+			loop();
+		}
+
+		
+		// 播放指定车辆视频
+		function play(){
+			// alert(document.getElementById("channel").value);
+			var name = document.getElementById("name").value;
+			if(name == "") {
+				alert("请输入车牌号.");
+				return ;
+			}
+			var nResult = Ctrl.NetOpenEx(
+				document.getElementById("name").value, 
+				document.getElementById("channel").value,
+				document.getElementById("camera").value, 
+				document.getElementById("ip").value, 
+				document.getElementById("port").value, 
+				0, 0, 0
+			);
+			if (nResult != 0)
+			{
+				alert("无法播放, 可能正在连接服务器, 请稍后.....");
+				return; // 连接失败
+			}
+			Ctrl.NetPlay(document.getElementById("channel").value);
+		}
+		
+		// 停止指定通道号的视频播放
+		//function stop(){
+		//	Ctrl.NetStop(document.getElementById("channel").value);
+		//}
+		
+		// 关闭指定通道号的链接
+		function closeChannel(){
+			Ctrl.NetStop(document.getElementById("channel").value);
+			Ctrl.NetClose(document.getElementById("channel").value);
+		}
+		
+		var showFlag = 1;
+
+		function showAllNot(){
+			if (showFlag)
+			{
+				if (document.getElementById("name").value == "")
+				{
+					alert("请填写车牌号码");
+					return;
+				}
+				Ctrl.SelectVehicle(document.getElementById("name").value);
+				Ctrl.SetUIModeRemoteHistory()
+				showFlag = 0;
+			}else{
+				showFlag = 1;
+			}
+			Ctrl.ShowVideoOnly(showFlag);
+		}
+
+		function showAllNotClose(){
+			Ctrl.SetScreenCount(4);
+			Ctrl.ShowVideoOnly(1);
+		}
+
+
+		function closeAllChannel(){
+			Ctrl.NetStopAll()
+			Ctrl.NetCloseAll();
+		}
+
+		function shotCut(){
+
+			if (document.getElementById("filePath").value == "")
+			{
+				alert("请输入图片保存路径");
+				return;
+			}
+
+			if (Ctrl != null)
+			{
+				Ctrl.SnapToFile(document.getElementById("channel").value, document.getElementById("filePath").value);
+			}
+		}
+
+		function evalJSONString(str) {
+			return eval("(" + str + ")");
+		}
+
+		function screenshot() {
+			try
+			{
+				var base64winnum = document.getElementById("base64winnum").value;
+				var base64type = document.getElementById("base64type").value;
+				var showScreenshot = document.getElementById("showScreenshot");
+				var srcHead = [];
+					srcHead.push("data");
+					srcHead.push(":");
+					switch(base64type) {
+						case 0:
+						default:
+							srcHead.push("image/bmp");
+							break;
+					}
+					srcHead.push(";");
+					srcHead.push("base64");
+					srcHead.push(",");
+
+				var srcData = Ctrl.SnapToBase64Data(base64winnum, base64type);
+				if(srcData == "") {
+					alert("截图数据为空.");
+					return ;
+				}
+				try {
+					srcData = evalJSONString(srcData);
+					srcData = srcData.Pic;
+				}
+				catch (e) {
+				}
+				var cImg = document.createElement("img");
+				cImg.src = srcHead.join("") + srcData;
+				showScreenshot.appendChild(cImg);
+				location.hash = "showScreenshot";
+			}
+			catch (e)
+			{
+				alert(e.message);
+			}
+		}
+		
+    </script>
+
+</head>
+<body>
+	<b style="color:red;">
+		注：使用该页面之前需要注册相应的OCX控件, 注册文件路径在 \BIN\CtrlCom(20121120)\registerfilter.bat, 双击该文件即可完成注册, <br />
+		如果要取消注册则双击同目录下unregisterfilter.bat即可
+	</b>
+    <a href="播放控件及说明.rar">控件下载</a>
+	<div id="debug"></div>
+	<div>IP:<input id="ip" type="text" value="" />, 端口:<input id="port" type="text" value="30008" /><button onclick="connect();">连接服务器</button></div>
+	<div>
+		车牌号:<input id="name" type="text" value="" />
+		选择通道:<select id="channel"><option value=1>通道1</option><option value=2>通道2</option><option value=3>通道3</option><option value=4>通道4</option></select>
+		选择摄像头:<select id="camera"><option value=1>摄像头1</option><option value=2>摄像头2</option><option value=3>摄像头3</option><option value=4>摄像头4</option><option value=5>摄像头5</option><option value=6>摄像头6</option></select>
+		<button onclick="play();">播放</button>
+		<button onclick="closeChannel();">关闭</button>
+		<!--
+		|
+		<button onclick="shotCut()">抓屏幕</button>
+		<input id="filePath" type="text" value="" />抓屏路径设置
+		-->
+		|
+		<button onclick="showAllNot();">显示历史播放窗口</button>
+		<button onclick="showAllNotClose();">关闭历史播放窗口</button>
+		<button onclick="closeAllChannel();">关闭所有通道</button>
+	</div>
+	<div>
+		窗口号:<input id="base64winnum" type="text" value="1" /> 
+		图片类型:<select id="base64type"><option value="0">bmp</option></select> 
+		<input type="button" value="截图" onclick="screenshot();">
+	</div>
+    <div><object style="width:1024px; height:768px" id="OCX" classid="clsid:6A4D7CA5-03B1-4A5B-97C2-A24AE5A87EA9" codebase="mediacontrol.cab"></object></div>
+	<div id="showScreenshot"></div>
+</body>
+</html>

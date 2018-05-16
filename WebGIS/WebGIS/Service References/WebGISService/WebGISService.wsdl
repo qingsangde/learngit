@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="KY_GetPendingWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KY_GetPendingWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KY_GetPendingWorkResult" type="tns:ArrayOfKY_PendingWork" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKY_PendingWork">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KY_PendingWork" nillable="true" type="tns:KY_PendingWork" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KY_PendingWork">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WorkType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorkCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XD_lockOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sysflag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cid" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tno" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lockType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="torque" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="rotspeed" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="lockreason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unlockreason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_lockOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XD_lockOrderResult" type="tns:ResponseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="result" />
+          <s:element minOccurs="0" maxOccurs="1" name="rtime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XD_queryStatusOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sysflag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cid" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tno" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_queryStatusOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XD_queryStatusOrderResult" type="tns:ResponseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_activateOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sysflag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cid" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tno" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="energytype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_activateOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XD_activateOrderResult" type="tns:ResponseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_setParamOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sysflag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cid" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tno" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="datevalue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dayvalue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="minutevalue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XD_setParamOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XD_setParamOrderResult" type="tns:ResponseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KY_GetPendingWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:KY_GetPendingWork" />
+  </wsdl:message>
+  <wsdl:message name="KY_GetPendingWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:KY_GetPendingWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="XD_lockOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:XD_lockOrder" />
+  </wsdl:message>
+  <wsdl:message name="XD_lockOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:XD_lockOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="XD_queryStatusOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:XD_queryStatusOrder" />
+  </wsdl:message>
+  <wsdl:message name="XD_queryStatusOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:XD_queryStatusOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="XD_activateOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:XD_activateOrder" />
+  </wsdl:message>
+  <wsdl:message name="XD_activateOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:XD_activateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="XD_setParamOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:XD_setParamOrder" />
+  </wsdl:message>
+  <wsdl:message name="XD_setParamOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:XD_setParamOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebGISServiceSoap">
+    <wsdl:operation name="KY_GetPendingWork">
+      <wsdl:input message="tns:KY_GetPendingWorkSoapIn" />
+      <wsdl:output message="tns:KY_GetPendingWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XD_lockOrder">
+      <wsdl:input message="tns:XD_lockOrderSoapIn" />
+      <wsdl:output message="tns:XD_lockOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XD_queryStatusOrder">
+      <wsdl:input message="tns:XD_queryStatusOrderSoapIn" />
+      <wsdl:output message="tns:XD_queryStatusOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XD_activateOrder">
+      <wsdl:input message="tns:XD_activateOrderSoapIn" />
+      <wsdl:output message="tns:XD_activateOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XD_setParamOrder">
+      <wsdl:input message="tns:XD_setParamOrderSoapIn" />
+      <wsdl:output message="tns:XD_setParamOrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebGISServiceSoap" type="tns:WebGISServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KY_GetPendingWork">
+      <soap:operation soapAction="http://tempuri.org/KY_GetPendingWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_lockOrder">
+      <soap:operation soapAction="http://tempuri.org/XD_lockOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_queryStatusOrder">
+      <soap:operation soapAction="http://tempuri.org/XD_queryStatusOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_activateOrder">
+      <soap:operation soapAction="http://tempuri.org/XD_activateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_setParamOrder">
+      <soap:operation soapAction="http://tempuri.org/XD_setParamOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebGISServiceSoap12" type="tns:WebGISServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KY_GetPendingWork">
+      <soap12:operation soapAction="http://tempuri.org/KY_GetPendingWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_lockOrder">
+      <soap12:operation soapAction="http://tempuri.org/XD_lockOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_queryStatusOrder">
+      <soap12:operation soapAction="http://tempuri.org/XD_queryStatusOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_activateOrder">
+      <soap12:operation soapAction="http://tempuri.org/XD_activateOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XD_setParamOrder">
+      <soap12:operation soapAction="http://tempuri.org/XD_setParamOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebGISService">
+    <wsdl:port name="WebGISServiceSoap" binding="tns:WebGISServiceSoap">
+      <soap:address location="http://dptest.qm.cn:3706/Webgis/service/WebGISService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebGISServiceSoap12" binding="tns:WebGISServiceSoap12">
+      <soap12:address location="http://dptest.qm.cn:3706/Webgis/service/WebGISService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>销贷车辆参数设置</title>
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/XiaoDaiParamDown.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <div id="loading-car" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <div data-options="region:'north',border:false" style="padding: 10px 20px 0px 20px;
+        height: 90px; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="text-align: right; white-space: nowrap;">
+                        车牌号
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-validatebox" type="text" style="width: 80px" />&nbsp;&nbsp;
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        VIN码
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;">
+                        <input id="txtVIN" name="txtVIN" class="easyui-validatebox" type="text" style="width: 80px" />&nbsp;&nbsp;
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        激活状态
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;">
+                        <input id="selActiv" class="easyui-combobox" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '-1',text: '全部'},
+                                       {value: '0',text: '未激活'},
+                                       {value: '1',text: '已激活'}]" style="width: 80px" />&nbsp;&nbsp;
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        锁车状态
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;">
+                        <input id="selLockStatus" class="easyui-combobox" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '-1',text: '全部'},
+                                       {value: '0',text: '未锁车'},
+                                       {value: '1',text: '平台锁车'},
+                                       {value: '2',text: '还款逾期锁车'},
+                                       {value: '3',text: '重启锁车生效'}]" style="width: 100px" />&nbsp;&nbsp;
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        还款到期情况
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;">
+                        <input id="selTimeLimit" class="easyui-combobox" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '0',text: '全部'},
+                                       {value: '1',text: '已到期'},
+                                       {value: '2',text: '未到期'},
+                                       {value: '3',text: '即将到期'}]" style="width: 80px" />&nbsp;&nbsp;
+                    </td>
+                    <td style="width: 50px; text-align: right; white-space: nowrap;">
+                        <input type="button" title="查询" onclick="selectCar()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                    </td>
+                </tr>
+                <!--<tr>
+                   
+                    
+                    
+                </tr>-->
+            </table>
+        </div>
+    </div>
+    <div data-options="region:'center',border:false" style="padding: 10px 20px 0px 20px;
+        height: auto; width: auto">
+        <table id="dg" class="easyui-datagrid" data-options="rownumbers:true,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:false,
+            fit:true,
+            border:true,
+            fitColumns:true">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true">
+                    </th>
+                    <th data-options="field:'CarNo',width:100">
+                        车牌号
+                    </th>
+                    <th data-options="field:'DPH',width:100">
+                        VIN码
+                    </th>
+                    <th data-options="field:'EnergyTypeName',width:100">
+                        发动机类型
+                    </th>
+                    <th data-options="field:'os',width:80">
+                        在线状态
+                    </th>
+                    <th data-options="field:'CarDName',width:100">
+                        司机姓名
+                    </th>
+                    <th data-options="field:'CarDT',width:100">
+                        司机电话
+                    </th>
+                    <th data-options="field:'alarmstr',width:100">
+                        报警状态
+                    </th>
+                    <th data-options="field:'Activ',width:100">
+                        激活状态
+                    </th>
+                    <th data-options="field:'Lockstatus',width:100">
+                        锁车状态
+                    </th>
+                    <th data-options="field:'RepaymentDate',width:100">
+                        还款日期
+                    </th>
+                    <th data-options="field:'RemindDays',width:100">
+                        提醒天数
+                    </th>
+                    <th data-options="field:'DisconTimes',width:130">
+                        无通讯链接最长时间
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div data-options="region:'south',border:false" style="padding: 10px 20px 10px 20px;
+        height: 300px; width: auto">
+        <div id="locksetdiv" class="easyui-panel" title="车辆锁定设置" style="padding: 0px; margin: 0px;
+            padding-top: 8px;">
+            <table width="100%" cellpadding="5px">
+                <tr>
+                    <td style="width: 50%; white-space: nowrap;" align="left" valign="middle">
+                        <input name="LockType" type="radio" class="easyui-validatebox" required="true" value="0xA8" />立即锁车
+                    </td>
+                    <td style="width: 40%; white-space: nowrap;" align="left" valign="middle">
+                        <input name="LockType" type="radio" class="easyui-validatebox" required="true" value="0x8A" />立即解锁
+                    </td>
+                    <!--<td style="width: 20%; white-space: nowrap;" align="left">
+                        <input name="LockType" type="radio" class="easyui-validatebox" required="true" value="0xAA" />已还清贷款
+                    </td>-->
+                    <td style="width: 10%" align="left" rowspan="2">
+                        <input type="button" title="设置" onclick="sendXiaodaiLockOrder()" class="btnGreen"
+                            style="width: 80px;" value="设置" />
+                    </td>
+                </tr>
+                <tr id="trlockinfo">
+                   <!-- <td style="white-space: nowrap">
+                        &nbsp; 锁车转速:<input id="lockRev" name="lockRev" type="text" class="easyui-numberbox"
+                            value="100" data-options="min:0,max:1200" style="width: 40px" />rpm&nbsp; &nbsp;
+                        锁车扭矩:<input id="lockNj" name="lockNj" type="text" class="easyui-numberbox" value="0"
+                            data-options="min:0,max:100" style="width: 40px" />%
+                    </td>-->
+                     <td style="white-space: nowrap">
+                       <input name="LDataType" type="radio" class="easyui-validatebox" required="true" value="1"  checked="checked"/>锁车转速:
+                       <input id="lockRev" name="lockRev" type="text" class="easyui-numberbox"
+                            value="1200" data-options="min:0" style="width: 40px" />rpm&nbsp; &nbsp;
+                        <input name="LDataType" type="radio" class="easyui-validatebox" required="true" value="2" />锁车扭矩:<input id="lockNj" name="lockNj" type="text" class="easyui-numberbox" value="0"
+                            data-options="min:0,max:100" style="width: 40px" />%
+                    </td>
+                    <td>
+                        <!--&nbsp;解锁转速:<input id="unlockRev" name="unlockRev" type="text" class="easyui-numberbox"
+                            value="100" data-options="min:3000,max:6000" style="width: 40px" />rpm-->
+                        &nbsp;解锁原因:<input id="unlockDesc" name="unlockDecs" type="text" class="easyui-validatebox"
+                            style="width: 150px;" />
+                    </td>
+                    <!--<td>
+                        <input name="LockType" type="radio" class="easyui-validatebox" required="true" value="0x00" />取消所有紧急限制
+                    </td>-->
+                </tr>
+                <tr>
+                    <td style="white-space: nowrap">
+                        &nbsp; 锁车原因:<input id="lockDesc" name="lockDecs" type="text" class="easyui-validatebox"
+                            style="width: 150px;" />
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="Div1" style="border: 0px; padding: 0px; margin: 0px; padding-top: 8px;">
+            <div id="vinlockdiv" class="easyui-panel" title="车辆销贷功能激活设置" style="padding: 0px;
+                margin: 0px; padding-top: 8px;">
+                <table width="100%" cellpadding="5px">
+                    <tr>
+                        <td style="width: 50%; white-space: nowrap;" align="left" valign="middle">
+                            <input name="VinType" type="radio" class="easyui-validatebox" required="true" value="0xAA" />激活
+                        </td>
+                        <td style="width: 40%; white-space: nowrap;" align="left">
+                            <input name="VinType" type="radio" class="easyui-validatebox" required="true" value="0x55" />关闭
+                        </td>
+                        <!--<td style="width: 20%; white-space: nowrap;" align="left">
+                         VIN号:<input id="vincode" name="vincode" type="text" class="easyui-validatebox" style="width:150px;" />
+                    </td>-->
+                        <td style="width: 10%; white-space: nowrap;" align="left" valign="middle">
+                            <input type="button" title="设置" onclick="sendXiaodaiVINParamOrder()" class="btnGreen"
+                                style="width: 80px;" value="设置" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="ordertimediv" style="border: 0px; padding: 0px; margin: 0px; padding-top: 8px;">
+            <div id="paramsetdiv" class="easyui-panel" title="贷款参数设置" style="padding: 0px; margin: 0px;
+                padding-top: 8px;">
+                <table width="100%" cellpadding="5px">
+                    <tr>
+                        <td style="width: 35%; white-space: nowrap;" align="left">
+                            还款日期:<input id="lTime" name="lTime" class="easyui-datebox" editable="false" /><!--<input
+                                id="nullTime" type="checkbox" value="000000" name="ck" />无锁车日期-->
+                        </td>
+                        <td style="width: 35%; white-space: nowrap;" align="left">
+                            还款到期日提前提醒天数:<input id="txtDays" name="txtDays" type="text" class="easyui-numberbox"
+                                value="10" data-options="min:1,max:100" style="width: 30px" />天
+                        </td>
+                        <td style="width: 20%; white-space: nowrap;" align="left">
+                            无通信连接最长连续时间:<input id="txtMinutes" name="txtMinutes" type="text" class="easyui-numberbox"
+                                value="10" data-options="min:10,max:45" style="width: 30px" />天(10-45)
+                        </td>
+                        <td style="width: 10%" align="left">
+                            <input type="button" title="设置" onclick="sendXiaodaiParamOrder()" class="btnGreen"
+                                style="width: 80px;" value="设置" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

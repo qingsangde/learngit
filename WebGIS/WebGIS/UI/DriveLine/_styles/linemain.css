@@ -1,0 +1,37 @@
+﻿.easyui-accordion ul
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+}
+.easyui-accordion ul li
+{
+    padding: 0px;
+}
+
+.easyui-accordion ul li div
+{
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 24px;
+    vertical-align: middle;
+}
+.easyui-accordion ul li div:hover
+{
+    background-color: #41A0DA;
+}
+
+
+.accordion-noborder .accordion-body
+{
+    border-width: 0 0 1px;
+    background-color: #405E88;
+}
+
+.accordion .accordion-header {
+  background: #f3f3f3;
+  filter: none;
+}
+.accordion .accordion-header-selected {
+  background: #0092DC;
+}

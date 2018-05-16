@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>试乘试驾线路匹配车辆</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=736ee15f242085b54b92927303b7752b"></script>
+    <script src="_js/drivelinecar.js" type="text/javascript"></script>
+    <script src="_js/drivelinecarmapControl.js" type="text/javascript"></script>
+    <style type="text/css">
+        .datagrid-header-rownumber, .datagrid-cell-rownumber
+        {
+            width: 35px;
+        }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div id="loading-mask">
+        <div id="pageloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            正在加载数据,请稍候...
+        </div>
+    </div>
+    <div data-options="region:'north',title:'选择试乘试驾线路',collapsible:false" style="height: 80px;
+        padding: 5px;">
+        <table style="width: 100%;">
+            <tr>
+                <td id="tdFence" style="text-align: left; width: 300px; white-space: nowrap">
+                    线路名称
+                    <input id="ff" class="easyui-combogrid" style="width: 200px;" data-options="    
+            panelWidth:650, panelHeight: 250,     
+            idField:'L_Id',    
+            textField:'L_Name',        
+            columns:[[    
+                {field:'L_Name',title:'线路名称',width:80},    
+                {field:'L_CenterLng',title:'区域中心经度',width:80},    
+                {field:'L_CenterLat',title:'区域中心纬度',width:80},
+                {field:'L_RADIUS',title:'区域半径',width:80}, 
+                {field:'DEALERNAME',title:'线路所属经销商',width:130}, 
+                {field:'Desc',title:'备注',width:200}   
+            ]]    
+        " />
+                </td>
+                <td>
+                    <div id="spanFence">
+                        线路名称：<span id="spanLname" style="color: #191970; font-weight: bold;"></span> &nbsp;&nbsp;
+                        线路所属经销商：<span id="spanDealerName" style="color: #191970; font-weight: bold;"></span>
+                        &nbsp;&nbsp;
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div  data-options="region:'west',title:'线路地图显示'" style="width: 460px;">
+     <div id="container" style=" width:100%; height:100%"></div>
+    </div>
+    <div id="myTools" style="border: 1px solid #ccc; position: absolute; z-index: 9998;
+        left: 50px; bottom: 60px; background-color: #F4F4F4;">
+        <a title="缩放最小" href="#" onclick="zoomOut()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomin'">
+        </a><a title="缩放最大" href="#" onclick="zoomIn()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-zoomout'">
+        </a><a title="测距" href="#" onclick="doRuler()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ruler'">
+        </a><a title="打印" href="#" onclick="doPrint()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">
+        </a><a title="刷新" href="#" onclick="reloadMap()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">
+        </a>
+    </div>
+    <div data-options="region:'center',title:'车辆选择',collapsible:false" style="overflow: hidden;">
+        <table style="height: 100%; width: 100%; border: 0px; border-collapse: collapse;">
+            <tr style="height: 50px;">
+                <td align="left" colspan="3" style="border: 1px solid #99BBE8; border-bottom: none;
+                    border-collapse: collapse; white-space: nowrap; padding-left: 1px;">
+                    <div id="divFilter" style="padding: 0px; border: 0px;">
+                        <!--<table style="width: 100%;">
+                        <tr>-->
+                        <!--<td style="white-space: nowrap;">-->
+                        过滤列表：
+                        <select class="easyui-combobox" style="width: 80px;" id="selType">
+                            <option value="1">待选列表</option>
+                            <option value="2">已选列表</option>
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <!--</td>
+                            <td style="white-space: nowrap;">-->
+                        过滤条件：
+                        <select class="easyui-combobox" style="width: 80px;" id="selContent">
+                            <option value="0">全部</option>
+                            <option value="1">车牌号</option>
+                            <option value="2">所属企业</option>
+                            <option value="3">SIM卡号</option>
+                            <option value="4">车台类型</option>
+                            <option value="5">终端号码</option>
+                        </select>
+                        <input class="easyui-validatebox" type="text" name="txtSearch" id="txtSearch" style="width: 80px;" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <!--</td>
+                            <td style="white-space: nowrap;">-->
+                        <a href="#" id="btnFilter" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                            onclick="DoFilter()">过滤</a></div>
+                    <!-- </td>
+                        </tr>
+                    </table>-->
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; border: 1px solid #D3D3D3; border-bottom: none; vertical-align: top;">
+                    <!--<div class="easyui-layout" data-options="fit:true,title:'待选车辆',collapsible:false" style="width:150px; overflow:auto;">-->
+                    <table id="dgOptional">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'ck',checkbox:true">
+                                </th>
+                                <th data-options="field:'CarNo',width:80">
+                                    车牌号
+                                </th>
+                                <th data-options="field:'TNO',width:80">
+                                    终端号
+                                </th>
+                                <th data-options="field:'CarOwnName',width:160">
+                                    企业名称
+                                </th>
+                                <th data-options="field:'CUID',width:80">
+                                    车辆用途
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <!--</div>-->
+                </td>
+                <td align="center" style="vertical-align: middle; width: 8%; border: 1px solid #D3D3D3;
+                    border-left: none; border-right: none; border-bottom: none;">
+                    <a href="#" class="easyui-linkbutton" style="font-weight: bold" onclick="DoSelection()">
+                        >></a>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <a href="#" class="easyui-linkbutton" style="font-weight: bold" onclick="DoRevSelection()">
+                        <<</a>
+                </td>
+                <td style="width: 42%; border: 1px solid #D3D3D3; border-bottom: none; vertical-align: top;">
+                    <!--<div class="easyui-layout" data-options="fit:true,title:'已选车辆',collapsible:false" style="width:150px; overflow:auto;">-->
+                    <table id="dgSelected">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'ck',checkbox:true">
+                                </th>
+                                <th data-options="field:'CarNo',width:80">
+                                    车牌号
+                                </th>
+                                <th data-options="field:'TNO',width:80">
+                                    终端号
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <!--</div>-->
+                </td>
+            </tr>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding: 10px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                车辆数据加载中,请稍候...
+            </div>
+        </div>
+        <div id="saving_hold" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding: 10px;">
+            <div id="holdsaving">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                数据保存中,请稍候...
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south'" style="height: 40px; padding: 3px; text-align: center">
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
+            onclick="DoSave()">保存</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>里程统计</title>
+    <!--<script src="_js/excanvas.min.js" type="text/javascript"></script>-->
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/MileageCollect.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=736ee15f242085b54b92927303b7752b"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+        style="width: 250px; height: 120px; padding: 10px;">
+        <div id="trackloading">
+            <img src="../_styles/images/loading.gif" align="absmiddle" />
+            数据加载中,请稍候...
+        </div>
+    </div>
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto;">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        车牌号
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space:nowrap;">
+                        <input id="txtCph" name="txtCph" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        所属企业
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space:nowrap;">
+                        <input id="txtSsqy" name="txtSsqy" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        车辆用途
+                    </td>
+                    <td style="width: 160px; text-align: left;  white-space:nowrap;">
+                        <input name="txtClyt" id="txtClyt" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right; white-space:nowrap;">
+                        <input type="button" title="上月月报" onclick="QueryPrevMonthData()" class="btnOrange" style="width: 80px;"
+                            value="上月月报" />
+                        &nbsp;&nbsp;
+                        <input type="button" title="查询" onclick="queryData_Mc()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        运营线路
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space:nowrap;">
+                        <input id="txtYyxl" name="txtYyxl" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        开始时间
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space:nowrap;">
+                        <input id="STime" name="STime" class="easyui-datebox" editable="false" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space:nowrap;">
+                        结束时间
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space:nowrap;">
+                        <input id="ETime" name="ETime" class="easyui-datebox" editable="false" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+         height: auto; width: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:false,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#tb',
+            border:true,
+			loadMsg: '',
+            fitColumns:true ">
+            <thead>
+                <tr>
+                    <!--            <th data-options="field:'ck',checkbox:true">
+                    </th>-->
+                    <th field="No_ID" width="13" align="center">
+                        序号
+                    </th>
+                    <th data-options="field:'CarNo',width:15,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                        车牌号
+                    </th>
+                    <th field="BeginTime" width="15" align="center">
+                        起始时间
+                    </th>
+                    <th data-options="field:'T_Lati_T_Long',width:15,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                        起始地址
+                    </th>
+                    <th field="EndTime" width="15" align="center">
+                        结束时间
+                    </th>
+                    <th data-options="field:'Last_Lati_Last_Long',width:15,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                        结束地址
+                    </th>
+                    <th field="Mileage" width="15" align="center">
+                        行驶里程
+                    </th>
+                    <th field="Fuel" width="15" align="center">
+                        行驶油耗
+                    </th>
+                    <th field="cid" width="15" align="center" hidden="true">
+                        车辆ID
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- 功能按钮 -->
+    <div id="tb" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: 100%">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #444;">
+                    查询结果
+                </td>
+                <td style="text-align: right;">
+                    <input id="Button1" type="button" title="导出Excel文件" onclick="Export()" class="btnBlue"
+                        style="width: 50px;" value="导出" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="MapWindows" class="easyui-window" title="地图位置标记" data-options="  draggable:false,modal:true,minimizable:false,maximizable:false,closed:true"
+        style="width: 50%; height: 70%; padding: 5px;">
+        <div id="iCenter" style="overflow: hidden; z-index: 999; width: 100%; height: 100%;">
+        </div>
+    </div>
+    <div id="InfoWindows" class="easyui-window" title="里程明细" data-options="  draggable:false,modal:true,minimizable:false,maximizable:false,closed:true"
+        style="width: 60%; height: 70%; padding: 5px;">
+        <div data-options="region:'center',border:false" style="padding: 0px 10px 0px 10px;
+            width: auto; height: 100%">
+            <table id="data_grid_info" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:false,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            
+            border:true,
+			
+            fitColumns:true ">
+                <thead>
+                    <!--<tr>
+                        <th field="No_ID" width="15" align="center">
+                            序号
+                        </th>
+                        <th field="C_No" width="15" align="center">
+                            车牌号
+                        </th>
+                        <th field="T_DateTime" width="20" align="center">
+                            时间
+                        </th>
+                        <th data-options="field:'latLng',width:20,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                            纬度-经度
+                        </th>
+                        <th field="T_Speed" width="15" align="center">
+                            速度
+                        </th>
+                        <th field="Mileage" width="15" align="center">
+                            当前里程
+                        </th>
+                    </tr>-->
+                    <tr>
+                        <th field="CarNo" width="15" align="center">
+                            车牌号
+                        </th>
+                        <th field="STAT_DAY" width="20" align="center">
+                            日期
+                        </th>
+                        <th field="FROM_DATETIME" width="20" align="center">
+                            起始时间
+                        </th>
+                        <th data-options="field:'FromLngLat',width:20,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                           起始经纬度
+                        </th>
+                        <th field="TO_DATETIME" width="20" align="center">
+                            结束时间
+                        </th>
+                        <th data-options="field:'ToLngLat',width:20,align:'center',styler: function(value,row,index){
+return 'color:blue;'}">
+                           结束经纬度
+                        </th>
+                        <th field="MILEAGE" width="20" align="center">
+                            当日里程
+                        </th>
+                        <th field="TotalMileage" width="20" align="center">
+                            总里程
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

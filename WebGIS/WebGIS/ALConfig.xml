@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <!--正式环境<WebServiceSysFlag>JFJY</WebServiceSysFlag>-->
+  <WebServiceSysFlag>DPTEST</WebServiceSysFlag>
+</DocumentElement>

@@ -1,0 +1,141 @@
+﻿.btnOrange  
+{
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u187.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnOrange:hover 
+{
+    background:url('u187_Over.png') 0 0px no-repeat; 
+}
+.btnBlue
+{
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u193.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnBlue:hover 
+{
+    background:url('u193_Over.png') 0 0px no-repeat; 
+}
+.btnGreen
+{
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u183.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnGreen:hover 
+{
+    background:url('u193_Over.png') 0 0px no-repeat; 
+}
+
+.btnAdd
+{
+    width:22px;
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u143.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnAdd:hover 
+{
+    background:url('u143_Over.png') 0 0px no-repeat; 
+}
+.btnCut
+{
+    width:22px;
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u151.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnCut:hover 
+{
+    background:url('u151_Over.png') 0 0px no-repeat; 
+}
+ .btnPause
+{
+    width:22px;
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u147.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnPause:hover 
+{
+    background:url('u147_Over.png') 0 0px no-repeat; 
+}
+
+ .btnPlay
+{
+    width:22px;
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u145.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnPlay:hover 
+{
+    background:url('u145_Over.png') 0 0px no-repeat; 
+}
+
+ .btnStop
+{
+    width:22px;
+    height:22px; 
+    line-height:22px; 
+    color:#FFFFFF; 
+    border:0 none; 
+    background:url('u149.png') 0 0px no-repeat; 
+    overflow:hidden; 
+    cursor: pointer;
+}
+.btnStop:hover 
+{
+    background:url('u149_Over.png') 0 0px no-repeat; 
+}
+
+.tabInput{
+    border-collapse: collapse; 
+    width: 98%;
+}
+
+.tabInput tr{
+    height:30px;
+    line-height:30px;
+}
+
+.tabShow
+{
+    border-collapse: collapse; 
+    width: 98%;
+}
+
+.tabShow tr{
+    height:20px;
+    line-height:20px;
+}

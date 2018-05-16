@@ -1,0 +1,165 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <rightsid>
+    <A_ID>23</A_ID>
+    <A_Name>Web车辆定位</A_Name>
+    <A_Reverse>车辆定位</A_Reverse>
+    <SIDs>sys-track-monitor</SIDs>
+  </rightsid>
+  <rightsid>
+    <A_ID>24</A_ID>
+    <A_Name>Web轨迹回放</A_Name>
+    <A_Reverse>轨迹回放</A_Reverse>
+    <SIDs>sys-track-history</SIDs>
+  </rightsid>
+  <rightsid>
+    <A_ID>25</A_ID>
+    <A_Name>Web警情统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>26</A_ID>
+    <A_Name>Web里程统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>27</A_ID>
+    <A_Name>Web启动熄火查询</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>28</A_ID>
+    <A_Name>Web行驶速度分析</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>29</A_ID>
+    <A_Name>Web停车统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>30</A_ID>
+    <A_Name>Web超速统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>31</A_ID>
+    <A_Name>Web车辆基础信息修改</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>32</A_ID>
+    <A_Name>Web车辆申请录入</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>33</A_ID>
+    <A_Name>Web车辆录入审批</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>34</A_ID>
+    <A_Name>Web信息发布</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>35</A_ID>
+    <A_Name>Web用户登录统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>36</A_ID>
+    <A_Name>Web未上线车辆信息统计</A_Name>
+    <A_Reverse>统计信息</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>37</A_ID>
+    <A_Name>Web初级指令下发</A_Name>
+    <A_Reverse>指令下发</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>38</A_ID>
+    <A_Name>Web中级指令下发</A_Name>
+    <A_Reverse>指令下发</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>39</A_ID>
+    <A_Name>Web高级指令下发</A_Name>
+    <A_Reverse>指令下发</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>40</A_ID>
+    <A_Name>WebECU诊断仪控制命令</A_Name>
+    <A_Reverse>指令下发</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>41</A_ID>
+    <A_Name>Web单车用户登录密码修改</A_Name>
+    <A_Reverse>指令下发</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>49</A_ID>
+    <A_Name>Web车辆地区统计</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>50</A_ID>
+    <A_Name>Web地区平台查询</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>51</A_ID>
+    <A_Name>WEB公司平台查询</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>52</A_ID>
+    <A_Name>WEB平台查询</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>53</A_ID>
+    <A_Name>Web车辆在线查看</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>54</A_ID>
+    <A_Name>Web车辆信息</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>55</A_ID>
+    <A_Name>Web考核信息查询</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+  <rightsid>
+    <A_ID>56</A_ID>
+    <A_Name>WEB用户在线考核</A_Name>
+    <A_Reverse>运政管理</A_Reverse>
+    <SIDs />
+  </rightsid>
+</DocumentElement>

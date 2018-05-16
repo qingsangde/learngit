@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>系统日志</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="../_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="_js/AnnualLog.js" type="text/javascript"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: 24%; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        车牌号
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        放款机构
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="cmbOrg" name="cmbOrg" class="easyui-combobox" type="text" style="width: 150px;"
+                            editable="false" data-options="valueField: 'OrgNo',textField: 'OrgName'" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        申请人
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input name="txtApplyId" id="txtApplyId" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        申请内容
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input name="cmbApplyReason" id="cmbApplyReason" class="easyui-combobox" type="text"
+                            style="width: 155px;" editable="false" data-options="valueField: 'ApplyLockStatusCode',textField: 'ApplyLockStatusName'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        申请时间
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtApplyTimeStart" name="txtApplyTimeStart" class="easyui-datebox" type="text"
+                            style="width: 150px;" />
+                    </td>
+                    <td style="width: 160px; text-align: right; white-space: nowrap;">
+                        —
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtApplyTimeEnd" name="txtApplyTimeEnd" class="easyui-datebox" type="text"
+                            style="width: 150px;" validtype="md['#txtApplyTimeStart']" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        审批人
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtApproveId" name="txtApproveId" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        锁车状态
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="cmbLockStatus" class="easyui-combobox" style="width: 155px" editable="false"
+                            data-options="valueField: 'LockStatusCode',textField: 'LockStatusName'" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        审批时间
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtApproveTimeStart" name="txtApproveTimeStart" class="easyui-datebox"
+                            type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 160px; text-align: right; white-space: nowrap;">
+                        —
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtApproveTimeEnd" name="txtApproveTimeEnd" class="easyui-datebox" type="text"
+                            style="width: 150px;" validtype="md['#txtApproveTimeStart']" />
+                    </td>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        锁车途径
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="cmbLockway" class="easyui-combobox" style="width: 150px" editable="false"
+                            data-options="valueField: 'LockWayCode',textField: 'LockWayName'" />
+                    </td>
+                </tr>
+            </table>
+            <div id="toolbar">
+                <span>显示设置</span>
+                <select id="DispalySetting" class="easyui-combobox" style="width: 155px;">
+                </select>
+                <div id="DispalySettingPanel">
+                </div>
+                <input type="button" title="查询" onclick="DoQuery()" class="btnGreen" style="width: 50px;"
+                    value="查询" />
+                <input type="button" title="导出" onclick="DoExport()" class="btnGreen" style="width: 50px;"
+                    value="导出" />
+            </div>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        height: 76%; width: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:true,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#toolbar',
+            border:true,
+			loadMsg: '',
+            fitColumns:false ">
+            <thead frozen="true">
+                <tr>
+                    <th field="CarNumber" width="150px" align="center">
+                        车牌号
+                    </th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th field="OrgName" width="120px" align="center">
+                        放款机构
+                    </th>
+                    <th field="ApplyId" width="120px" align="center">
+                        申请人
+                    </th>
+                    <th field="ApplyTime" width="150px" align="center">
+                        申请时间
+                    </th>
+                    <th field="ApplyReason" width="150px" align="center">
+                        申请内容
+                    </th>
+                    <th field="ApproveId" width="120px" align="center">
+                        审批人
+                    </th>
+                    <th field="ApproveTime" width="150px" align="center">
+                        审批时间
+                    </th>
+                    <th field="LockStatus" width="80px" align="center">
+                        锁车状态
+                    </th>
+                    <th field="LockWay" width="80px" align="center">
+                        锁车途径
+                    </th>
+                    <th field="FullName" width="80px" align="center">
+                        操作人员
+                    </th>
+                    <th field="OperateTime" width="150px" align="center">
+                        操作时间
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding-left: 10px; left: 300px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                数据加载中,请稍候...
+            </div>
+        </div>
+    </div>
+</body>
+</html>

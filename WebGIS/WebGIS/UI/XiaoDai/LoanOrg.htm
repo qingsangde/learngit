@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>放款机构维护</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="../_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="../XiaoDai/_js/LoanOrg.js" type="text/javascript"></script>
+    <style type="text/css">
+        .style2
+        {
+            height: 122px;
+        }
+        .style4
+        {
+            height: 96px;
+        }
+        .style5
+        {
+            height: 110px;
+        }
+        .style6
+        {
+            height: 105px;
+        }
+        .style7
+        {
+            width: 90px;
+            height: 25px;
+        }
+        .style8
+        {
+            width: 160px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: 65px; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="text-align: right; white-space: nowrap;" class="style7">
+                        放款机构
+                    </td>
+                    <td style="text-align: left; white-space: nowrap;" class="style8">
+                        <input id="txtOrgName" name="txtOrgName" class="easyui-textbox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right; white-space: nowrap;">
+                        <input type="button" title="查询" onclick="DoQuery()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                        <td style="width: 160px; text-align: left; white-space: nowrap;" colspan="4">
+                            <input type="button" title="新建" onclick="openAdd()" class="btnGreen" style="width: 50px;"
+                                value="新建" />&nbsp;
+                            <input type="button" title="修改" onclick="openEdit()" class="btnGreen" style="width: 50px;"
+                                value="修改" />&nbsp;
+                            <input type="button" title="删除" onclick="DoDelete()" class="btnGreen" style="width: 50px;"
+                                value="删除" />&nbsp;
+                        </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            border:true,
+			loadMsg: '',
+            singleSelect:true,
+            fitColumns:false ">
+            <thead>
+                <tr>
+                    <th data-options="field:'OrgNo',checkbox:true">
+                    </th>
+                    <th field="OrgName" width="150" align="center">
+                        放款机构
+                    </th>
+                    <th field="Remarks" width="300" align="center">
+                        备注
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding-left: 10px; left: 300px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                数据加载中,请稍候...
+            </div>
+        </div>
+    </div>
+    <div id="baseInfoEdit" class="easyui-window" title="放款机构维护" data-options="modal:true,maximizable:false,minimizable:false,closed:true,inline:true"
+        style="width: 500; height: 400px; padding: 10px; left: 100px; top: 80px;">
+        <table style="width: 50%; height: 50%; margin-bottom: 4px;">
+            <tr>
+                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                    *放款机构
+                </td>
+                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                    <input name="eOrgName" id="eOrgName" class="easyui-textbox" type="text" style="width: 155px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 90px; text-align: right; white-space: nowrap;">
+                    备注
+                </td>
+                <td style="width: 160px; text-align: left; white-space: nowrap;">
+                    <input name="eRemarks" id="eRemarks" class="easyui-textbox" type="text" style="width: 155px;
+                        height: 50px;" multiline = "true"; />
+                </td>
+            </tr>
+            <tr style="height: 10px;">
+                <div style="display: none">
+                    <input name="eOrgNo" id="eOrgNo" class="easyui-textbox" type="text" style="width: 155px;" />
+                </div>
+            </tr>
+            <tr style="vertical-align: top;">
+                <td colspan="2" align="center">
+                    <input type="button" title="保存" onclick="DoSave()" class="btnGreen" style="width: 70px;"
+                        value="保存" />
+                    <input type="button" title="取消" onclick="DoCancel()" class="btnGreen" style="width: 70px;"
+                        value="取消" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

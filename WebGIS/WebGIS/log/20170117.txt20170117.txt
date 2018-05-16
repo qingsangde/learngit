@@ -1,0 +1,788 @@
+2017-01-17 16:37:04,164 [24] INFO  启动会话维护TimeoutManager服务。
+2017-01-17 16:37:08,081 [26] INFO  初始化与RDS服务建立连接失败(实时数据服务 )，等待维护线程重连
+2017-01-17 16:37:08,436 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:37:12,081 [26] INFO  初始化与RDS服务建立连接失败(测试环境 实时数据服务)，等待维护线程重连
+2017-01-17 16:37:12,081 [26] INFO  与RDS服务连接维护线程启动
+2017-01-17 16:37:12,983 [47] INFO  HttpService PostParams:
+2017-01-17 16:37:16,859 [47] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"qm",password:"12345",code:"5344"}
+2017-01-17 16:37:22,086 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:37:22,086 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:37:22,086 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:37:22,086 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:37:23,519 [46] INFO  HttpService PostParams:{sid:"sys-user-getallcar",sysuid:"384",sysflag:"YQWL",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",onecaruser:"0"}
+2017-01-17 16:37:24,036 [11] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:37:24,976 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:37:32,087 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:37:32,087 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:37:32,087 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:37:32,087 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:37:34,459 [10] INFO  HttpService PostParams:{sid:"al-org-get",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL"}
+2017-01-17 16:37:34,959 [10] INFO  HttpService PostParams:{sid:"al-dict-get",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",dictType:"PayStatus"}
+2017-01-17 16:37:35,470 [10] INFO  HttpService PostParams:{sid:"al-dict-get",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",dictType:"LockStatus"}
+2017-01-17 16:37:35,603 [11] INFO  HttpService PostParams:{sid:"al-lock-search",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",rid:"26",ConditionCarNo:"",ConditionDPH:"",ConditionSimCode:"",ConditionTNO:"",ConditionOrgNo:"",ConditionLockStatus:"",ConditionLendDateFrom:"",ConditionLendDateTo:"",ConditionServiceEDayFrom:"",ConditionServiceEDayTo:"",ConditionLeftDays:"",ConditionPayStatus:"",ConditionTertypenum:"",ConditionEnergyTypePKey:""}
+2017-01-17 16:37:36,017 [59] INFO  HttpService PostParams:{sid:"al-EnergyType-get",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL"}
+2017-01-17 16:37:36,517 [11] INFO  HttpService PostParams:{sid:"al-Tertype-get",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL"}
+2017-01-17 16:37:39,030 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:37:42,088 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:37:42,088 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:37:42,088 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:37:42,088 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:37:47,551 [11] INFO  HttpService PostParams:{sid:"al-lock-set",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",id:"6A149915-1982-4086-B37E-972DA339BD43",uid:"384",cid:"23161",tno:64835004780,orderType:138,lockType:"02",torque:"",rotspeed:"",lockreason:"",unlockreason:"解锁吧"}
+2017-01-17 16:38:00,989 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:38:00,989 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:38:00,989 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:38:00,989 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:39:39,007 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:39:39,008 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:39:39,008 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:39:39,008 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:39:39,086 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:39:39,516 [10] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:39:49,009 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:39:49,009 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:39:49,009 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:39:49,009 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:39:53,187 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:39:59,010 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:39:59,010 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:39:59,010 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:39:59,010 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:07,309 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:40:09,011 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:09,011 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:09,011 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:09,011 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:09,597 [59] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:40:19,018 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:19,019 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:19,019 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:19,019 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:21,457 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:40:29,020 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:29,020 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:29,020 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:29,020 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:35,603 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:40:39,022 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:39,022 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:39,022 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:39,022 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:39,664 [10] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:40:49,023 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:49,023 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:49,023 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:49,024 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:40:49,746 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:40:59,025 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:40:59,025 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:40:59,025 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:40:59,025 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:03,892 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:41:09,026 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:09,026 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:09,026 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:09,026 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:09,698 [11] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:41:18,035 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:41:19,027 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:19,027 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:19,027 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:19,027 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:29,028 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:29,028 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:29,028 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:29,028 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:32,151 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:41:39,029 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:39,029 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:39,029 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:39,029 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:39,768 [51] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:41:46,299 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:41:49,030 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:49,031 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:49,031 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:49,031 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:41:59,033 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:41:59,034 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:41:59,034 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:41:59,034 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:00,449 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:42:09,036 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:09,037 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:09,037 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:09,037 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:09,827 [51] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:42:14,584 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:42:19,038 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:19,038 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:19,038 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:19,038 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:28,732 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:42:29,039 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:29,039 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:29,039 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:29,039 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:39,040 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:39,040 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:39,040 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:39,040 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:39,892 [34] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:42:42,878 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:42:49,041 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:49,041 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:49,041 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:49,041 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:42:57,000 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:42:59,042 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:42:59,042 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:42:59,042 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:42:59,042 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:09,048 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:09,049 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:09,049 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:09,050 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:09,960 [10] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:43:11,126 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:43:19,051 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:19,051 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:19,051 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:19,052 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:25,222 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:43:29,053 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:29,053 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:29,054 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:29,055 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:39,056 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:39,056 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:39,056 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:39,056 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:39,362 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:43:40,024 [48] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:43:49,057 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:49,057 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:49,057 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:49,058 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:43:53,509 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:43:59,059 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:43:59,059 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:43:59,059 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:43:59,059 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:07,663 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:44:09,060 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:09,060 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:09,060 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:09,060 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:10,054 [48] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:44:19,061 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:19,061 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:19,061 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:19,061 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:21,800 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:44:29,062 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:29,062 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:29,062 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:29,062 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:35,937 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:44:39,063 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:39,063 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:39,063 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:39,063 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:40,117 [48] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:44:49,064 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:49,064 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:49,064 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:49,064 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:44:50,115 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:44:59,065 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:44:59,065 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:44:59,065 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:44:59,065 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:45:04,205 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:45:09,066 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:45:09,066 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:45:09,066 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:45:09,066 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:45:10,149 [62] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:45:18,337 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:45:19,067 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:45:19,068 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:45:19,068 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:45:19,068 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:45:29,069 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:45:29,069 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:45:29,069 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:45:29,069 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:45:31,337 [49] INFO  HttpService PostParams:{sid:"al-lock-set",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",id:"6A149915-1982-4086-B37E-972DA339BD43",uid:"384",cid:"23161",tno:64835004780,orderType:138,lockType:"02",torque:"",rotspeed:"",lockreason:"",unlockreason:"解锁吧"}
+2017-01-17 16:45:44,165 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:45:44,166 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:45:44,166 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:45:44,166 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:45:45,976 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:45:54,167 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:45:54,167 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:45:54,167 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:45:54,167 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:00,115 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:46:04,168 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:04,169 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:04,169 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:04,169 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:14,170 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:14,170 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:14,170 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:14,170 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:14,241 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:46:24,171 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:24,171 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:24,171 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:24,171 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:28,395 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:46:34,172 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:34,172 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:34,172 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:34,172 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:42,504 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:46:44,173 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:44,173 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:44,173 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:44,173 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:54,174 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:46:54,174 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:46:54,174 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:46:54,174 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:46:56,574 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:47:04,175 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:04,176 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:04,176 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:04,176 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:47:10,649 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:47:14,177 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:14,177 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:14,177 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:14,177 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:47:24,178 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:24,178 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:24,178 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:24,178 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:47:24,800 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:47:34,371 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:34,372 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:34,372 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:34,372 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:47:38,995 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:47:44,374 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:44,374 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:44,374 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:44,374 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:47:53,058 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:47:54,375 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:47:54,375 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:47:54,375 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:47:54,375 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:48:08,647 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:48:08,648 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:48:08,648 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:48:08,649 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:48:16,285 [49] INFO  HttpService PostParams:{sid:"al-lock-set",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",id:"6A149915-1982-4086-B37E-972DA339BD43",uid:"384",cid:"23161",tno:64835004780,orderType:138,lockType:"02",torque:"",rotspeed:"",lockreason:"",unlockreason:"解开吧"}
+2017-01-17 16:48:18,936 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:48:18,936 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:48:18,936 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:48:18,936 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:48:29,781 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:48:29,782 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:48:29,782 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:48:29,782 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:48:40,308 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:48:40,308 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:48:40,308 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:48:40,309 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:48:45,617 [24] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:48:50,457 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:48:50,458 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:48:50,458 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:48:50,458 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:49:03,503 [50] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:49:03,503 [50] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:49:03,503 [50] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:49:03,503 [50] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:49:04,034 [39] INFO  HttpService PostParams:{sid:"al-lock-set",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1",sysflag:"YQWL",id:"6A149915-1982-4086-B37E-972DA339BD43",uid:"384",cid:"23161",tno:64835004780,orderType:138,lockType:"02",torque:"",rotspeed:"",lockreason:"",unlockreason:"解锁吧"}
+2017-01-17 16:49:04,539 [30] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"8f715bbc-21c9-43fd-9f2b-2a4ee94919e1"}
+2017-01-17 16:49:31,203 [34] INFO  启动会话维护TimeoutManager服务。
+2017-01-17 16:49:35,128 [62] INFO  初始化与RDS服务建立连接失败(实时数据服务 )，等待维护线程重连
+2017-01-17 16:49:35,318 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:49:39,129 [62] INFO  初始化与RDS服务建立连接失败(测试环境 实时数据服务)，等待维护线程重连
+2017-01-17 16:49:39,131 [62] INFO  与RDS服务连接维护线程启动
+2017-01-17 16:49:39,773 [52] INFO  HttpService PostParams:
+2017-01-17 16:49:44,704 [47] INFO  HttpService PostParams:{sid:"sys-user-login",sysflag:"YQWL",account:"qm",password:"12345",code:"5189"}
+2017-01-17 16:49:49,152 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:49:49,152 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:49:49,152 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:49:49,152 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:49:49,621 [11] INFO  HttpService PostParams:{sid:"sys-user-getallcar",sysuid:"384",sysflag:"YQWL",token:"23d2e19a-246f-4722-90b0-141830d5989a",onecaruser:"0"}
+2017-01-17 16:49:50,158 [57] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a"}
+2017-01-17 16:49:50,996 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:49:58,320 [57] INFO  HttpService PostParams:{sid:"al-org-get",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL"}
+2017-01-17 16:49:58,832 [13] INFO  HttpService PostParams:{sid:"al-dict-get",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL",dictType:"PayStatus"}
+2017-01-17 16:49:59,154 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:49:59,154 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:49:59,154 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:49:59,154 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:49:59,347 [57] INFO  HttpService PostParams:{sid:"al-dict-get",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL",dictType:"LockStatus"}
+2017-01-17 16:49:59,840 [57] INFO  HttpService PostParams:{sid:"al-lock-search",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL",rid:"26",ConditionCarNo:"",ConditionDPH:"",ConditionSimCode:"",ConditionTNO:"",ConditionOrgNo:"",ConditionLockStatus:"",ConditionLendDateFrom:"",ConditionLendDateTo:"",ConditionServiceEDayFrom:"",ConditionServiceEDayTo:"",ConditionLeftDays:"",ConditionPayStatus:"",ConditionTertypenum:"",ConditionEnergyTypePKey:""}
+2017-01-17 16:50:00,392 [57] INFO  HttpService PostParams:{sid:"al-EnergyType-get",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL"}
+2017-01-17 16:50:00,912 [57] INFO  HttpService PostParams:{sid:"al-Tertype-get",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL"}
+2017-01-17 16:50:05,079 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:50:09,155 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:50:09,155 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:50:09,155 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:50:09,155 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:50:14,287 [13] INFO  HttpService PostParams:{sid:"al-lock-set",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a",sysflag:"YQWL",id:"6A149915-1982-4086-B37E-972DA339BD43",uid:"384",cid:"23161",tno:64835004780,orderType:138,lockType:"02",torque:"",rotspeed:"",lockreason:"",unlockreason:"解锁原因01"}
+2017-01-17 16:50:29,323 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:50:29,324 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:50:29,324 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:50:29,324 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:50:34,475 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:50:39,325 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:50:39,326 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:50:39,326 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:50:39,327 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:50:49,155 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:50:49,294 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:50:49,294 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:50:49,294 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:50:49,294 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:50:59,294 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:50:59,294 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:50:59,294 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:50:59,294 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:51:04,313 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:51:09,294 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:51:09,294 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:51:09,294 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:51:09,294 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:51:18,503 [34] ERROR 全局会话服务调用异常
+System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:9001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   在 WebGIS.GlobalSessionService.GSSWebService.GetData(String value) 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Web References\GlobalSessionService\Reference.cs:行号 141
+   在 WebGIS.SessionManager.TimeoutManager() 位置 E:\WorkSpace\C#-WorkSpace\AnnuLoan\trunk\WebGIS\Service\SessionManager.cs:行号 112
+2017-01-17 16:51:19,306 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:51:19,306 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:51:19,306 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:51:19,307 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:53:52,893 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:53:52,903 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:53:52,903 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:53:52,903 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:54:03,829 [59] INFO  RDS服务(测试环境 实时数据服务)，连接中断准备重连！10.44.30.113:9048
+2017-01-17 16:54:03,830 [59] INFO  RDS服务(测试环境 实时数据服务)，重连失败！10.44.30.113:9048
+2017-01-17 16:54:03,830 [59] INFO  RDS服务(实时数据服务 )，连接中断准备重连！10.44.30.113:9058
+2017-01-17 16:54:03,840 [59] INFO  RDS服务(实时数据服务 )，重连失败！10.44.30.113:9058
+2017-01-17 16:54:09,088 [7] INFO  HttpService PostParams:{sid:"sys-user-heart",sysflag:"YQWL",sysuid:"384",token:"23d2e19a-246f-4722-90b0-141830d5989a"}

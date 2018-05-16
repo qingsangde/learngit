@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Beida Software Corporation</LicensedTo>
+    <DevelopersNote>Limited to 1 developer.</DevelopersNote>
+    <OemNote>This is a redistributable license.</OemNote>
+    <Products>
+      <Product>Aspose.Cells</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>8e6226de-dafc-4697-bd15-98277489304c</SerialNumber>
+    <SubscriptionExpiry>20080116</SubscriptionExpiry>
+    <OemPublicKeyToken>716fcc553a201e56</OemPublicKeyToken>
+    <LicenseVersion>2.0</LicenseVersion>
+  </Data>
+  <Signature>uN4aiPMwDtOivWw4AO6sMSVyNBWFhexb07b8Svx5UbnfUsBXZKWodI6Q8zO7BVmIgcBPcdjXemVV908g7lz4SE5kjmMJvQQvgUNcXIdObnk8z+Lsv788o3JDfgBFJ96iH251imMND2QfWeMM2mlkOBIqCgfNz9OK9OZxN09PhT0=</Signature>
+</License>

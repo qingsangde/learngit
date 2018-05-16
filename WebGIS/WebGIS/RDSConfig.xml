@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <!--<RDSConfig>
+    <ID>RDS1</ID>
+    <RDSMark>YQWL实时数据服务</RDSMark>
+    <IP>10.44.30.113</IP>
+    <Port>9028</Port>
+    <SysFlag>YQWL</SysFlag>
+    <WCFUrl>http://10.44.30.113:9023/RealtimeData/WCFService</WCFUrl>
+    <MinCID>0</MinCID>
+    <MaxCID>0</MaxCID>
+  </RDSConfig> -->
+  <RDSConfig>
+    <ID>RDS2</ID>
+    <RDSMark>实时数据服务 </RDSMark>
+    <IP>10.44.30.113</IP>
+    <Port>9058</Port>
+    <SysFlag>YQWL</SysFlag>
+    <WCFUrl>http://10.44.30.113:9053/RealtimeData/WCFService</WCFUrl>
+    <MinCID>0</MinCID>
+    <MaxCID>0</MaxCID>
+  </RDSConfig>
+  <RDSConfig>
+    <ID>RDS1</ID>
+    <RDSMark>测试环境 实时数据服务</RDSMark>
+    <IP>10.44.30.113</IP>
+    <Port>9048</Port>
+    <SysFlag>DPTEST</SysFlag>
+    <WCFUrl>http://10.44.30.113:9043/RealtimeData/WCFService</WCFUrl>
+    <MinCID>0</MinCID>
+    <MaxCID>0</MaxCID>
+  </RDSConfig>
+  
+</DocumentElement>

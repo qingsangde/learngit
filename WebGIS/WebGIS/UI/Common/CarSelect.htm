@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="_js/CarSelect.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false" style="overflow: hidden; height: 60px;
+        padding-left: 10px;">
+        <a href="#" class="easyui-linkbutton" onclick="FilterCar()" data-options="iconCls:'icon-search'">
+        按企业查询</a>
+        开始查询时间：<span id="spanSt" style="color: #191970; font-weight: bold;"></span>
+        <br />
+        结束查询时间：<span id="spanDt" style="color: #191970; font-weight: bold;"></span>        
+    </div>
+    <div data-options="region:'center'">
+        <table id="dgOptional">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true">
+                    </th>
+                    <th data-options="field:'carno',width:80">
+                        车牌号
+                    </th>
+                    <th data-options="field:'tno',width:80">
+                        终端号
+                    </th>
+                    <th data-options="field:'sim',width:80">
+                        SIM卡号
+                    </th>
+                    <th data-options="field:'cowner',width:160">
+                        企业名称
+                    </th>
+                    <th data-options="field:'cu',width:80">
+                        车辆用途
+                    </th>
+                    <th data-options="field:'tname',width:80">
+                        车台类型
+                    </th>
+                    <th data-options="field:'cont',width:80">
+                        通讯类型
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>

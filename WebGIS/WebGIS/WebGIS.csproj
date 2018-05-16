@@ -1,0 +1,1723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E02B6BBE-AABC-45C9-82D8-0D34E354DB13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebGIS</RootNamespace>
+    <AssemblyName>WebGIS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>False</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlarmStatusAnalysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AlarmStatusAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9a40d5a4b59e5256">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Service\_extend\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="CommLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_dll\CommLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_extend\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=1.0.0.262, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Service\_extend\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtocalUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Service\_extend\ProtocalUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketPackage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SocketPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ALConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="help.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="index.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log\20170106.txt" />
+    <Content Include="log\20170113.txt" />
+    <Content Include="log\20170113.txt20170113.txt" />
+    <Content Include="log\20170114.txt" />
+    <Content Include="log\20170114.txt20170114.txt" />
+    <Content Include="log\20170116.txt" />
+    <Content Include="log\20170117.txt" />
+    <Content Include="log\20170117.txt20170117.txt" />
+    <Content Include="log\20170117.txt20170117.txt20170117.txt" />
+    <Content Include="log\20170118.txt" />
+    <Content Include="log\20170119.txt" />
+    <Content Include="log\20170120.txt" />
+    <Content Include="Proc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Proc2.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RightSid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RDSConfig.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\WebGISService\configuration91.svcinfo" />
+    <None Include="Service References\WebGISService\configuration.svcinfo" />
+    <None Include="Service References\WebGISService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="UI\ActiveRegion\activeregion.htm" />
+    <Content Include="UI\ActiveRegion\activeregioncar.htm" />
+    <Content Include="UI\ActiveRegion\_js\activeregion.js" />
+    <Content Include="UI\ActiveRegion\_js\activeregioncar.js" />
+    <Content Include="UI\ActiveRegion\_js\activeregioncarMapControl.js" />
+    <Content Include="UI\ActiveRegion\_js\mapControl.js" />
+    <Content Include="UI\ActiveRegion\_styles\exp.css" />
+    <Content Include="UI\ActiveRegion\_styles\images\u183.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u187.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u187_Over.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u193.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u193_Over.png" />
+    <Content Include="UI\ActiveRegion\_styles\images\u209.png" />
+    <Content Include="UI\AnnulBase\AnnulBase.htm" />
+    <Content Include="UI\AnnulBase\_js\AnnulBase.js" />
+    <Content Include="UI\AnnulLog\AnnulLog.htm" />
+    <Content Include="UI\AnnulLog\_js\AnnualLog.js" />
+    <Content Include="UI\DataSetting\AnnulSetting.htm" />
+    <Content Include="UI\DataSetting\_js\AnnulSetting.js" />
+    <Content Include="UI\DriveLine\_js\driveline.js" />
+    <Content Include="UI\DriveLine\_js\drivelinecar.js" />
+    <Content Include="UI\DriveLine\_js\drivelinecarmapControl.js" />
+    <Content Include="UI\DriveLine\_js\mapControl.js" />
+    <Content Include="UI\DriveLine\_styles\exp.css" />
+    <Content Include="UI\DriveLine\_styles\linemain.css" />
+    <Content Include="UI\DriveLine\_styles\images\u183.png" />
+    <Content Include="UI\DriveLine\_styles\images\u187.png" />
+    <Content Include="UI\DriveLine\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\DriveLine\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\DriveLine\_styles\images\u187_Over.png" />
+    <Content Include="UI\DriveLine\_styles\images\u193.png" />
+    <Content Include="UI\DriveLine\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\DriveLine\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\DriveLine\_styles\images\u193_Over.png" />
+    <Content Include="UI\DriveLine\_styles\images\u209.png" />
+    <Content Include="UI\Images\header_bg.jpg" />
+    <Content Include="UI\Images\loginBtn.gif" />
+    <Content Include="UI\Images\loginCenterBg3.jpg" />
+    <Content Include="UI\Images\logo_add.jpg" />
+    <Content Include="UI\Images\logo_add_lback.jpg" />
+    <Content Include="UI\Libs\js\json2.js" />
+    <Content Include="UI\Libs\js\json2.min.js" />
+    <Content Include="UI\Libs\themes\icons\xian.png" />
+    <Content Include="UI\Libs\themes\icons\yan.png" />
+    <Content Include="UI\LockApplication\LockApplication.htm" />
+    <Content Include="UI\LockApplication\_js\LockApplication.js" />
+    <Content Include="UI\MapMarkerSetting\_js\Map.js" />
+    <Content Include="UI\MapMarkerSetting\_js\markersetting.js" />
+    <Content Include="UI\Monitor\lib\scripts\jquery.easyui.min.js" />
+    <Content Include="UI\Monitor\lib\scripts\jquery.min.js" />
+    <Content Include="UI\Monitor\lib\themes\black\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\black\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\black\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\black\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\black\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\black\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\black\filebox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\images\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\black\images\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\black\images\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\black\images\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\black\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\black\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\black\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\black\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\black\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\black\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\black\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\black\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\black\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\black\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\black\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\black\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\black\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\black\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\black\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\black\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\black\window.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\filebox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\bootstrap\window.css" />
+    <Content Include="UI\Monitor\lib\themes\color.css" />
+    <Content Include="UI\Monitor\lib\themes\default\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\default\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\default\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\default\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\default\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\default\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\default\filebox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\images\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\default\images\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\default\images\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\default\images\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\default\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\default\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\default\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\default\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\default\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\default\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\default\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\default\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\default\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\default\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\default\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\default\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\default\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\default\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\default\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\default\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\default\window.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\filebox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\images\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\gray\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\gray\window.css" />
+    <Content Include="UI\Monitor\lib\themes\icon.css" />
+    <Content Include="UI\Monitor\lib\themes\icons\back.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\icons\cancel.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\clear.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\cut.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\edit_add.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\edit_remove.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\filesave.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\filter.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\help.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\large_chart.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\large_clipart.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\large_picture.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\large_shapes.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\large_smartart.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\lock.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\man.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\mini_add.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\mini_edit.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\mini_refresh.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\no.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\ok.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\pencil.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\print.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\redo.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\reload.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\search.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\sum.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\tip.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\u135.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\u137.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\u139.png" />
+    <Content Include="UI\Monitor\lib\themes\icons\undo.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-blue\window.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-gray\window.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-green\window.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-orange\window.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro-red\window.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\filebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\images\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\metro\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\metro\window.css" />
+    <Content Include="UI\Monitor\lib\themes\monitor.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-cupertino\window.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-dark-hive\window.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-pepper-grinder\window.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\accordion.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\accordion_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\blank.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\calendar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\calendar_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\combo.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\combobox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\combo_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\datagrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\datagrid_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\datebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\datebox_arrow.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\dialog.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\easyui.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\layout.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\layout_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\linkbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\linkbutton_bg.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\loading.gif" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\menu.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\menubutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\menu_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\messager.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\messager_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\numberbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\pagination.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\pagination_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\panel.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\panel_tools.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\progressbar.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\propertygrid.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\searchbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\searchbox_button.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\slider.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\slider_handle.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\spinner.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\spinner_arrows.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\splitbutton.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\tabs.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\tabs_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\textbox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\tooltip.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\tree.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\tree_icons.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\validatebox.css" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\validatebox_warning.png" />
+    <Content Include="UI\Monitor\lib\themes\ui-sunny\window.css" />
+    <Content Include="UI\ParameterSetting\ParameterSetting.htm" />
+    <Content Include="UI\ParameterSetting\_js\ParameterSetting.js" />
+    <Content Include="UI\Query\ComTestDriveAnalyse.htm" />
+    <Content Include="UI\Query\DayTestDriveAnalyse.htm" />
+    <Content Include="UI\Query\DayTestDriveAnalyseNew.htm" />
+    <Content Include="UI\Query\MonthTestDriveAnalyse.htm" />
+    <Content Include="UI\Query\MonthTestDriveAnalyseNew.htm" />
+    <Content Include="UI\Query\OutArea.htm" />
+    <Content Include="UI\Query\OutDrive.htm" />
+    <Content Include="UI\Query\TestDrive.htm" />
+    <Content Include="UI\Query\_js\ComTestDriveAnalyse.js" />
+    <Content Include="UI\Query\_js\DayTestDriveAnalyse.js" />
+    <Content Include="UI\Query\_js\DayTestDriveAnalyseNew.js" />
+    <Content Include="UI\Query\_js\DriveTotal.js" />
+    <Content Include="UI\Query\_js\MonthTestDriveAnalyse.js" />
+    <Content Include="UI\Query\_js\MonthTestDriveAnalyseNew.js" />
+    <Content Include="UI\Query\_js\OutArea.js" />
+    <Content Include="UI\Query\_js\OutDrive.js" />
+    <Content Include="UI\Query\_js\TestDrive.js" />
+    <Content Include="UI\X80.html" />
+    <Content Include="UI\XiaoDai\AnnulBase_org.htm" />
+    <Content Include="UI\XiaoDai\AnnulLog_org.htm" />
+    <Content Include="UI\XiaoDai\LoanOrg.htm" />
+    <Content Include="UI\XiaoDai\_js\AnnulBase_org.js" />
+    <Content Include="UI\XiaoDai\_js\LoanOrg.js" />
+    <Content Include="UI\_js\jquery-1.4.1.min.js" />
+    <Content Include="UI\_js\jquery.js" />
+    <Content Include="UI\_styles\images\headbg_01.png" />
+    <Content Include="UI\_styles\images\logo_01.png" />
+    <Content Include="UI\_styles\images\marker_sprite.png" />
+    <Content Include="UI\_styles\images\u8_01.png" />
+    <Content Include="UI\_styles\newinfo.png" />
+    <Content Include="UI\_styles\newphoto.png" />
+    <Content Include="UI\_styles\noinfo.png" />
+    <Content Include="UI\_styles\nophoto.png" />
+    <Content Include="_dll\CommLibrary.dll" />
+    <Content Include="_dll\CommLibrary.pdb" />
+    <Content Include="_dll\log4net.dll" />
+    <Content Include="_dll\log4net.xml" />
+    <Content Include="_dll\Newtonsoft.Json.dll" />
+    <Content Include="_dll\Newtonsoft.Json.pdb" />
+    <Content Include="_dll\Newtonsoft.Json.xml" />
+    <Content Include="_dll\NPOI.dll" />
+    <Content Include="_dll\protobuf-net.dll" />
+    <Content Include="_dll\ProtocalUtil.dll" />
+    <None Include="Service References\RealtimeDataServer\configuration91.svcinfo" />
+    <None Include="Service References\RealtimeDataServer\configuration.svcinfo" />
+    <None Include="Service References\RealtimeDataServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SendOrderTest.aspx" />
+    <None Include="Service References\RealtimeDataServer\WCFService.disco" />
+    <None Include="Service References\SmsSendService\configuration91.svcinfo" />
+    <None Include="Service References\SmsSendService\configuration.svcinfo" />
+    <None Include="Service References\SmsSendService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service\_extend\Aspose.Cells.dll" />
+    <Content Include="Service\_extend\protobuf-net.dll" />
+    <Content Include="Service\_extend\ProtocalUtil.dll" />
+    <Content Include="PageLicense.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\CarDataStatistic\statistic.htm" />
+    <Content Include="UI\CarDataStatistic\_js\statistic.js" />
+    <Content Include="UI\CarFormList.htm" />
+    <Content Include="UI\CommandDown\CarTerminalParamDown.htm" />
+    <Content Include="UI\CommandDown\_js\TerParamDown.js" />
+    <Content Include="UI\DataSetting\DataSetting.htm" />
+    <Content Include="UI\DataSetting\_js\DataSetting.js" />
+    <Content Include="UI\DataSetting\_styles\exp.css" />
+    <Content Include="UI\DataSetting\_styles\images\u183.png" />
+    <Content Include="UI\DataSetting\_styles\images\u187.png" />
+    <Content Include="UI\DataSetting\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\DataSetting\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\DataSetting\_styles\images\u187_Over.png" />
+    <Content Include="UI\DataSetting\_styles\images\u193.png" />
+    <Content Include="UI\DataSetting\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\DataSetting\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\DataSetting\_styles\images\u193_Over.png" />
+    <Content Include="UI\DataSetting\_styles\images\u209.png" />
+    <Content Include="UI\DataSetting\_styles\Query.css" />
+    <Content Include="UI\DriveLine\driveline.htm" />
+    <Content Include="UI\DriveLine\driverline_car.htm" />
+    <Content Include="UI\DrivingAnalysis\DrivingAnalysis.htm" />
+    <Content Include="UI\DrivingAnalysis\_js\DrivingAnalysis.js" />
+    <Content Include="UI\DrivingAnalysis\_js\ichart.1.2.min.js" />
+    <Content Include="UI\DrivingAnalysis\_styles\DrivingAnalysis.css" />
+    <Content Include="UI\Fence\fence.htm" />
+    <Content Include="UI\Fence\fencecar.htm" />
+    <Content Include="UI\Fence\fencemain.htm" />
+    <Content Include="UI\Fence\_js\fence.js" />
+    <Content Include="UI\Fence\_js\fenceCar.js" />
+    <Content Include="UI\Fence\_js\FenceCarmapControl.js" />
+    <Content Include="UI\Fence\_js\fencemain.js" />
+    <Content Include="UI\Fence\_js\mapControl.js" />
+    <Content Include="UI\Fence\_styles\exp.css" />
+    <Content Include="UI\Fence\_styles\images\u183.png" />
+    <Content Include="UI\Fence\_styles\images\u187.png" />
+    <Content Include="UI\Fence\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\Fence\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\Fence\_styles\images\u187_Over.png" />
+    <Content Include="UI\Fence\_styles\images\u193.png" />
+    <Content Include="UI\Fence\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\Fence\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\Fence\_styles\images\u193_Over.png" />
+    <Content Include="UI\Fence\_styles\images\u209.png" />
+    <Content Include="UI\Fence\_styles\fencemain.css" />
+    <Content Include="UI\Libs\themes\icons\delete.png" />
+    <Content Include="UI\Libs\themes\icons\fang.png" />
+    <Content Include="UI\Libs\themes\icons\newinfo.png" />
+    <Content Include="UI\Libs\themes\icons\newphoto.png" />
+    <Content Include="UI\Libs\themes\icons\noinfo.png" />
+    <Content Include="UI\Libs\themes\icons\nophoto.png" />
+    <Content Include="UI\Libs\themes\icons\yuan.png" />
+    <Content Include="UI\MapMarkerSetting\markersetting.htm" />
+    <Content Include="UI\Monitor\cityC.htm" />
+    <Content Include="UI\CommandDown\calltransfer.htm" />
+    <Content Include="UI\CommandDown\CommandDown.htm" />
+    <Content Include="UI\CommandDown\driverrecorddownset.htm" />
+    <Content Include="UI\CommandDown\maxspeedset.htm" />
+    <Content Include="UI\CommandDown\photograph.htm" />
+    <Content Include="UI\CommandDown\recorddatacollect.htm" />
+    <Content Include="UI\CommandDown\_js\calltransfer.js" />
+    <Content Include="UI\CommandDown\_js\CommandDown.js" />
+    <Content Include="UI\CommandDown\_js\driverrecorddownset.js" />
+    <Content Include="UI\CommandDown\_js\maxspeedset.js" />
+    <Content Include="UI\CommandDown\_js\photograph.js" />
+    <Content Include="UI\CommandDown\_js\recorddatacollect.js" />
+    <Content Include="UI\CommandDown\_styles\CommandDown.css" />
+    <Content Include="UI\CommandDown\_styles\exp.css" />
+    <Content Include="UI\CommandDown\_styles\images\u183.png" />
+    <Content Include="UI\CommandDown\_styles\images\u187.png" />
+    <Content Include="UI\CommandDown\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\CommandDown\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\CommandDown\_styles\images\u187_Over.png" />
+    <Content Include="UI\CommandDown\_styles\images\u193.png" />
+    <Content Include="UI\CommandDown\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\CommandDown\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\CommandDown\_styles\images\u193_Over.png" />
+    <Content Include="UI\CommandDown\_styles\images\u209.png" />
+    <Content Include="UI\Common\CarSelect.htm" />
+    <Content Include="UI\Common\testparent.htm" />
+    <Content Include="UI\Common\_js\CarSelect.js" />
+    <Content Include="UI\compag.html" />
+    <Content Include="UI\huadun.htm" />
+    <Content Include="UI\Libs\js\easyloader.js" />
+    <Content Include="UI\Libs\js\jquery-1.8.0.min.js" />
+    <Content Include="UI\Libs\js\jquery.easyui.min.js" />
+    <Content Include="UI\Libs\js\jquery.mousewheel.min.js" />
+    <Content Include="UI\Libs\themes\black\easyui.css" />
+    <Content Include="UI\Libs\themes\black\images\accordion_arrows.png" />
+    <Content Include="UI\Libs\themes\black\images\blank.gif" />
+    <Content Include="UI\Libs\themes\black\images\calendar_arrows.png" />
+    <Content Include="UI\Libs\themes\black\images\combo_arrow.png" />
+    <Content Include="UI\Libs\themes\black\images\datagrid_icons.png" />
+    <Content Include="UI\Libs\themes\black\images\datebox_arrow.png" />
+    <Content Include="UI\Libs\themes\black\images\layout_arrows.png" />
+    <Content Include="UI\Libs\themes\black\images\linkbutton_bg.png" />
+    <Content Include="UI\Libs\themes\black\images\loading.gif" />
+    <Content Include="UI\Libs\themes\black\images\menu_arrows.png" />
+    <Content Include="UI\Libs\themes\black\images\messager_icons.png" />
+    <Content Include="UI\Libs\themes\black\images\pagination_icons.png" />
+    <Content Include="UI\Libs\themes\black\images\panel_tools.png" />
+    <Content Include="UI\Libs\themes\black\images\searchbox_button.png" />
+    <Content Include="UI\Libs\themes\black\images\slider_handle.png" />
+    <Content Include="UI\Libs\themes\black\images\spinner_arrows.png" />
+    <Content Include="UI\Libs\themes\black\images\tabs_icons.png" />
+    <Content Include="UI\Libs\themes\black\images\tree_icons.png" />
+    <Content Include="UI\Libs\themes\black\images\validatebox_warning.png" />
+    <Content Include="UI\Libs\themes\bootstrap\easyui.css" />
+    <Content Include="UI\Libs\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\blank.gif" />
+    <Content Include="UI\Libs\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\loading.gif" />
+    <Content Include="UI\Libs\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="UI\Libs\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="UI\Libs\themes\color.css" />
+    <Content Include="UI\Libs\themes\gray\easyui.css" />
+    <Content Include="UI\Libs\themes\gray\images\accordion_arrows.png" />
+    <Content Include="UI\Libs\themes\gray\images\blank.gif" />
+    <Content Include="UI\Libs\themes\gray\images\calendar_arrows.png" />
+    <Content Include="UI\Libs\themes\gray\images\combo_arrow.png" />
+    <Content Include="UI\Libs\themes\gray\images\datagrid_icons.png" />
+    <Content Include="UI\Libs\themes\gray\images\datebox_arrow.png" />
+    <Content Include="UI\Libs\themes\gray\images\layout_arrows.png" />
+    <Content Include="UI\Libs\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="UI\Libs\themes\gray\images\loading.gif" />
+    <Content Include="UI\Libs\themes\gray\images\menu_arrows.png" />
+    <Content Include="UI\Libs\themes\gray\images\messager_icons.png" />
+    <Content Include="UI\Libs\themes\gray\images\pagination_icons.png" />
+    <Content Include="UI\Libs\themes\gray\images\panel_tools.png" />
+    <Content Include="UI\Libs\themes\gray\images\searchbox_button.png" />
+    <Content Include="UI\Libs\themes\gray\images\slider_handle.png" />
+    <Content Include="UI\Libs\themes\gray\images\spinner_arrows.png" />
+    <Content Include="UI\Libs\themes\gray\images\tabs_icons.png" />
+    <Content Include="UI\Libs\themes\gray\images\tree_icons.png" />
+    <Content Include="UI\Libs\themes\gray\images\validatebox_warning.png" />
+    <Content Include="UI\Libs\themes\icons\about.png" />
+    <Content Include="UI\Libs\themes\icons\monitor.png" />
+    <Content Include="UI\Libs\themes\icons\photo.png" />
+    <Content Include="UI\Libs\themes\icons\query.png" />
+    <Content Include="UI\Libs\themes\icons\ruler.png" />
+    <Content Include="UI\Libs\themes\icons\track.png" />
+    <Content Include="UI\Libs\themes\icons\t_add.png" />
+    <Content Include="UI\Libs\themes\icons\t_cut.png" />
+    <Content Include="UI\Libs\themes\icons\t_pause.png" />
+    <Content Include="UI\Libs\themes\icons\t_play.png" />
+    <Content Include="UI\Libs\themes\icons\t_stop.png" />
+    <Content Include="UI\Libs\themes\icons\u135.png" />
+    <Content Include="UI\Libs\themes\icons\u137.png" />
+    <Content Include="UI\Libs\themes\icons\u139.png" />
+    <Content Include="UI\Libs\themes\icons\zoomin.png" />
+    <Content Include="UI\Libs\themes\icons\zoomout.png" />
+    <Content Include="UI\Libs\themes\metro\easyui.css" />
+    <Content Include="UI\Libs\themes\metro\images\accordion_arrows.png" />
+    <Content Include="UI\Libs\themes\metro\images\blank.gif" />
+    <Content Include="UI\Libs\themes\metro\images\calendar_arrows.png" />
+    <Content Include="UI\Libs\themes\metro\images\combo_arrow.png" />
+    <Content Include="UI\Libs\themes\metro\images\datagrid_icons.png" />
+    <Content Include="UI\Libs\themes\metro\images\datebox_arrow.png" />
+    <Content Include="UI\Libs\themes\metro\images\layout_arrows.png" />
+    <Content Include="UI\Libs\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="UI\Libs\themes\metro\images\loading.gif" />
+    <Content Include="UI\Libs\themes\metro\images\menu_arrows.png" />
+    <Content Include="UI\Libs\themes\metro\images\messager_icons.png" />
+    <Content Include="UI\Libs\themes\metro\images\pagination_icons.png" />
+    <Content Include="UI\Libs\themes\metro\images\panel_tools.png" />
+    <Content Include="UI\Libs\themes\metro\images\searchbox_button.png" />
+    <Content Include="UI\Libs\themes\metro\images\slider_handle.png" />
+    <Content Include="UI\Libs\themes\metro\images\spinner_arrows.png" />
+    <Content Include="UI\Libs\themes\metro\images\tabs_icons.png" />
+    <Content Include="UI\Libs\themes\metro\images\tree_icons.png" />
+    <Content Include="UI\Libs\themes\metro\images\validatebox_warning.png" />
+    <Content Include="UI\loginover.htm" />
+    <Content Include="Service\_extend\Newtonsoft.Json.dll" />
+    <Content Include="Service\_extend\Newtonsoft.Json.pdb" />
+    <Content Include="Service\_extend\Newtonsoft.Json.xml" />
+    <Content Include="UI\Libs\themes\default\easyui.css" />
+    <Content Include="UI\Libs\themes\default\images\accordion_arrows.png" />
+    <Content Include="UI\Libs\themes\default\images\blank.gif" />
+    <Content Include="UI\Libs\themes\default\images\calendar_arrows.png" />
+    <Content Include="UI\Libs\themes\default\images\combo_arrow.png" />
+    <Content Include="UI\Libs\themes\default\images\datagrid_icons.png" />
+    <Content Include="UI\Libs\themes\default\images\datebox_arrow.png" />
+    <Content Include="UI\Libs\themes\default\images\layout_arrows.png" />
+    <Content Include="UI\Libs\themes\default\images\linkbutton_bg.png" />
+    <Content Include="UI\Libs\themes\default\images\loading.gif" />
+    <Content Include="UI\Libs\themes\default\images\menu_arrows.png" />
+    <Content Include="UI\Libs\themes\default\images\messager_icons.png" />
+    <Content Include="UI\Libs\themes\default\images\pagination_icons.png" />
+    <Content Include="UI\Libs\themes\default\images\panel_tools.png" />
+    <Content Include="UI\Libs\themes\default\images\searchbox_button.png" />
+    <Content Include="UI\Libs\themes\default\images\slider_handle.png" />
+    <Content Include="UI\Libs\themes\default\images\spinner_arrows.png" />
+    <Content Include="UI\Libs\themes\default\images\tabs_icons.png" />
+    <Content Include="UI\Libs\themes\default\images\tree_icons.png" />
+    <Content Include="UI\Libs\themes\default\images\validatebox_warning.png" />
+    <Content Include="UI\Libs\themes\icon.css" />
+    <Content Include="UI\Libs\themes\icons\back.png" />
+    <Content Include="UI\Libs\themes\icons\blank.gif" />
+    <Content Include="UI\Libs\themes\icons\books.png" />
+    <Content Include="UI\Libs\themes\icons\cancel.png" />
+    <Content Include="UI\Libs\themes\icons\cut.png" />
+    <Content Include="UI\Libs\themes\icons\edit_add.png" />
+    <Content Include="UI\Libs\themes\icons\edit_remove.png" />
+    <Content Include="UI\Libs\themes\icons\excel.png" />
+    <Content Include="UI\Libs\themes\icons\filesave.png" />
+    <Content Include="UI\Libs\themes\icons\filter.png" />
+    <Content Include="UI\Libs\themes\icons\help.png" />
+    <Content Include="UI\Libs\themes\icons\large_chart.png" />
+    <Content Include="UI\Libs\themes\icons\large_clipart.png" />
+    <Content Include="UI\Libs\themes\icons\large_picture.png" />
+    <Content Include="UI\Libs\themes\icons\large_shapes.png" />
+    <Content Include="UI\Libs\themes\icons\large_smartart.png" />
+    <Content Include="UI\Libs\themes\icons\lock.png" />
+    <Content Include="UI\Libs\themes\icons\mini_add.png" />
+    <Content Include="UI\Libs\themes\icons\mini_edit.png" />
+    <Content Include="UI\Libs\themes\icons\mini_refresh.png" />
+    <Content Include="UI\Libs\themes\icons\no.png" />
+    <Content Include="UI\Libs\themes\icons\ok.png" />
+    <Content Include="UI\Libs\themes\icons\pencil.png" />
+    <Content Include="UI\Libs\themes\icons\poi.png" />
+    <Content Include="UI\Libs\themes\icons\print.png" />
+    <Content Include="UI\Libs\themes\icons\redo.png" />
+    <Content Include="UI\Libs\themes\icons\reload.png" />
+    <Content Include="UI\Libs\themes\icons\search.png" />
+    <Content Include="UI\Libs\themes\icons\sum.png" />
+    <Content Include="UI\Libs\themes\icons\sys.png" />
+    <Content Include="UI\Libs\themes\icons\syss.png" />
+    <Content Include="UI\Libs\themes\icons\tabicons.png" />
+    <Content Include="UI\Libs\themes\icons\tip.png" />
+    <Content Include="UI\Libs\themes\icons\tools.png" />
+    <Content Include="UI\Libs\themes\icons\undo.png" />
+    <Content Include="UI\Libs\themes\icons\user.png" />
+    <Content Include="UI\Libs\themes\icons\users.png" />
+    <Content Include="UI\Libs\themes\Site.css" />
+    <Content Include="UI\CheckCode.aspx" />
+    <Content Include="UI\Libs\js\easyui-lang-zh_CN.js" />
+    <Content Include="UI\Libs\js\Extend.js" />
+    <Content Include="UI\HRBKY.html" />
+    <Content Include="UI\main.html" />
+    <Content Include="UI\Monitor\closedhand.cur" />
+    <Content Include="UI\Monitor\Monitor.html" />
+    <Content Include="UI\Monitor\openhand.cur" />
+    <Content Include="UI\Monitor\_js\Map.js" />
+    <Content Include="UI\Monitor\_js\Monitor.js" />
+    <Content Include="UI\Monitor\_styles\images\blueeast32.png" />
+    <Content Include="UI\Monitor\_styles\images\blueeastnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\blueeastsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\bluenorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\bluesouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\bluewest32.png" />
+    <Content Include="UI\Monitor\_styles\images\bluewestnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\bluewestsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huieast32.png" />
+    <Content Include="UI\Monitor\_styles\images\huieastnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huieastsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huinorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huisouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huiwest32.png" />
+    <Content Include="UI\Monitor\_styles\images\huiwestnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\huiwestsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\monitor-del-hov.png" />
+    <Content Include="UI\Monitor\_styles\images\monitor-del.png" />
+    <Content Include="UI\Monitor\_styles\images\monitor-set-hov.png" />
+    <Content Include="UI\Monitor\_styles\images\monitor-set.png" />
+    <Content Include="UI\Monitor\_styles\images\redeast32.png" />
+    <Content Include="UI\Monitor\_styles\images\redeastnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\redeastsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\rednorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\redsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\redwest32.png" />
+    <Content Include="UI\Monitor\_styles\images\redwestnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\redwestsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\u12.png" />
+    <Content Include="UI\Monitor\_styles\images\u12_mouseOver.png" />
+    <Content Include="UI\Monitor\_styles\images\u178.png" />
+    <Content Include="UI\Monitor\_styles\images\u178_mouseOver.png" />
+    <Content Include="UI\Monitor\_styles\images\u187.png" />
+    <Content Include="UI\Monitor\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\Monitor\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\Monitor\_styles\images\u193.png" />
+    <Content Include="UI\Monitor\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\Monitor\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\Monitor\_styles\images\u209.png" />
+    <Content Include="UI\Monitor\_styles\images\yelloweast32.png" />
+    <Content Include="UI\Monitor\_styles\images\yelloweastnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\yelloweastsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\yellownorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\yellowsouth32.png" />
+    <Content Include="UI\Monitor\_styles\images\yellowwest32.png" />
+    <Content Include="UI\Monitor\_styles\images\yellowwestnorth32.png" />
+    <Content Include="UI\Monitor\_styles\images\yellowwestsouth32.png" />
+    <Content Include="UI\Monitor\_styles\Monitor.css" />
+    <Content Include="UI\Query\AbnormalOffline.htm" />
+    <Content Include="UI\Query\DistributionCarSta.htm" />
+    <Content Include="UI\Query\FenceAlarmStat.htm" />
+    <Content Include="UI\Query\HistoryPhoto.htm" />
+    <Content Include="UI\Query\MileageStatus.htm" />
+    <Content Include="UI\Query\OfflineStatRA.htm" />
+    <Content Include="UI\Query\OnLineRate_Month.htm" />
+    <Content Include="UI\Query\OnLineRate_Year.htm" />
+    <Content Include="UI\Query\ParkTotal.htm" />
+    <Content Include="UI\Query\Query.html" />
+    <Content Include="UI\Query\SignalStat.htm" />
+    <Content Include="UI\Query\StartFlameout.htm" />
+    <Content Include="UI\Query\test.htm" />
+    <Content Include="UI\Query\_js\AbnormalOffline.js" />
+    <Content Include="UI\Query\_js\awesomechart.js" />
+    <Content Include="UI\Query\_js\DistributionCarSta.js" />
+    <Content Include="UI\Query\_js\FenceAlarmStat.js" />
+    <Content Include="UI\Query\_js\HistoryPhoto.js" />
+    <Content Include="UI\Query\_js\MileageStatus.js" />
+    <Content Include="UI\Query\_js\OfflineStatRA.js" />
+    <Content Include="UI\Query\_js\OnLineRate_Month.js" />
+    <Content Include="UI\Query\_js\ParkTotal.js" />
+    <Content Include="UI\Query\_js\Query.js" />
+    <Content Include="UI\Query\_js\SignalStat.js" />
+    <Content Include="UI\Query\_js\StartFlameout.js" />
+    <Content Include="UI\Query\_js\MileageCollect.js" />
+    <Content Include="UI\Query\_js\MileageSpeed.js" />
+    <Content Include="UI\Query\_js\CountLogin.js" />
+    <Content Include="UI\Query\_js\CarOnLine.js" />
+    <Content Include="UI\Query\_js\SearhSpeed.js" />
+    <Content Include="UI\Query\_js\OperationStatistics.js" />
+    <Content Include="UI\Query\_styles\exp.css" />
+    <Content Include="UI\Query\_styles\images\u183.png" />
+    <Content Include="UI\Query\_styles\images\u187.png" />
+    <Content Include="UI\Query\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\Query\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\Query\_styles\images\u193.png" />
+    <Content Include="UI\Query\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\Query\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\Query\_styles\images\u193_Over.png" />
+    <Content Include="UI\Query\_styles\images\u209.png" />
+    <Content Include="UI\Query\_styles\Query.css" />
+    <Content Include="UI\Query\MileageCollect.htm" />
+    <Content Include="UI\Query\MileageSpeed.htm" />
+    <Content Include="UI\Query\CountLogin.htm" />
+    <Content Include="UI\Query\CarOnLine.htm" />
+    <Content Include="UI\Query\SearhSpeed.htm" />
+    <Content Include="UI\Query\OperationStatistics.htm" />
+    <Content Include="UI\Test\test.htm" />
+    <Content Include="UI\Track\Track.html" />
+    <Content Include="UI\Track\_js\dateSet.js" />
+    <Content Include="UI\Track\_js\Map.js" />
+    <Content Include="UI\Track\_js\Param.js" />
+    <Content Include="UI\Track\_js\Track.js" />
+    <Content Include="UI\Track\_styles\blueD.png" />
+    <Content Include="UI\Track\_styles\cars\bM.png" />
+    <Content Include="UI\Track\_styles\cars\che1_1.png" />
+    <Content Include="UI\Track\_styles\cars\che1_2.png" />
+    <Content Include="UI\Track\_styles\cars\che1_3.png" />
+    <Content Include="UI\Track\_styles\cars\che1_4.png" />
+    <Content Include="UI\Track\_styles\cars\che1_5.png" />
+    <Content Include="UI\Track\_styles\cars\che1_6.png" />
+    <Content Include="UI\Track\_styles\cars\che1_7.png" />
+    <Content Include="UI\Track\_styles\cars\che1_8.png" />
+    <Content Include="UI\Track\_styles\cars\che4_1.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_2.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_3.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_4.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_5.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_6.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_7.gif" />
+    <Content Include="UI\Track\_styles\cars\che4_8.gif" />
+    <Content Include="UI\Track\_styles\cars\eM.png" />
+    <Content Include="UI\Track\_styles\greenD.png" />
+    <Content Include="UI\Track\_styles\redD.png" />
+    <Content Include="UI\Track\_styles\Track.css" />
+    <Content Include="UI\Track\_styles\u143.png" />
+    <Content Include="UI\Track\_styles\u143_Over.png" />
+    <Content Include="UI\Track\_styles\u145.png" />
+    <Content Include="UI\Track\_styles\u145_Over.png" />
+    <Content Include="UI\Track\_styles\u147.png" />
+    <Content Include="UI\Track\_styles\u147_Over.png" />
+    <Content Include="UI\Track\_styles\u149.png" />
+    <Content Include="UI\Track\_styles\u149_Over.png" />
+    <Content Include="UI\Track\_styles\u151.png" />
+    <Content Include="UI\Track\_styles\u151_Over.png" />
+    <Content Include="UI\Track\_styles\u183.png" />
+    <Content Include="UI\Track\_styles\u187.png" />
+    <Content Include="UI\Track\_styles\u187_Over.png" />
+    <Content Include="UI\Track\_styles\u193.png" />
+    <Content Include="UI\Track\_styles\u193_Over.png" />
+    <Content Include="UI\userLogin.html" />
+    <Content Include="UI\userMain.htm" />
+    <Content Include="UI\XiaoDai\XiaoDai.htm" />
+    <Content Include="UI\XiaoDai\XiaoDaiParamDown.htm" />
+    <Content Include="UI\XiaoDai\_js\XiaoDai.js" />
+    <Content Include="UI\XiaoDai\_js\XiaoDaiParamDown.js" />
+    <Content Include="UI\XiaoDai\_styles\exp.css" />
+    <Content Include="UI\XiaoDai\_styles\images\u183.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u187.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u187_Over.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u193.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u193_Over.png" />
+    <Content Include="UI\XiaoDai\_styles\images\u209.png" />
+    <Content Include="UI\XiaoDai\_styles\XiaoDai.css" />
+    <Content Include="UI\YouWeiVideo.html" />
+    <Content Include="UI\YQWLAutoLogin.aspx" />
+    <Content Include="UI\YQWL_New.html" />
+    <Content Include="UI\_js\CarFormList.js" />
+    <Content Include="UI\_js\Common.js" />
+    <Content Include="UI\_js\eye.js" />
+    <Content Include="UI\_js\login.js" />
+    <Content Include="UI\_js\main.js" />
+    <Content Include="UI\_js\mainorder.js" />
+    <Content Include="UI\_js\NewSelectCar.js" />
+    <Content Include="UI\_js\usermain.js" />
+    <Content Include="UI\_styles\exp.css" />
+    <Content Include="UI\_styles\images\alarm.png" />
+    <Content Include="UI\_styles\images\bg.jpg" />
+    <Content Include="UI\_styles\images\cutimages\001.jpg" />
+    <Content Include="UI\_styles\images\cutimages\002.jpg" />
+    <Content Include="UI\_styles\images\cutimages\003.jpg" />
+    <Content Include="UI\_styles\images\cutimages\004.jpg" />
+    <Content Include="UI\_styles\images\cutimages\005.jpg" />
+    <Content Include="UI\_styles\images\cutimages\006.jpg" />
+    <Content Include="UI\_styles\images\cutimages\007.jpg" />
+    <Content Include="UI\_styles\images\cutimages\008.jpg" />
+    <Content Include="UI\_styles\images\cutimages\009.jpg" />
+    <Content Include="UI\_styles\images\cutimages\010.jpg" />
+    <Content Include="UI\_styles\images\cutimages\011.jpg" />
+    <Content Include="UI\_styles\images\cutimages\012.jpg" />
+    <Content Include="UI\_styles\images\cutimages\013.jpg" />
+    <Content Include="UI\_styles\images\cutimages\014.jpg" />
+    <Content Include="UI\_styles\images\cutimages\015.jpg" />
+    <Content Include="UI\_styles\images\cutimages\016.jpg" />
+    <Content Include="UI\_styles\images\cutimages\017.jpg" />
+    <Content Include="UI\_styles\images\cutimages\018.jpg" />
+    <Content Include="UI\_styles\images\cutimages\019.jpg" />
+    <Content Include="UI\_styles\images\cutimages\020.jpg" />
+    <Content Include="UI\_styles\images\cutimages\021.jpg" />
+    <Content Include="UI\_styles\images\cutimages\022.jpg" />
+    <Content Include="UI\_styles\images\cutimages\023.jpg" />
+    <Content Include="UI\_styles\images\cutimages\024.jpg" />
+    <Content Include="UI\_styles\images\cutimages\025.jpg" />
+    <Content Include="UI\_styles\images\cutimages\026.jpg" />
+    <Content Include="UI\_styles\images\cutimages\027.jpg" />
+    <Content Include="UI\_styles\images\cutimages\028.jpg" />
+    <Content Include="UI\_styles\images\cutimages\029.jpg" />
+    <Content Include="UI\_styles\images\cutimages\030.jpg" />
+    <Content Include="UI\_styles\images\cutimages\031.jpg" />
+    <Content Include="UI\_styles\images\cutimages\032.jpg" />
+    <Content Include="UI\_styles\images\cutimages\033.jpg" />
+    <Content Include="UI\_styles\images\cutimages\034.jpg" />
+    <Content Include="UI\_styles\images\cutimages\035.jpg" />
+    <Content Include="UI\_styles\images\cutimages\036.jpg" />
+    <Content Include="UI\_styles\images\cutimages\037.jpg" />
+    <Content Include="UI\_styles\images\cutimages\038.jpg" />
+    <Content Include="UI\_styles\images\cutimages\039.jpg" />
+    <Content Include="UI\_styles\images\cutimages\040.jpg" />
+    <Content Include="UI\_styles\images\cutimages\041.jpg" />
+    <Content Include="UI\_styles\images\cutimages\042.jpg" />
+    <Content Include="UI\_styles\images\cutimages\043.jpg" />
+    <Content Include="UI\_styles\images\cutimages\044.jpg" />
+    <Content Include="UI\_styles\images\cutimages\045.jpg" />
+    <Content Include="UI\_styles\images\cutimages\046.jpg" />
+    <Content Include="UI\_styles\images\cutimages\047.jpg" />
+    <Content Include="UI\_styles\images\cutimages\048.jpg" />
+    <Content Include="UI\_styles\images\cutimages\049.jpg" />
+    <Content Include="UI\_styles\images\cutimages\050.jpg" />
+    <Content Include="UI\_styles\images\cutimages\051.jpg" />
+    <Content Include="UI\_styles\images\cutimages\052.jpg" />
+    <Content Include="UI\_styles\images\cutimages\053.jpg" />
+    <Content Include="UI\_styles\images\cutimages\054.jpg" />
+    <Content Include="UI\_styles\images\cutimages\055.jpg" />
+    <Content Include="UI\_styles\images\cutimages\056.jpg" />
+    <Content Include="UI\_styles\images\cutimages\057.jpg" />
+    <Content Include="UI\_styles\images\cutimages\058.jpg" />
+    <Content Include="UI\_styles\images\cutimages\059.jpg" />
+    <Content Include="UI\_styles\images\cutimages\060.jpg" />
+    <Content Include="UI\_styles\images\exing.swf" />
+    <Content Include="UI\_styles\images\gps.png" />
+    <Content Include="UI\_styles\images\gpss.png" />
+    <Content Include="UI\_styles\images\headbg.png" />
+    <Content Include="UI\_styles\images\info.png" />
+    <Content Include="UI\_styles\images\liute.png" />
+    <Content Include="UI\_styles\images\loading.gif" />
+    <Content Include="UI\_styles\images\login.gif" />
+    <Content Include="UI\_styles\images\login.png" />
+    <Content Include="UI\_styles\images\loginBG.gif" />
+    <Content Include="UI\_styles\images\loginbg.png" />
+    <Content Include="UI\_styles\images\loginBtn.gif" />
+    <Content Include="UI\_styles\images\loginbtn.png" />
+    <Content Include="UI\_styles\images\loginbtn_Down.png" />
+    <Content Include="UI\_styles\images\loginbtn_Over.png" />
+    <Content Include="UI\_styles\images\logincar.png" />
+    <Content Include="UI\_styles\images\logintbg.png" />
+    <Content Include="UI\_styles\images\logo.png" />
+    <Content Include="UI\_styles\images\logo2.png" />
+    <Content Include="UI\_styles\images\next.png" />
+    <Content Include="UI\_styles\images\noinfo.png" />
+    <Content Include="UI\_styles\images\nophoto.png" />
+    <Content Include="UI\_styles\images\noscript.gif" />
+    <Content Include="UI\_styles\images\phone.png" />
+    <Content Include="UI\_styles\images\photo.png" />
+    <Content Include="UI\_styles\images\prev.png" />
+    <Content Include="UI\_styles\images\u10.png" />
+    <Content Include="UI\_styles\images\u12.png" />
+    <Content Include="UI\_styles\images\u183.png" />
+    <Content Include="UI\_styles\images\u187.png" />
+    <Content Include="UI\_styles\images\u187_mouseDown.png" />
+    <Content Include="UI\_styles\images\u187_mouseOver.png" />
+    <Content Include="UI\_styles\images\u187_Over.png" />
+    <Content Include="UI\_styles\images\u193.png" />
+    <Content Include="UI\_styles\images\u193_mouseDown.png" />
+    <Content Include="UI\_styles\images\u193_mouseOver.png" />
+    <Content Include="UI\_styles\images\u193_Over.png" />
+    <Content Include="UI\_styles\images\u209.png" />
+    <Content Include="UI\_styles\images\u8.png" />
+    <Content Include="UI\_styles\Main.css" />
+    <Content Include="log4net.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WCFService.wsdl" />
+    <None Include="Service References\RealtimeDataServer\WCFService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WCFService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WCFService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WCFService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WebGIS.RealtimeDataServer.CarRealData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RealtimeDataServer\WebGIS.RealtimeDataServer.CarTransmissionProtocolInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmsSendService\SendSMSImpService.wsdl" />
+    <None Include="Service References\WebGISService\WebGIS.WebGISService.KY_PendingWork.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebGISService\WebGIS.WebGISService.ResponseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebGISService\WebGISService.wsdl" />
+    <Content Include="Service\RourtSet.ashx" />
+    <None Include="Service\_extend\celllic.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Service\AppService.ashx" />
+    <None Include="Web References\GlobalSessionService\GSSWebService.disco" />
+    <Content Include="UI\YQWL.html" />
+    <Content Include="UI\JFJY.html" />
+    <Content Include="UI\HRBHY.html" />
+    <Content Include="UI\LIUTE.html" />
+    <Content Include="UI\DPTEST.html" />
+    <Content Include="UI\ALARM.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\GlobalSessionService\GSSWebService.wsdl" />
+    <None Include="Web References\GlobalSessionService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GlobalSessionService\SessionModel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Service References\SmsSendService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SendOrderTest.aspx.cs">
+      <DependentUpon>SendOrderTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendOrderTest.aspx.designer.cs">
+      <DependentUpon>SendOrderTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebGISService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ActiveRegion\regionmanage.cs" />
+    <Compile Include="Service\Alarm\AlarmProess.cs" />
+    <Compile Include="Service\AnnulBase\AnnulBase.cs" />
+    <Compile Include="Service\AnnulLog\AnnulLog.cs" />
+    <Compile Include="Service\App\AppProess.cs" />
+    <Compile Include="Service\App\AppvdProess.cs" />
+    <Compile Include="Service\CarMaintenance\CarMaintenanceRemind.cs" />
+    <Compile Include="Service\CarMaintenance\InfoDown.cs" />
+    <Compile Include="Service\Car\CarManage.cs" />
+    <Compile Include="Service\DriveLine\DriveLineManage.cs" />
+    <Compile Include="Service\DrivingAnalysis\DrivingAnalysis.cs" />
+    <Compile Include="Service\DrivingAnalysis\DrivObj.cs" />
+    <Compile Include="Service\EnergyAnalysis\EnergyAnalysis.cs" />
+    <Compile Include="Service\extIface\ExtYQWL.cs" />
+    <Compile Include="Service\FaultStatistic\FaultStatistic.cs" />
+    <Compile Include="Service\Fence\Fence.cs" />
+    <Compile Include="Service\Fence\FenceAlarmStatistic.cs" />
+    <Compile Include="Service\Fence\FenceCar.cs" />
+    <Compile Include="Service\LoanOrg.cs" />
+    <Compile Include="Service\LockApplication\LockApplication.cs" />
+    <Compile Include="Service\Log\LogModel.cs" />
+    <Compile Include="Service\Log\LogType.cs" />
+    <Compile Include="Service\MapMarkerSetting\MarkerSetting.cs" />
+    <Compile Include="Service\MessageCodeManager.cs" />
+    <Compile Include="Service\MessageCodeVerification.cs" />
+    <Compile Include="Service\PageLicense.cs" />
+    <Compile Include="Service\Query\sta-abnormaloffline.cs" />
+    <Compile Include="Service\Query\sta-DayTestDriveAnalyse-new.cs" />
+    <Compile Include="Service\Query\sta-DayTestDriveAnalyse.cs" />
+    <Compile Include="Service\Query\sta-distributioncarstat.cs" />
+    <Compile Include="Service\Query\sta-historyphoto.cs" />
+    <Compile Include="Service\Query\sta-offlineRA.cs" />
+    <Compile Include="Service\Query\sta-onlinerate.cs" />
+    <Compile Include="Service\Query\sta-operationstatistics.cs" />
+    <Compile Include="Service\Query\sta-outarea.cs" />
+    <Compile Include="Service\Query\sta-outdrive.cs" />
+    <Compile Include="Service\Query\sta-signalStat.cs" />
+    <Compile Include="Service\Query\sta-testdrive.cs" />
+    <Compile Include="Service\Query\sta_ComTestDriveAnalyse.cs" />
+    <Compile Include="Service\Query\sta_MonthTestDriveAnalyse-new.cs" />
+    <Compile Include="Service\Query\sta_MonthTestDriveAnalyse.cs" />
+    <Compile Include="Service\RDSConfig.cs" />
+    <Compile Include="Service\ReceiveOrder\OrderPhotoResponse.cs" />
+    <Compile Include="Service\ReceiveOrder\OrderResponse.cs" />
+    <Compile Include="Service\RourtSet.ashx.cs">
+      <DependentUpon>RourtSet.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\SendOrderHander.cs" />
+    <Compile Include="Service References\RealtimeDataServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\HttpService.ashx.cs">
+      <DependentUpon>HttpService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Monitor\monitor.cs" />
+    <Compile Include="Service\SendOrder\DriveRecordCollectRequest.cs" />
+    <Compile Include="Service\SendOrder\DriverRecordCMDDown.cs" />
+    <Compile Include="Service\SendOrder\ImageRequestDown.cs" />
+    <Compile Include="Service\SendOrder\SendResult.cs" />
+    <Compile Include="Service\SendOrder\TermParamDown.cs" />
+    <Compile Include="Service\SendOrder\TermSearchRequestDown.cs" />
+    <Compile Include="Service\SendOrder\TransmissionProtocolDown.cs" />
+    <Compile Include="Service\SessionManager.cs" />
+    <Compile Include="Service\Query\sta-mileagecollect.cs" />
+    <Compile Include="Service\Query\sta-mileagestatus.cs" />
+    <Compile Include="Service\Query\sta-parktotal.cs" />
+    <Compile Include="Service\Query\sta-mileagespeed.cs" />
+    <Compile Include="Service\Query\sta-countlogin.cs" />
+    <Compile Include="Service\Query\sta-caronline.cs" />
+    <Compile Include="Service\Query\sta-searhspeed.cs" />
+    <Compile Include="Service\CommonHelper.cs" />
+    <Compile Include="Service\sys\sys-car.cs" />
+    <Compile Include="Service\Query\sta-startflameout.cs" />
+    <Compile Include="Service\sys\sys-dealer.cs" />
+    <Compile Include="Service\sys\sys-log.cs" />
+    <Compile Include="Service\sys\sys-user.cs" />
+    <Compile Include="Service\Track\CarInfo.cs" />
+    <Compile Include="Service\Track\Track.cs" />
+    <Compile Include="Service\WebProc.cs" />
+    <Compile Include="Service\AppService.ashx.cs">
+      <DependentUpon>AppService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ParameterSetting\ParameterSetting.cs" />
+    <Compile Include="UI\CheckCode.aspx.cs">
+      <DependentUpon>CheckCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CheckCode.aspx.designer.cs">
+      <DependentUpon>CheckCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\YQWLAutoLogin.aspx.cs">
+      <DependentUpon>YQWLAutoLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\YQWLAutoLogin.aspx.designer.cs">
+      <DependentUpon>YQWLAutoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GlobalSessionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service\HttpService.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RealtimeDataServer\" />
+    <WCFMetadataStorage Include="Service References\SmsSendService\" />
+    <WCFMetadataStorage Include="Service References\WebGISService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="Service\A0EV\" />
+    <Folder Include="TempImage\" />
+    <Folder Include="UI\Excel\Monitor\" />
+    <Folder Include="UI\Excel\Query\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:9001/GSSWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GlobalSessionService\</RelPath>
+      <UpdateFromURL>http://localhost:9001/GSSWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebGIS_GlobalSessionService_GSSWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>系统日志</title>
+    <script src="../Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--<script src="../_js/jquery-1.11.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="_js/jquery.flot.js" type="text/javascript"></script>-->
+    <link href="../_styles/exp.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../_js/Common.js" type="text/javascript"></script>
+    <script src="../XiaoDai/_js/AnnualLog.js" type="text/javascript"></script>
+</head>
+<body id="MainLay" class="easyui-layout">
+    <!--顶部-->
+    <div data-options="region:'north',border:false" style="padding: 10px 10px 0px 10px;
+        height: 70px; width: auto">
+        <div style="padding: 10px; border: 1px solid #95b8e7">
+            <table style="width: auto;">
+                <tr>
+                    <td style="width: 90px; text-align: right; white-space: nowrap;">
+                        车牌号
+                    </td>
+                    <td style="width: 160px; text-align: left; white-space: nowrap;">
+                        <input id="txtCarNo" name="txtCarNo" class="easyui-validatebox" type="text" style="width: 150px;" />
+                    </td>
+                    <td style="width: 50px; text-align: right; white-space: nowrap;">
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="button" title="查询" onclick="DoQuery()" class="btnGreen" style="width: 50px;"
+                            value="查询" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--主内容-->
+    <div data-options="region:'center',border:false" style="padding: 10px 10px 0px 10px;
+        height: auto; width: auto;">
+        <table id="data_grid" class="easyui-datagrid" data-options="iconCls:'icon-save',
+            rownumbers:false,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:true,
+            fit:true,
+            toolbar:'#tb',
+            border:true,
+			loadMsg: '',
+            fitColumns:false ">
+            <thead>
+                <tr>
+                    <th field="CarNo" width="150" align="center">
+                        车牌号
+                    </th>
+                    <th field="operatorId" width="150" align="center" hidden="true">
+                        操作人员ID
+                    </th>
+                    <th field="operatorNm" width="150" align="center">
+                        操作人员
+                    </th>
+                    <th field="operateTime" width="150" align="center">
+                        操作时间
+                    </th>
+                    <th field="controlDetail" width="550" align="center">
+                        操作说明
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding-left: 10px; left: 300px;">
+            <div id="trackloading">
+                <img src="../_styles/images/loading.gif" align="absmiddle" />
+                数据加载中,请稍候...
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,763 @@
+﻿<html>
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>一汽解放智能锁车服务系统</title>
+    <link href="Libs/themes/Site.css" rel="stylesheet" type="text/css" />
+    <link href="_styles/Main.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="Libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="Libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="Libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="Libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="_js/Common.js" type="text/javascript"></script>
+    <script src="_js/main.js" type="text/javascript"></script>
+    <script src="_js/mainorder.js" type="text/javascript"></script>
+    <script src="_js/NewSelectCar.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function window.onunload() {
+            //openLock();
+        }
+        function window.onbeforeunload() { }   
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("div.topmenu div div.submenu1 div").hover(function () {
+                $(this).find("div.submenu11:first").show("slow");
+            }, function () {
+                $(this).find("div.submenu11:first").hide("fast");
+            });
+        });
+    
+    </script>
+</head>
+<body class="easyui-layout">
+    <input id="sysflag" type="hidden" value="" />
+    <!--浏览器禁用JS提示-->
+    <noscript>
+        <div class="noscript">
+            <img src="_styles/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <!--页面加载进度-->
+    <div id="loading-mask">
+        <div id="pageloading">
+            <img src="_styles/images/loading.gif" align="absmiddle" />
+            正在加载中,请稍候...
+        </div>
+    </div>
+    <!--头部-->
+    <div data-options="region:'north',border:false" style="overflow: hidden; height: 60px;
+        background: #405e88;">
+        <table style="width: 100%; height: 60px;">
+            <tr>
+                <td align="left" rowspan="2" style="white-space: nowrap;">
+                    <img id="headlogo" src="_styles/images/logo_01.png" alt="Dpartner" style="top: 4px;
+                        left: 6px;" />
+                </td>
+                <td align="left" valign="middle" rowspan="2" style="white-space: nowrap;">
+                    <span id="headtext" style="color: #FFFFFF; font-size: 14pt;">一汽解放智能锁车服务系统 </span>
+                </td>
+                <td align="left" rowspan="2" valign="middle" style="white-space: nowrap;">
+                    <img src="_styles/images/headbg_01.png" alt="" style="top: 1px; left: 176px; width: 436px;
+                        height: 50px;" />
+                </td>
+                <!--  <td width="230" rowspan="2">-->
+                <td align="right" rowspan="2" style="white-space: nowrap;">
+                    <!--  <iframe allowtransparency="true" frameborder="0" width="410" height="64" scrolling="no"
+                        src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=2&bd=0&k=&f=ffffff&q=1&e=0&a=1&c=54511&w=410&h=64&align=center">
+                    </iframe>-->
+                    <iframe allowtransparency="true" frameborder="0" width="410" height="64" scrolling="no"
+                        src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=1&bd=0&k=&f=ffffff&q=0&e=1&a=1&c=54511&w=410&h=64&align=center">
+                    </iframe>
+                </td>
+                <!-- <td align="right" style="font-size: 12px; color: #fff; font-family: 微软雅黑; white-space: nowrap;">
+                  <span id="labusername"></span> 
+                </td>-->
+            </tr>
+            <tr>
+                <td align="right">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--底部-->
+    <div data-options="region:'south'" style="height: 25px; background: #405e88;">
+        <div class="footerleft" id="divAlarm">
+            <img alt="" src="_styles/images/alarm.png" width="20px" height="20px" style="vertical-align: middle;" />
+            <span style="color: #FF0000; height: 23px; font-size: 10pt;">报警提示: </span><span id="spanAlarm"
+                style="color: #FFFFFF; height: 23px; font-size: 10pt;">吉A1234 2014-11-24 09:50:45
+                超速报警 </span>
+        </div>
+        <div class="footerright">
+            <span id="foottitle" style="color: #FFFFFF; height: 23px; font-size: 10pt;"></span>
+        </div>
+    </div>
+    <!--主体-->
+    <div id="mainPanle" data-options="region:'center'">
+        <div id="tabs" class="easyui-tabs" data-options="border:false,fit:true,onSelect:selPrivateTab,tools:'#tab-tools'">
+            <div id="tabMonitor" title="定位监控" data-options="iconCls:'icon-monitor'" style="overflow: hidden;">
+                <iframe id="iframe1" scrolling="no" frameborder="0" src="Monitor/Monitor.html" style="width: 100%;
+                    height: 100%;"></iframe>
+            </div>
+            <div id="tabTrack" title="轨迹回放" data-options="iconCls:'icon-track'" style="overflow: hidden;">
+                <iframe id="iframe2" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+                <!-- <iframe scrolling="no" frameborder="0" src="Track/Track.html" style="width: 100%;
+                    height: 100%;"></iframe>-->
+            </div>
+            <!--<div id="tabQuery" title="统计分析" data-options="iconCls:'icon-query'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe3" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+                <!--  <iframe scrolling="no" frameborder="0" src="Query/Query.html" style="width: 100%;
+                    height: 100%;"></iframe>
+            </div>-->
+            <!--<div id="tabDataSetting" title="数据设置" data-options="iconCls:'icon-query'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe4" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>-->
+            <div id="tabXiaoDai" title="销贷业务" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe5" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <!--
+            <div id="tabCommandD" title="指令下发" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe4" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <div id="tabXiaoDai" title="销贷业务" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe5" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <div id="tabZhenDuan" title="车辆诊断" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe6" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <div id="tabYouWeiVideo" title="视频监控" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe7" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <div id="tabFence" title="电子围栏" data-options="iconCls:'icon-photo'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe8" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+            <div id="tabStatistic" title="能耗分析" data-options="iconCls:'icon-query'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe9" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+
+            <div id="tabDriving" title="驾驶行为分析" data-options="iconCls:'icon-query'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe10" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>
+
+            <div id="tabAlarm" title="驻车提示" data-options="iconCls:'icon-query'" style="padding: 0px;
+                overflow: hidden;">
+                <iframe id="iframe11" scrolling="no" frameborder="0" src="" style="width: 100%; height: 100%;">
+                </iframe>
+            </div>-->
+        </div>
+        <div id="loading-photo" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding: 10px;">
+            <div id="photoloading">
+                <img src="_styles/images/loading.gif" align="absmiddle" />
+                照片数据查询中,请稍候...
+            </div>
+        </div>
+    </div>
+    <!--控制面板下拉菜单-->
+    <div id="tab-tools" style="width: 400px;">
+        <!--宽度由350px调整至370px  2016-02-25 wx-->
+        <div  id="divphotoinfo" style="float: left; vertical-align: bottom; padding-left: 5px; padding-top: 5px;">
+            <!--<input type="image" id="imgphoto" src="_styles/images/nophoto.png" onclick="openphotos()"
+                title="查看照片" />&nbsp;&nbsp;
+            <input type="image" id="imginfo" src="_styles/images/noinfo.png" onclick="openrecords()"
+                title="查看记录仪数据" />-->
+        </div>
+        <div style="float: right; vertical-align: bottom;">
+          <!--  <a href="#" id="jfjydd" class="easyui-linkbutton" onclick="openFwjy()" data-options="plain:true">
+                服务救援</a>-->
+                 <a href="#" id="jfjydd" style="text-align: left" onclick="openFwjy()" class="easyui-linkbutton"
+                data-options="iconCls:'icon-tools'" plain="true">服务救援</a>
+            <!-- <a href="#" id="jfjydd" title="服务救援" onclick="openFwjy()" class="easyui-menubutton"
+                data-options="plain:true, iconCls:'icon-filter'">服务救援 </a>-->
+            <!--添加 管理 按钮 2016-02-26 wx-->
+            <a href="#" id="mmeny" title="管理" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-edit'">
+                管理 </a>
+            <div id="mm1" style="width: 100px;">
+                <div data-options="iconCls:'icon-save'" style="width: 100px;" onclick="openCarManager()">
+                    车辆管理
+                </div>
+                <!--<div id="jfjydd" data-options="" onclick="openFwjy()">
+                    服务救援
+                </div>-->
+            </div>
+            <!--<a href="#" id="A1" title="照片" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-nophoto'">
+            </a>-->
+           
+            <a id="divabout" href="#" title="关于" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-about'">
+                关于 </a>
+            <div id="mm2" style="width: 100px;">
+                <div data-options="iconCls:'icon-help'" style="width: 100px;" onclick="openwHelp()">
+                    帮助
+                </div>
+                <div data-options="iconCls:'icon-about'" style="clear: both; width:100px" onclick="openwAbout()">
+                    版本
+                </div>
+            </div>
+            <a href="#" title="" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-user'">
+                <span id="labusername"></span></a>
+            <div id="mm3" style="width: 100px;">
+                <div data-options="iconCls:'icon-lock'" style="width: 100px;" onclick="openwMyPWD()">
+                    修改密码
+                </div>
+                <div data-options="iconCls:'icon-no'" style="width: 100px;" onclick="openLock()">
+                    退出登录
+                </div>
+            </div>
+            <!--*******************-->
+            <!-- <a href="#" title="帮助" onclick="openwHelp()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'">
+                帮助 </a><a href="#" title="关于" onclick="openwAbout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-about'">
+                    关于</a> <a href="#" title="修改密码" onclick="openwMyPWD()" class="easyui-linkbutton"
+                        data-options="plain:true,iconCls:'icon-user'">修改密码</a> <a href="#" title="退出" onclick="openLock()"
+                            class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'">退出登录</a>-->
+        </div>
+    </div>
+    <!--弹出窗体-->
+    <div id="wMyPWD" class="easyui-window" title="修改密码" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-user'"
+        style="width: 300px; height: 140px; padding: 10px; overflow: hidden;">
+        <form action="" id="fPwd" method="post">
+        <table style="width: 100%;">
+            <tr>
+                <th style="width: 75px; text-align: right">
+                    新密码：
+                </th>
+                <td>
+                    <input id="txtNewPwd" type="password" class="easyui-validatebox" data-options="required:true,missingMessage:'请输入新密码！'"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <th style="text-align: right">
+                    确认密码：
+                </th>
+                <td>
+                    <input id="txtNewRePwd" type="password" class="easyui-validatebox" data-options="required:true,missingMessage:'请输入确认密码！',invalidMessage:'俩次密码不一致！',validType:'rePwd[]'"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <td align="right">
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true"
+                        onclick="rePwd()">确定</a> <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true"
+                            onclick="closeMyPWD()">取消</a>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <div id="wAbout" class="easyui-window" title="关于" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-user'"
+        style="width: 650px; height: 600px; padding: 10px;">
+        <iframe scrolling="yes" frameborder="0" src="../about.htm" style="width: 100%; height: 100%;">
+        </iframe>
+    </div>
+    <div id="wHelp" class="easyui-window" title="帮助" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-help'"
+        style="width: 670px; height: 600px; padding: 10px;">
+        <iframe scrolling="yes" frameborder="0" src="../help.htm" style="width: 100%; height: 100%;">
+        </iframe>
+    </div>
+    <div id="wLock" class="easyui-window" title="请输入解锁口令！" style="width: 300px; height: 85px;
+        padding: 10px; overflow: hidden;" data-options="modal:true,
+                      closed:true,
+                      minimizable:false,
+                      maximizable:false,
+                      closable:false,
+                      resizable:false,
+                      iconCls:'icon-unlock'">
+        <form action="" id="fLock" method="post">
+        <input id="txtKey" type="password" class="easyui-validatebox" data-options="required:true,missingMessage:'请输入解锁密码！'"
+            style="width: 180px;" />
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true"
+            onclick="closeLock()">确定</a>
+        </form>
+    </div>
+    <div id="wSelCarNew" class="easyui-window" title="车辆选择" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip',onOpen:function(){showinfo()},onClose:function(){ cleardata()}"
+        style="width: 700px; height: 470; overflow: hidden;">
+        <table style="height: 100%; width: 100%; border: 0px; border-collapse: collapse;">
+            <tr style="height: 50px;">
+                <td align="left" style="border-bottom: 1px solid #D3D3D3; border-collapse: collapse;
+                    white-space: nowrap; padding-left: 1px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td align="right" valign="middle" style="width: 100px;">
+                                过滤条件：
+                            </td>
+                            <td align="left">
+                                <input id="selContent" class="easyui-combobox" style="width: 150px" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '0',text: '无'},
+                                       {value: '1',text: '车牌号'},
+                                       {value: '2',text: '所属企业'},
+                                       {value: '3',text: 'SIM卡号'},
+                                       {value: '4',text: '车台类型'},
+                                       {value: '5',text: '终端号码'},
+                                       {value: '6',text: '车辆用途'},
+                                       {value: '8',text: 'VIN码'},
+                                       {value: '7',text: '在线状态'}]" />
+                            </td>
+                            <td align="right" style="width: 100px;" valign="middle">
+                                过滤内容：
+                            </td>
+                            <td align="left" valign="middle">
+                                <input class="easyui-validatebox" type="text" name="txtSearch" id="txtSearch" style="width: 150px;" />
+                                <input class="easyui-combobox" id="comSearch" style="width: 150px;" data-options="valueField: 'value',textField: 'text',
+                                data: [{value: '上线',text: '上线'},
+                                       {value: '停止',text: '停止'}]" />
+                            </td>
+                            <td align="left" valign="middle">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                                    onclick="FilterCar()"> 查询</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #D3D3D3; border-left: none; vertical-align: top; border-collapse: collapse;">
+                    <table id="dgOptional">
+                        <thead>
+                            <tr>
+                                <th data-options="field:'ck',checkbox:true">
+                                </th>
+                                <th data-options="field:'carno',width:80">
+                                    车牌号
+                                </th>
+                                <th data-options="field:'os',width:60">
+                                    在线状态
+                                </th>
+                                <th data-options="field:'tno',width:80">
+                                    终端号
+                                </th>
+                                <th data-options="field:'sim',width:80">
+                                    SIM卡号
+                                </th>
+                                <th data-options="field:'cowner',width:130">
+                                    企业名称
+                                </th>
+                                <th data-options="field:'cu',width:80">
+                                    车辆用途
+                                </th>
+                                <th data-options="field:'tname',width:60">
+                                    车台类型
+                                </th>
+                                <th data-options="field:'cont',width:60">
+                                    通讯类型
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 30px;">
+                <td align="center" style="border-top: 1px solid #D3D3D3; border-collapse: collapse;">
+                    <a href="#" id="btnSetCarsNew" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true"
+                        onclick="CallOk()">确定</a>
+                </td>
+            </tr>
+        </table>
+        <div id="loading-track" class="easyui-window" title="请稍候......" data-options="modal:true,inline:true,closable:false,collapsible:false,minimizable:false,maximizable:false,closed:true"
+            style="width: 250px; height: 120px; padding: 10px;">
+            <div id="trackloading">
+                <img src="_styles/images/loading.gif" align="absmiddle" />
+                车辆数据加载中,请稍候...
+            </div>
+        </div>
+    </div>
+    <div id="dgtoolbar" style="padding: 0px; height: auto">
+        <table style="padding: 0px; width: 100%">
+            <tr>
+                <td style="font-weight: bold; font-size: 12px; color: #575765; padding-left: 10px;">
+                    待选列表&nbsp;&nbsp;当前已选择车辆数:<span id="lblCarCount" style="color: #405e88; width: 20px;">0</span>
+                    &nbsp;&nbsp;
+                </td>
+                <td id="allseldiv" style="text-align: right; white-space: nowrap; width: 60px;">
+                    <a onclick="alldo()" class="easyui-linkbutton">全部选择</a>
+                </td>
+                <td style="text-align: right; white-space: nowrap; width: 60px;">
+                    <a onclick="redo()" class="easyui-linkbutton">取消选择</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--照片弹出窗体-->
+    <div id="photodetails" class="easyui-window" title="照片浏览" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 630px; height: 470px; padding: 5px;">
+        <table width="100%" style="border: none;">
+            <tr>
+                <td colspan="4" style="padding: 5px; height: 30px;">
+                    <div>
+                        车牌号：<span id="spanCarNo" style="color: #191970; font-weight: bold;"></span> &nbsp;&nbsp;
+                        拍摄时间：<span id="spanTime" style="color: #191970; font-weight: bold;"></span> &nbsp;&nbsp;
+                        <br />
+                        所属企业：<span id="spanOwnName" style="color: #191970; font-weight: bold;"></span> &nbsp;&nbsp;
+                    </div>
+                    <input id="hidCurIndex" type="hidden" />
+                    <input id="hidTotal" type="hidden" />
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0px; border: 1px solid #99BBE8; width: 376px; height: 240px;
+                    border-radius: 10px">
+                    <table style="border: 0px; border-collapse: collapse; width: 200px">
+                        <tr>
+                            <td align="center" valign="middle" style="width: 28px;">
+                                <!--<a title="上一张" href="#" class="easyui-linkbutton" data-options="plain:true" style="background: url('../Libs/themes/icons/prev.png') no-repeat center center;"
+                                    onclick="GoBack()"></a>-->
+                                <img alt="前一张" src="_styles/images/prev.png" onclick="GoBack()" />
+                            </td>
+                            <td align="center" style="width: 320px; border: 0px solid #99BBE8; height: 240px;">
+                                <input id="curImg" type="image" src="" style="width: 320px; height: 240px;" />
+                            </td>
+                            <td align="center" valign="middle" style="width: 28px;">
+                                <!-- <a title="下一张" href="#" class="easyui-linkbutton" data-options="plain:true" style="background: url('../Libs/themes/icons/next.png') no-repeat center center;"
+                                    onclick="GoForward()"></a>-->
+                                <img alt="后一张" src="_styles/images/next.png" onclick="GoForward()" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 30px">
+                    &nbsp;
+                </td>
+                <td align="left" style="padding: 0px; border: 1px solid #99BBE8; width: 105px; height: 240px;
+                    border-radius: 10px">
+                    <div id="dgdiv" style="padding: 5px; width: 105px; height: 240px;">
+                        <table id="dgdetail">
+                        </table>
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--行驶记录仪采集数据列表弹出窗体 -->
+    <div id="wRecords" class="easyui-window" title="行驶记录仪采集数据返回结果" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 400px; height: 470; overflow: hidden;">
+        <table id="dgRecords">
+        </table>
+    </div>
+    <!-- 命令字0x00  采集记录仪执行标准版本 -->
+    <div id="w00" class="easyui-window" title="记录仪执行标准版本" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 100px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno00" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    记录仪版本号：
+                </td>
+                <td>
+                    <input id="txtVersion" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 命令字0x01  采集当前驾驶人信息(机动车驾驶证号码) -->
+    <div id="w01" class="easyui-window" title="当前驾驶人信息" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 100px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno01" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    驾驶证号：
+                </td>
+                <td>
+                    <input id="txtDrivingLicNum" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 命令字0x02  采集记录仪的实时时钟-->
+    <div id="w02" class="easyui-window" title="实时时钟" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 100px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno02" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    实时时间：
+                </td>
+                <td>
+                    <input id="txtRealtime" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- //命令字0x03  采集累计行程里程-->
+    <div id="w03" class="easyui-window" title="累计行程里程" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 200px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno03" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    初始里程：
+                </td>
+                <td>
+                    <input id="txtInitialMiles" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    累计里程：
+                </td>
+                <td>
+                    <input id="txtSumMiles" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    安装时间：
+                </td>
+                <td>
+                    <input id="txtInstallTime" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    实时时间：
+                </td>
+                <td>
+                    <input id="txtRealtime03" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- //命令字0x04  采集脉冲系数-->
+    <div id="w04" class="easyui-window" title="脉冲系数" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 120px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno04" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    脉冲系数：
+                </td>
+                <td>
+                    <input id="txtCharacterQuotient" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    实时时间：
+                </td>
+                <td>
+                    <input id="txtRealtime04" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- //命令字0x05  采集车辆信息-->
+    <div id="w05" class="easyui-window" title="车辆信息" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 120px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno05" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车辆识别：
+                </td>
+                <td>
+                    <input id="txtVinNum" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; white-space: nowrap;">
+                    车辆类型：
+                </td>
+                <td>
+                    <input id="txtCarType" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- //命令字0x06  采集记录仪状态信号配置信息-->
+    <div id="w06" class="easyui-window" title="信号配置信息" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 120px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno06" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    状态信号：
+                </td>
+                <td>
+                    <input id="txtStatus" type="text" style="width: 200px;" readonly="readonly" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- //命令字0x07  采集记录仪唯一性编号-->
+    <div id="w07" class="easyui-window" title="唯一性编号" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 120px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno07" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    唯一性编号：
+                </td>
+                <td>
+                    <input id="txtUniqueNo" type="text" style="width: 200px;" readonly="readonly" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- // 08 09 10 15 有列表嵌套-->
+    <!-- //命令字0x08  采集指定速度记录-->
+    <div id="w08" class="easyui-window" title="行驶速度纪录" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 350px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarno08" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" valign="top">
+                    <table id="dg08" class="easyui-datagrid" data-options="rownumbers:false,
+			singleSelect:true,
+			autoRowHeight:false,
+			pagination:false,
+            fit:true,
+            border:true,
+			loadMsg: '',
+            fitColumns:true ">
+                        <thead>
+                            <tr>
+                                <th field="time" width="100" align="left">
+                                    时间
+                                </th>
+                                <th field="speed" width="50" align="left">
+                                    平均速度
+                                </th>
+                                <th field="status" width="120" align="center">
+                                    状态信号
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="wOther" class="easyui-window" title="其它" data-options="modal:true,maximizable:false,minimizable:false,closed:true,iconCls:'icon-tip'"
+        style="width: 300px; height: 200px; overflow: hidden;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    车牌号：
+                </td>
+                <td>
+                    <input id="txtCarnoOther" type="text" class="easyui-validatebox" readonly="readonly"
+                        style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 100px; white-space: nowrap;">
+                    采集内容：
+                </td>
+                <td>
+                    <textarea id="txtOther" rows="5" cols="50" style="width: 200px; height: 100px" readonly="readonly"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

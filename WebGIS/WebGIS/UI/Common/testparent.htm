@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../libs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../libs/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../libs/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../libs/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../libs/js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function OpenWin() {
+            $('#winSelect').window('open');
+        }
+        function GetResult(result) {
+            $("#sh").val(result);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="sh" />
+    <a href="#" class="easyui-linkbutton" onclick="OpenWin()" data-options="iconCls:'icon-search'">
+        弹出窗口</a>
+    <div id="winSelect" class="easyui-window" title="选择车辆" data-options="modal:true,maximizable:false,collapsible:false,minimizable:false,closed:true,iconCls:'icon-user'"
+        style="width: 350px; height: 440px; padding: 5px;">
+        <iframe id="ifr" src="CarSelect.htm" width="500px" height="300px" frameborder="0">
+        </iframe>
+    </div>
+</body>
+</html>
