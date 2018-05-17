@@ -1,0 +1,2 @@
+#use ssh protocol push to remote github
+git@github.com:qingsangde/learngit.git
